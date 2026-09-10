@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global Growth Business Coach — Day 02</title>
+<style>
+:root{
+  --bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#667085;--line:#e3e7ef;
+  --blue:#2563eb;--blue-bg:#edf5ff;--green:#15803d;--green-bg:#effaf3;
+  --yellow:#9a6700;--yellow-bg:#fff8df;--red:#b42318;--red-bg:#fff0ef;
+  --purple:#7e22ce;--purple-bg:#f8efff;--cyan:#0f766e;--cyan-bg:#ecfdfb;
+  --gray:#475467;--gray-bg:#f4f6f8;--dark:#171d2b;
+  --shadow:0 10px 30px rgba(32,43,70,.07)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.76}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:#4f6ff4;z-index:9999}
+.top{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topin{max-width:1320px;margin:auto;padding:13px 24px;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.brand{font-weight:950}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.nav{display:flex;gap:7px;flex-wrap:wrap}.nav a{text-decoration:none;color:#344054;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:12px;font-weight:850}
+.wrap{max-width:1320px;margin:auto;padding:32px 24px 80px}
+.hero{background:linear-gradient(135deg,#111827,#263d6e 58%,#3e64b7);color:#fff;border-radius:28px;padding:40px 42px;box-shadow:var(--shadow);overflow:hidden;position:relative}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:80px solid rgba(255,255,255,.04);border-radius:50%;right:-210px;top:-190px}
+.eyebrow{font-size:11px;color:#bdcaff;font-weight:950;letter-spacing:.12em;text-transform:uppercase}
+.hero h1{font-size:43px;line-height:1.08;letter-spacing:-.04em;margin:6px 0 10px}.hero p{max-width:940px;color:#e6ecff;font-size:17px;margin:0}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.badge{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09);padding:7px 11px;border-radius:999px;font-size:12px;font-weight:850}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:26px;margin-top:26px}
+.section{background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px 34px;margin-bottom:22px;box-shadow:0 5px 20px rgba(32,43,70,.035)}
+.kicker{font-size:11px;font-weight:950;letter-spacing:.11em;text-transform:uppercase;color:#667085;margin-bottom:5px}
+.section h2{font-size:27px;line-height:1.28;margin:0 0 12px;letter-spacing:-.025em}.section h3{font-size:20px;margin:28px 0 8px}.section h4{font-size:16px;margin:20px 0 7px}
+.lead{font-size:17px;color:#344054}
+.call{border:1px solid;border-left-width:6px;border-radius:16px;padding:17px 19px;margin:17px 0}
+.call .label{font-size:11px;font-weight:950;letter-spacing:.09em;text-transform:uppercase;margin-bottom:5px}
+.blue{background:var(--blue-bg);border-color:#a9c9ff}.blue .label{color:var(--blue)}
+.green{background:var(--green-bg);border-color:#a5deb7}.green .label{color:var(--green)}
+.yellow{background:var(--yellow-bg);border-color:#e9cc70}.yellow .label{color:var(--yellow)}
+.red{background:var(--red-bg);border-color:#f0aaa4}.red .label{color:var(--red)}
+.purple{background:var(--purple-bg);border-color:#d6b1f3}.purple .label{color:var(--purple)}
+.cyan{background:var(--cyan-bg);border-color:#91ded7}.cyan .label{color:var(--cyan)}
+.gray{background:var(--gray-bg);border-color:#d6dae1}.gray .label{color:var(--gray)}
+.dark{background:var(--dark);border-color:var(--dark);color:#fff}.dark .label{color:#becbff}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}.card h4{margin:0 0 7px}.card p{margin:5px 0}
+.tree{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#121826;color:#e9efff;border-radius:18px;padding:20px;white-space:pre-wrap;font-size:13px;line-height:1.72}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin:15px 0}
+th{background:#f6f8fb;text-align:left;padding:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+td{padding:12px;vertical-align:top;border-bottom:1px solid var(--line)}
+.term td:first-child{font-weight:900;color:#23408d;width:18%}
+.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:15px}
+.role{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}
+.role .name{font-size:18px;font-weight:950}.role .mission{color:#334155;font-weight:800;margin:5px 0 10px}
+.role ul{margin:8px 0;padding-left:20px}
+.role .metric{font-size:12px;border-top:1px dashed var(--line);padding-top:10px;color:#667085}
+.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f7f9fc;border:1px solid #e1e6ef;border-radius:12px;padding:12px 14px;margin:10px 0;font-weight:850}
+.example{background:#effaf3;border-left:4px solid #22a06b;border-radius:0 12px 12px 0;padding:12px 14px;margin:10px 0;font-size:13px}
+.warn{background:#fff8df;border-left:4px solid #e0a400;border-radius:0 12px 12px 0;padding:12px 14px;margin:10px 0;font-size:13px}
+.decision{counter-reset:s;display:grid;gap:12px;margin-top:15px}
+.dstep{border:1px solid var(--line);border-radius:16px;padding:18px 20px;position:relative}
+.dstep:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;background:#1f2a44;color:#fff;border-radius:50%;font-weight:950;font-size:12px;position:absolute;left:18px;top:18px}
+.dstep .body{padding-left:43px}.dstep h4{margin:0 0 5px}.out{margin-top:10px;background:#f7f9fc;border:1px dashed #cfd6e2;border-radius:12px;padding:10px 12px;font-size:13px}
+.owner{font-weight:950;color:#143d8e}
+.matrix td:first-child{font-weight:900;width:23%}.matrix td:nth-child(2){font-weight:850;width:18%}
+.raci{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.raci .box{border:1px solid var(--line);border-radius:15px;padding:14px}.raci b{display:block;font-size:14px}.raci span{font-size:12px;color:#667085}
+.casehero{background:linear-gradient(180deg,#f9fbff,#fff);border:1px solid #cbd9fb;border-radius:20px;padding:22px;margin:16px 0}.casehero h3{margin:0 0 6px}
+.case-step{border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:#fff;margin:12px 0}
+.fact{border-left:4px solid #22a06b}.infer{border-left:4px solid #7c5ce5}.lesson{border-left:4px solid #e09c27}
+.num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#1f2a44;color:#fff;font-weight:900;font-size:12px;margin-right:8px}
+.scenario{border:1px solid #dbe3f2;border-radius:16px;overflow:hidden;margin:14px 0}.scenario .head{padding:13px 16px;background:#f7f9fc;font-weight:950}.scenario .body{padding:16px}
+.sourcebox{font-size:12px;color:#667085;border-top:1px dashed var(--line);padding-top:14px;margin-top:18px}.sourcebox a{color:#3158b5}
+.challenge{background:linear-gradient(180deg,#fff,#fbf7ff);border:2px solid #c09ae9;border-radius:24px;padding:32px;box-shadow:0 12px 28px rgba(126,34,206,.08)}
+.challenge h2{font-size:29px;margin:5px 0 10px}.prompt{background:#fff;border:1px solid #dbc5ef;border-radius:16px;padding:21px;font-size:17px}
+.stop{margin-top:16px;background:#151923;color:#fff;border-radius:14px;padding:14px;text-align:center;font-weight:900}
+.sidein{position:sticky;top:82px;display:flex;flex-direction:column;gap:14px}
+.sidecard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 5px 18px rgba(32,43,70,.035)}
+.sidecard h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#667085;margin:0 0 9px}.sidecard strong.big{font-size:22px;display:block}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px;padding:8px 0;border-bottom:1px solid #edf0f4;font-size:12px}.row:last-child{border:0}.row span:last-child{font-weight:900}.note{font-size:12px;color:#667085}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.sidein{position:static}.role-grid,.cols3{grid-template-columns:1fr}.cols2{grid-template-columns:1fr}.raci{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.hero{padding:28px 24px}.hero h1{font-size:34px}.section{padding:24px 20px}.topin{flex-direction:column;align-items:flex-start}.role-grid,.raci{grid-template-columns:1fr}table{font-size:12px}th,td{padding:9px}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<header class="top">
+<div class="topin">
+  <div class="brand">Global Growth Business Coach<small>Day 02 · Role Boundary & Ownership</small></div>
+  <nav class="nav">
+    <a href="#map">岗位地图</a><a href="#terms">术语</a><a href="#roles">职责</a>
+    <a href="#decision">判断方法</a><a href="#matrix">主责矩阵</a><a href="#case">案例</a><a href="#challenge">练习</a>
+  </nav>
+</div>
+</header>
+
+<div class="wrap">
+<section class="hero">
+  <div class="eyebrow">Phase 1 · Growth Foundation · Day 02</div>
+  <h1>Growth vs Marketing vs Product vs Operations</h1>
+  <p>目标：看见一个业务问题时，判断它主要属于谁、Growth 为什么经常跨部门、哪些问题不能简单甩给 Marketing 或 Product，以及 Growth PM、Growth Marketing、PMM、Operations 之间到底有什么区别。</p>
+  <div class="badges"><span class="badge">Role Map</span><span class="badge">Ownership</span><span class="badge">DRI / KPI</span><span class="badge">Cross-functional</span><span class="badge">GitLab Case</span></div>
+</section>
+
+<div class="layout">
+<main>
+
+<section class="section">
+  <div class="kicker">00 · Learning Goal</div>
+  <h2>本节目标</h2>
+  <div class="cols2">
+    <div class="card"><h4>理解职能边界</h4><p>区分 Growth、Marketing、Product、Operations、Growth Marketing、PMM 各自解决的核心问题。</p></div>
+    <div class="card"><h4>判断主责人</h4><p>面对“新增下降”“激活差”“发布后没人理解”等问题，知道谁应该 Lead（主导），谁 Support（协作）。</p></div>
+    <div class="card"><h4>理解跨部门增长</h4><p>Growth 的价值不是“什么都做”，而是围绕增长结果寻找当前最高价值 Lever（杠杆），推动跨职能解决。</p></div>
+    <div class="card"><h4>建立岗位判断</h4><p>以后看 JD 时，不再只看岗位名称，而是从问题、指标、权限和工作对象判断岗位实质。</p></div>
+  </div>
+</section>
+
+<section class="section" id="map">
+  <div class="kicker">01 · Role Map</div>
+  <h2>增长业务职能地图</h2>
+  <div class="tree">Business Goal
+│
+├── Market / Demand（市场与需求）
+│   ├── Marketing（市场营销）
+│   ├── Growth Marketing（增长营销）
+│   └── PMM · Product Marketing（产品市场）
+│
+├── Product Value / Experience（产品价值与体验）
+│   ├── Product Management（产品）
+│   └── Growth PM / Growth Product（增长产品）
+│
+├── Execution System（执行系统）
+│   ├── User / Lifecycle Operations（用户 / 生命周期运营）
+│   ├── Marketing Operations（营销运营）
+│   └── Product Operations（产品运营体系）
+│
+└── Cross-funnel Outcome（跨漏斗结果）
+    └── Growth
+        ├── Acquisition
+        ├── Activation
+        ├── Retention
+        ├── Monetization
+        └── Experiment / Prioritization</div>
+
+  <div class="yellow call"><div class="label">核心判断</div><b>岗位名称不是边界，业务问题和 KPI 才是边界。</b><p>不同公司的 “Growth”“运营”“产品营销”定义会不同。以后判断岗位时，优先看：这个团队对什么结果负责、能改变哪些变量、日常跟谁协作。</p></div>
+</section>
+
+<section class="section" id="terms">
+  <div class="kicker">02 · Key Terms</div>
+  <h2>核心行业术语</h2>
+  <table class="term">
+    <tr><th>术语</th><th>中文</th><th>业务里是什么意思</th></tr>
+    <tr><td>DRI</td><td>Directly Responsible Individual（直接负责人）</td><td>某项结果或项目最终谁负责推进与决策。跨部门协作时尤其重要。</td></tr>
+    <tr><td>KPI</td><td>Key Performance Indicator（关键绩效指标）</td><td>衡量团队主要结果的指标。看 KPI 往往比看岗位名更能判断工作实质。</td></tr>
+    <tr><td>Lever</td><td>增长杠杆</td><td>当前最有可能显著改变目标结果的变量，例如激活流程、渠道质量、价格、Referral。</td></tr>
+    <tr><td>Cross-functional</td><td>跨职能 / 跨部门</td><td>一个问题需要 Product、Marketing、Engineering、Data、Ops 等共同完成。</td></tr>
+    <tr><td>GTM</td><td>Go-to-Market（市场进入 / 上市策略）</td><td>如何把产品带到目标市场：目标用户、定位、渠道、定价、销售与营销协同。</td></tr>
+    <tr><td>PMM</td><td>Product Marketing Manager（产品市场经理）</td><td>连接 Product 与 Market，负责用户/市场洞察、定位、Messaging（信息表达）、GTM、竞争分析等。</td></tr>
+    <tr><td>Growth PM</td><td>增长产品经理</td><td>以增长结果为导向，通过产品体验、实验、漏斗优化推动 Acquisition / Activation / Retention 等指标。</td></tr>
+    <tr><td>MktgOps</td><td>Marketing Operations（营销运营）</td><td>让营销系统、工具、流程、数据和自动化可靠运行，而不是主要负责创意或品牌传播。</td></tr>
+    <tr><td>Lifecycle</td><td>生命周期</td><td>从新用户、活跃、成熟、沉默到召回等不同阶段的用户状态与运营策略。</td></tr>
+    <tr><td>Handoff</td><td>工作交接 / 责任交接</td><td>一个团队完成自身环节后，任务或用户进入下一团队/流程。</td></tr>
+  </table>
+</section>
+
+<section class="section" id="roles">
+  <div class="kicker">03 · Role Definitions</div>
+  <h2>各职能解决什么问题</h2>
+
+  <div class="role-grid">
+    <div class="role">
+      <div class="name">Marketing（市场营销）</div>
+      <div class="mission">核心问题：市场为什么要知道、相信并选择我们？</div>
+      <ul><li>Brand / Awareness（品牌与认知）</li><li>Campaign / Content（传播与内容）</li><li>Demand Generation（需求生成）</li><li>渠道与媒体</li></ul>
+      <div class="metric"><b>常见指标：</b>Reach、Share of Voice、Traffic、Leads、Pipeline、Campaign ROI；不同团队差异很大。</div>
+    </div>
+
+    <div class="role">
+      <div class="name">Product（产品）</div>
+      <div class="mission">核心问题：用户需要什么产品，我们如何持续创造价值？</div>
+      <ul><li>User Problem（用户问题）</li><li>Feature / Experience（功能与体验）</li><li>Roadmap（产品路线）</li><li>价值、可用性与长期产品方向</li></ul>
+      <div class="metric"><b>常见指标：</b>Feature Adoption、Task Success、Activation、Engagement、Retention、满意度等，取决于产品目标。</div>
+    </div>
+
+    <div class="role">
+      <div class="name">Growth</div>
+      <div class="mission">核心问题：现在阻碍业务增长的最高价值瓶颈是什么？</div>
+      <ul><li>Full-funnel Diagnosis（全漏斗诊断）</li><li>Experiment（实验）</li><li>Prioritization（优先级）</li><li>跨 Product / Marketing / Data 推动增长杠杆</li></ul>
+      <div class="metric"><b>常见指标：</b>可能跨 Acquisition、Activation、Retention、Revenue；关键是业务结果而非单一职能产出。</div>
+    </div>
+
+    <div class="role">
+      <div class="name">Operations（运营）</div>
+      <div class="mission">核心问题：如何把策略持续、稳定、规模化地执行出来？</div>
+      <ul><li>User / Content / Community Ops</li><li>Lifecycle / CRM 执行</li><li>流程、机制、节奏与资源协调</li><li>工具、系统、数据质量（视具体 Ops 类型）</li></ul>
+      <div class="metric"><b>常见指标：</b>活跃、召回、内容供给、处理效率、SLA、数据完整性等。必须看具体运营类型。</div>
+    </div>
+
+    <div class="role">
+      <div class="name">Growth Marketing（增长营销）</div>
+      <div class="mission">核心问题：如何用可衡量的营销动作持续带来高质量 Demand / User？</div>
+      <ul><li>Paid / Organic Acquisition</li><li>Landing Page / CRO（转化率优化）</li><li>Lifecycle Marketing</li><li>Campaign 实验与渠道效率</li></ul>
+      <div class="metric"><b>常见指标：</b>CAC、CPL、CVR、Pipeline、ROAS、Revenue 等。</div>
+    </div>
+
+    <div class="role">
+      <div class="name">PMM（产品市场）</div>
+      <div class="mission">核心问题：产品对谁有价值，我们应该如何让市场理解并采用？</div>
+      <ul><li>Market / Competitor Insight</li><li>Positioning（定位）</li><li>Messaging（价值表达）</li><li>Launch / GTM / Sales Enablement</li></ul>
+      <div class="metric"><b>常见指标：</b>Launch Adoption、Pipeline Influence、Win/Loss、Message Resonance 等；通常需要跨团队评价。</div>
+    </div>
+  </div>
+
+  <div class="red call"><div class="label">常见误区</div><b>“Growth 什么都管”是错误理解。</b><p>Growth 可以跨漏斗、跨职能，但这不代表 Growth 应该长期替 Product 做 Roadmap、替 Marketing 做品牌、替 Ops 做日常执行。Growth 的核心是围绕增长结果识别杠杆、推动实验和形成可扩展机制。</p></div>
+</section>
+
+<section class="section">
+  <div class="kicker">04 · Metrics by Function</div>
+  <h2>不同职能看同一个漏斗时关注点不同</h2>
+
+  <table>
+    <tr><th>环节</th><th>Marketing 可能关注</th><th>Product 可能关注</th><th>Growth 可能关注</th><th>Operations 可能关注</th></tr>
+    <tr><td>Awareness → Visit</td><td>Reach、CTR、Traffic</td><td>通常不是主责</td><td>Channel Quality、CAC</td><td>Campaign / Tool 执行</td></tr>
+    <tr><td>Visit → Signup</td><td>Messaging、Landing CVR</td><td>Signup Experience</td><td>整体 Signup CVR 与实验</td><td>流程与数据配置</td></tr>
+    <tr><td>Signup → Activation</td><td>流量承诺是否匹配</td><td>Onboarding / Core Value</td><td>Activation Rate、TTV、实验</td><td>Lifecycle 引导、客服/运营支持</td></tr>
+    <tr><td>Activation → Retention</td><td>Lifecycle Marketing</td><td>核心产品价值</td><td>Cohort Retention、Habit Levers</td><td>CRM、Community、内容供给</td></tr>
+    <tr><td>Retention → Revenue</td><td>Offer / Campaign</td><td>Paywall / Packaging Experience</td><td>LTV、Payer CVR、Pricing Test</td><td>支付/权益/生命周期执行</td></tr>
+  </table>
+
+  <h3>两个基础计算例子</h3>
+  <div class="cols2">
+    <div class="card"><h4>Landing Page CVR（落地页转化率）</h4><div class="formula">Signup CVR = Signups ÷ Landing Visitors × 100%</div><div class="example">20,000 访问者中 3,000 注册 → Signup CVR = <b>15%</b>。</div><p class="note">如果 CVR 下滑，可能同时涉及 Marketing 的流量/Message 和 Product/Growth 的注册体验。</p></div>
+    <div class="card"><h4>Activation Rate（激活率）</h4><div class="formula">Activation Rate = Activated Users ÷ New Users × 100%</div><div class="example">3,000 新注册中 1,200 完成核心动作 → Activation = <b>40%</b>。</div><p class="note">这里主责往往更偏 Product / Growth，但流量质量也可能让 Marketing 成为关键协作方。</p></div>
+  </div>
+</section>
+
+<section class="section" id="decision">
+  <div class="kicker">05 · Ownership Decision</div>
+  <h2>一个问题该谁负责：5 步判断方法</h2>
+
+  <div class="decision">
+    <div class="dstep"><div class="body"><h4>Step 1 — Define the Outcome（定义结果）</h4><p>先说清楚要改变的是 Awareness、Signup、Activation、Retention、Revenue，还是内部执行效率。</p><div class="out"><b>错误：</b>“我们增长不好。”　<b>正确：</b>“韩国新用户 Activation 从 48% 降到 35%。”</div></div></div>
+    <div class="dstep"><div class="body"><h4>Step 2 — Locate the Mechanism（定位机制）</h4><p>是市场认知问题、流量质量问题、产品价值问题、体验摩擦问题、生命周期运营问题，还是系统/流程问题？</p></div></div>
+    <div class="dstep"><div class="body"><h4>Step 3 — Identify the Controllable Lever（确认谁能改变关键变量）</h4><p>谁拥有 Channel、Creative、Onboarding、Feature、Pricing、CRM、MarTech 或 Data Pipeline 的实际控制权？</p></div></div>
+    <div class="dstep"><div class="body"><h4>Step 4 — Choose a DRI（指定直接负责人）</h4><p>跨部门问题也必须有一个 DRI。主责不是“谁干活最多”，而是谁对目标结果的推进负责。</p></div></div>
+    <div class="dstep"><div class="body"><h4>Step 5 — Define Support & Handoff（定义协作与交接）</h4><p>明确哪些团队提供 Evidence、Asset、Product Change、Engineering、Execution，什么时候交接，谁做最终判断。</p></div></div>
+  </div>
+
+  <div class="green call"><div class="label">判断规则</div><b>主责看“关键杠杆控制权 + 目标结果”，不是看“问题发生在哪个页面”。</b><p>例如 Signup CVR 下降发生在产品页面，但根因可能是 Marketing 新素材带来错误人群；反过来，Campaign 流量正常但注册页 Bug，也不能让 Marketing 背锅。</p></div>
+</section>
+
+<section class="section" id="matrix">
+  <div class="kicker">06 · Ownership Matrix</div>
+  <h2>常见业务问题主责矩阵</h2>
+  <table class="matrix">
+    <tr><th>业务问题</th><th>通常主责</th><th>关键协作</th><th>先看什么</th></tr>
+    <tr><td>目标市场几乎没人知道产品</td><td class="owner">Marketing / PMM</td><td>Growth、Product</td><td>Awareness、Search Demand、Positioning、Channel Reach</td></tr>
+    <tr><td>广告 CTR 很高，但注册 CVR 很低</td><td class="owner">Growth Marketing / Growth</td><td>Marketing、Product</td><td>Creative Promise × Landing Message × Signup Funnel</td></tr>
+    <tr><td>注册正常，首次核心行为完成率低</td><td class="owner">Product / Growth PM</td><td>Growth、Data</td><td>Onboarding Funnel、TTV、Error、User Session</td></tr>
+    <tr><td>某渠道 CAC 很低但 D7 很差</td><td class="owner">Growth</td><td>Growth Marketing、Product</td><td>Channel × Activation × Retention × LTV</td></tr>
+    <tr><td>产品新功能很好，但用户根本不知道为什么要用</td><td class="owner">PMM + Product</td><td>Marketing、Growth</td><td>Value Prop、Feature Awareness、Adoption Funnel</td></tr>
+    <tr><td>沉默用户很多，需要分层召回</td><td class="owner">Lifecycle / User Ops</td><td>Growth、Product、Data</td><td>Lifecycle Segment、Last Action、Return Rate</td></tr>
+    <tr><td>Marketing 数据口径混乱、Lead Routing 出错</td><td class="owner">Marketing Ops</td><td>Marketing、Sales、Data/Systems</td><td>Data Definition、System Mapping、Routing Logic</td></tr>
+    <tr><td>收入下降但不知道原因</td><td class="owner">Growth / Business Owner</td><td>Product、Marketing、Finance、Data</td><td>Users × Payer CVR × ARPPU，再切 Cohort/Market</td></tr>
+  </table>
+</section>
+
+<section class="section">
+  <div class="kicker">07 · RACI Lite</div>
+  <h2>跨部门项目怎么避免“大家都负责 = 没人负责”</h2>
+  <div class="raci">
+    <div class="box"><b>R · Responsible</b><span>执行具体工作的人。</span></div>
+    <div class="box"><b>A · Accountable</b><span>最终对结果负责的人；通常只有一个。</span></div>
+    <div class="box"><b>C · Consulted</b><span>需要提供专业输入的人。</span></div>
+    <div class="box"><b>I · Informed</b><span>需要同步结果的人。</span></div>
+  </div>
+
+  <div class="scenario">
+    <div class="head">例：韩国新用户 Activation 从 48% 降到 35%</div>
+    <div class="body">
+      <b>A / DRI：</b>Growth PM 或负责该漏斗的 Product/Growth Owner<br>
+      <b>R：</b>Growth Analyst、Designer、Engineer 等具体执行者<br>
+      <b>C：</b>Growth Marketing（判断流量变化）、User Research、Local Market Team<br>
+      <b>I：</b>业务 Leader、相关 Marketing / Product Stakeholder
+    </div>
+  </div>
+
+  <div class="yellow call"><div class="label">Know-how</div><b>RACI 不是为了加流程，而是为了处理跨职能模糊地带。</b><p>如果一个问题只需要一个团队解决，不要为了形式把五个部门全塞进去。</p></div>
+</section>
+
+<section class="section" id="case">
+  <div class="kicker">08 · Deep Case</div>
+  <h2>GitLab：Growth 为什么是跨漏斗团队，而不是另一个 Marketing 团队</h2>
+
+  <div class="casehero">
+    <h3>案例概览</h3>
+    <p><b>公司：</b>GitLab　 <b>业务类型：</b>B2B DevSecOps Platform　 <b>案例价值：</b>GitLab 的公开 Handbook 同时披露 Growth、Product、Marketing、Product Marketing、Marketing Operations 的职责与协作方式，非常适合用来理解组织边界。</p>
+  </div>
+
+  <h3>8.1 Growth 的官方定义</h3>
+  <div class="case-step fact"><span class="num">F</span><b>官方事实</b><p>GitLab 当前 Growth Stage 的公开愿景，是让用户和团队更容易发现、激活并扩展 GitLab 的长期价值，并通过连接 Acquisition（获客）、Activation（激活）、Retention（留存）和 Monetization（商业化）的全漏斗系统形成可衡量的自助增长循环。</p></div>
+
+  <div class="case-step fact"><span class="num">F</span><b>官方事实</b><p>GitLab 还明确写道，Growth 会分析从获客到跨多个产品功能、甚至流失用户再激活的完整 Customer Journey（客户旅程），并通过拆解整体 Growth Model，识别当前最高 ROI 的 Lever（杠杆）进行优先处理。</p></div>
+
+  <div class="case-step infer"><span class="num">I</span><b>业务解释</b><p>这就是 Growth 和 Marketing 的核心区别之一：Growth 不以“做了多少 Campaign”作为天然边界，而是从结果出发。如果瓶颈在 Signup，可能改获客/页面；如果在 Activation，可能进入产品；如果在 Retention，可能涉及产品、生命周期和 Engagement。</p></div>
+
+  <h3>8.2 Product 在做什么</h3>
+  <div class="case-step fact"><span class="num">F</span><b>官方事实</b><p>GitLab Product Team 的公开 Mission 是创造客户喜欢并认为有价值的产品和体验；其产品原则也强调 Product 不仅要 Ship Feature（交付功能），还要推动用户真正使用功能、获得价值。</p></div>
+  <div class="case-step infer"><span class="num">I</span><b>边界理解</b><p>Product 并不是“只负责做功能”，Growth 也不是“只负责数字”。两者会重叠。区别更常体现在 Problem Orientation：Product 通常对产品价值和产品方向长期负责，而 Growth 更强调跨漏斗的增量结果、实验和当前瓶颈。</p></div>
+
+  <h3>8.3 Marketing 与 Growth Marketing 在做什么</h3>
+  <div class="case-step fact"><span class="num">F</span><b>官方事实</b><p>GitLab Marketing 的公开职责包括塑造品牌与市场 Narrative（叙事）、连接客户和社区、创造 Demand（需求）并管理外部 Reputation（声誉）。其 Growth Marketing 则强调创造和加速高质量 Demand，并跨不同市场与客户规模执行可衡量的增长项目。</p></div>
+
+  <div class="case-step infer"><span class="num">I</span><b>边界理解</b><p>Marketing 更偏“市场如何理解并进入我们的需求系统”；Growth Marketing 更靠近可衡量的 Demand / Acquisition；而 Product Growth 可以直接进入产品体验。它们不是完全分开的三条线，而是在 Funnel 上存在交叉。</p></div>
+
+  <h3>8.4 PMM 在做什么</h3>
+  <div class="case-step fact"><span class="num">F</span><b>官方事实</b><p>GitLab Product & Solution Marketing 公开说明其团队处于 Product、Sales、Customer Success 和 Marketing 的交叉位置，负责 Market Insight（市场洞察）、Positioning（定位）、Messaging（信息表达），并支持 GTM 与产品采用。</p></div>
+  <div class="case-step infer"><span class="num">I</span><b>业务解释</b><p>因此“用户不知道这个功能为什么值得用”不一定只是 Product UI 问题。也可能需要 PMM 重新定义价值表达，再与 Product / Growth 一起验证 Adoption。</p></div>
+
+  <h3>8.5 Marketing Operations 在做什么</h3>
+  <div class="case-step fact"><span class="num">F</span><b>官方事实</b><p>GitLab Marketing Operations 的 Charter 是帮助 Marketing 标准化流程、管理工具、保证系统间信息流与数据准确，并负责营销技术栈、流程标准化、数据清洁、系统持续优化等。</p></div>
+  <div class="case-step infer"><span class="num">I</span><b>业务解释</b><p>这说明 Ops 往往解决的是“策略怎么稳定运行”的问题。例如 Lead Routing、CRM 数据、Marketing Automation 出错，可能直接影响 Growth 指标，但根因不是 Growth Strategy，而是执行系统。</p></div>
+
+  <h3>8.6 Growth 如何与其他 Product Team 协作</h3>
+  <p>GitLab 的公开工作方式明确允许 Growth 在应用不同区域运行实验；当实验影响其他 Product Owner 的领域时，Growth 会按照协作模型通知相关团队、吸收上下文和担忧，再基于数据与相关团队输入判断实验结果和下一步。</p>
+
+  <div class="dark call"><div class="label">案例结论</div><b>Growth 的核心不是“抢其他部门的活”，而是对跨漏斗增长结果建立诊断、优先级与实验机制。</b><p>当 Growth 识别出瓶颈属于产品体验、Marketing Demand、PMM Messaging 或 Ops System 时，应与拥有该 Lever 的团队共同解决，而不是长期替代那个职能。</p></div>
+
+  <h3>8.7 对实际工作的迁移</h3>
+  <table>
+    <tr><th>业务情况</th><th>错误做法</th><th>更好的做法</th></tr>
+    <tr><td>韩国注册下降</td><td>Growth 直接要求 Marketing 多投广告</td><td>先拆 Traffic × Signup CVR；判断是流量下降还是注册转化下降，再找主责</td></tr>
+    <tr><td>新功能 Adoption 低</td><td>全部归因 Product 功能差</td><td>同时验证 Feature Awareness、Value Messaging、UX、Target User Fit</td></tr>
+    <tr><td>CRM 召回效果异常</td><td>立刻改文案</td><td>先排查 Audience Logic、Trigger、Deliverability、Data / Tool 配置，再判断内容</td></tr>
+    <tr><td>低 CAC 渠道 D7 很差</td><td>Marketing 说“我 CAC 达标了”就结束</td><td>Growth 用 Channel × Downstream Quality 建立共同结果判断</td></tr>
+  </table>
+
+  <div class="sourcebox">
+    <b>GitLab 官方 Handbook 来源：</b><br>
+    ① <a href="https://handbook.gitlab.com/handbook/engineering/development/growth/" target="_blank">Growth Stage</a> — full-funnel growth vision。<br>
+    ② <a href="https://handbook.gitlab.com/handbook/product/groups/growth/" target="_blank">How the Growth Section Works</a> — 全旅程分析、最高 ROI Lever、跨团队实验协作。<br>
+    ③ <a href="https://handbook.gitlab.com/handbook/product/" target="_blank">Product Handbook</a> — Product mission。<br>
+    ④ <a href="https://handbook.gitlab.com/handbook/marketing/" target="_blank">Marketing Handbook</a> — Marketing / Growth Marketing 职责。<br>
+    ⑤ <a href="https://handbook.gitlab.com/handbook/marketing/product-and-technical-marketing/product-and-solution-marketing/" target="_blank">Product & Solution Marketing</a> — PMM 职责。<br>
+    ⑥ <a href="https://handbook.gitlab.com/handbook/marketing/marketing-operations/" target="_blank">Marketing Operations</a> — 工具、流程和数据系统职责。<br>
+    <span class="note">页面中“官方事实”来自 GitLab 公共 Handbook；“业务解释 / 边界理解”是本课程基于公开组织设计做的教学推导。不同公司职能边界可能不同。</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">09 · JD Reading Know-how</div>
+  <h2>以后看 JD，不要先看岗位名</h2>
+  <p>按下面四项判断岗位实质：</p>
+  <div class="cols2">
+    <div class="card"><h4>① Outcome（结果）</h4><p>最终对新增、激活、留存、收入、品牌、Launch、内容供给还是系统效率负责？</p></div>
+    <div class="card"><h4>② Lever（杠杆）</h4><p>能改投放、素材、产品流程、功能、CRM、定价还是工具系统？</p></div>
+    <div class="card"><h4>③ Daily Work（日常工作）</h4><p>主要是做策略、产品、Campaign、用户分层、项目推进、数据诊断还是运营执行？</p></div>
+    <div class="card"><h4>④ Partners（协作方）</h4><p>每天主要跟 Engineering、Design、Sales、Marketing、Creator、Data 还是 Local Market Team 协作？</p></div>
+  </div>
+  <div class="green call"><div class="label">求职 Know-how</div><b>两个都叫“用户增长”的岗位，可能一个本质是 Paid UA，一个本质是 Product Growth。</b><p>以后做岗位匹配时，应该按 Outcome + Lever + Daily Work 判断，而不是按 Title 猜。</p></div>
+</section>
+
+<section class="section">
+  <div class="kicker">10 · Interview Application</div>
+  <h2>面试应用</h2>
+  <div class="purple call"><div class="label">常见问题</div><b>“你怎么理解 Growth 和 Marketing 的区别？”</b><p>不要回答“Growth 更偏数据、Marketing 更偏品牌”这么绝对。更好的思路是：Marketing 的典型边界在市场认知、需求和渠道；Growth 更强调跨 Funnel 结果、实验和增长杠杆，但实际组织边界取决于公司。</p></div>
+  <div class="purple call"><div class="label">常见问题</div><b>“注册转化率下降，这是 Product 的问题还是 Marketing 的问题？”</b><p>正确回答不是二选一。先拆流量结构、Creative Promise、Landing Message、Signup Experience，再根据 Evidence 判断主责。</p></div>
+</section>
+
+<section class="section">
+  <div class="kicker">11 · Key Takeaways</div>
+  <h2>本节结论</h2>
+  <div class="blue call"><div class="label">1</div><b>职能边界看 Outcome + Lever + KPI，不看岗位名字。</b></div>
+  <div class="blue call"><div class="label">2</div><b>Growth 是跨漏斗结果导向，不等于“所有部门的工作都归 Growth”。</b></div>
+  <div class="blue call"><div class="label">3</div><b>同一个指标异常可能同时涉及 Marketing、Product、Ops；先诊断机制，再决定主责。</b></div>
+  <div class="blue call"><div class="label">4</div><b>跨部门问题必须明确 DRI / Accountable Owner，否则很容易变成所有人都参与、没有人对结果负责。</b></div>
+</section>
+
+<section class="section">
+  <div class="kicker">12 · Quick Check</div>
+  <h2>基础检查</h2>
+  <div class="cols2">
+    <div class="card"><h4>Q1</h4><p>Marketing 和 Growth 最大的区别为什么不能简单说成“一个感性、一个数据化”？</p></div>
+    <div class="card"><h4>Q2</h4><p>新用户 Activation 很差时，为什么 Marketing 也可能是原因之一？</p></div>
+    <div class="card"><h4>Q3</h4><p>PMM 和 Product 的连接点在哪里？</p></div>
+    <div class="card"><h4>Q4</h4><p>Marketing Ops 为什么可能影响 Growth 指标，但又不等于 Growth？</p></div>
+  </div>
+</section>
+
+<section class="challenge" id="challenge">
+  <div class="kicker" style="color:#7e22ce">13 · Daily Challenge · Foundation</div>
+  <h2>业务练习：谁应该主责？</h2>
+  <div class="prompt">
+    某海外 AI App 最近出现三个问题：<br><br>
+    <b>A.</b> 韩国 TikTok 广告 CTR 从 1.8% 提升到 3.2%，但 Landing Page 注册 CVR 从 28% 降到 16%。<br>
+    <b>B.</b> 新注册用户中只有 30% 完成第一张 AI 图片生成，之前是 48%。<br>
+    <b>C.</b> CRM 团队发现部分沉默用户没有收到原定的召回 Push，因为用户标签同步出现异常。<br><br>
+    对 A / B / C 分别回答：<br>
+    <b>① 你认为哪个职能应该先成为 DRI（主责）？<br>
+    ② 哪些团队需要协作？<br>
+    ③ 你不会立刻把责任归给某个团队的原因是什么？<br>
+    ④ 每个问题你最先要看的一个 Evidence（证据）是什么？</b>
+  </div>
+  <div class="stop">HARD STOP — 等待用户作答后进入 Foundation Evaluation Rubric V2。</div>
+</section>
+
+</main>
+
+<aside>
+<div class="sidein">
+  <div class="sidecard"><h3>Current Stage</h3><strong class="big">Foundation</strong><div class="note">Day 02 / 60</div></div>
+  <div class="sidecard"><h3>Today Builds</h3>
+    <div class="row"><span>Role Map</span><span>✓</span></div>
+    <div class="row"><span>Ownership</span><span>✓</span></div>
+    <div class="row"><span>DRI / RACI</span><span>✓</span></div>
+    <div class="row"><span>Cross-functional</span><span>✓</span></div>
+    <div class="row"><span>JD Reading</span><span>✓</span></div>
+  </div>
+  <div class="sidecard"><h3>Core Rule</h3><div class="note"><b>Outcome</b><br>↓<br><b>Mechanism</b><br>↓<br><b>Controllable Lever</b><br>↓<br><b>DRI</b><br>↓<br><b>Support</b></div></div>
+  <div class="sidecard"><h3>Source</h3><div class="note">Deep Case 使用 GitLab 2026 公开 Handbook，一手资料优先。</div></div>
+</div>
+</aside>
+
+</div>
+</div>
+<script>
+const b=document.getElementById('bar');
+addEventListener('scroll',()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;b.style.width=(m?d.scrollTop/m*100:0)+'%'});
+</script>
+</body>
+</html>

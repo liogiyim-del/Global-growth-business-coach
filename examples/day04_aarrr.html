@@ -1,0 +1,107 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 04</title><style>
+:root{--bg:#f5f7fb;--ink:#172033;--muted:#667085;--line:#e3e7ef;--blue:#2563eb;--bluebg:#edf5ff;--green:#15803d;--greenbg:#effaf3;--yellow:#9a6700;--yellowbg:#fff8df;--red:#b42318;--redbg:#fff0ef;--purple:#7e22ce;--purplebg:#f8efff;--cyan:#0f766e;--cyanbg:#ecfdfb;--dark:#171d2b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
+#bar{position:fixed;top:0;left:0;height:4px;background:#4f6ff4;width:0;z-index:99}.top{position:sticky;top:0;background:#ffffffee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:20}.topin{max-width:1240px;margin:auto;padding:13px 22px;display:flex;justify-content:space-between;gap:15px}.brand{font-weight:900}.brand small{display:block;font-size:10px;color:var(--muted);letter-spacing:.1em}.nav{display:flex;gap:6px;flex-wrap:wrap}.nav a{font-size:12px;font-weight:800;color:#344054;text-decoration:none;border:1px solid var(--line);background:#fff;padding:6px 9px;border-radius:999px}
+.wrap{max-width:1240px;margin:auto;padding:30px 22px 70px}.hero{background:linear-gradient(135deg,#111827,#294376 60%,#3e64b7);color:white;border-radius:26px;padding:38px 40px}.hero h1{font-size:42px;line-height:1.08;margin:6px 0 10px}.hero p{color:#e5ebff;max-width:920px;font-size:17px}.eye{font-size:11px;color:#bdcaff;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;margin-top:24px}.section{background:white;border:1px solid var(--line);border-radius:20px;padding:29px 31px;margin-bottom:20px}.section h2{font-size:26px;margin:0 0 10px}.section h3{font-size:20px;margin:25px 0 7px}.kick{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:13px}.card{border:1px solid var(--line);border-radius:15px;padding:17px;background:#fff}.card h4{margin:0 0 6px}
+.call{border:1px solid;border-left-width:6px;border-radius:15px;padding:16px 18px;margin:16px 0}.call .label{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.blue{background:var(--bluebg);border-color:#a9c9ff}.blue .label{color:var(--blue)}.green{background:var(--greenbg);border-color:#a5deb7}.green .label{color:var(--green)}.yellow{background:var(--yellowbg);border-color:#e9cc70}.yellow .label{color:var(--yellow)}.red{background:var(--redbg);border-color:#f0aaa4}.red .label{color:var(--red)}.purple{background:var(--purplebg);border-color:#d6b1f3}.purple .label{color:var(--purple)}.cyan{background:var(--cyanbg);border-color:#91ded7}.cyan .label{color:var(--cyan)}.dark{background:var(--dark);border-color:var(--dark);color:#fff}.dark .label{color:#becbff}
+.tree{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#121826;color:#e9efff;border-radius:16px;padding:18px;white-space:pre-wrap;font-size:13px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin:14px 0}th{background:#f6f8fb;text-align:left;padding:11px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}td{padding:11px;vertical-align:top;border-bottom:1px solid var(--line)}.term td:first-child{font-weight:900;color:#23408d}
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.fcard{border:1px solid var(--line);border-radius:15px;padding:17px}.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f7f9fc;border:1px solid #e1e6ef;border-radius:11px;padding:11px 13px;margin:9px 0;font-weight:800}.example{background:#effaf3;border-left:4px solid #22a06b;padding:10px 12px;margin:9px 0;font-size:13px}.warn{background:#fff8df;border-left:4px solid #e0a400;padding:10px 12px;margin:9px 0;font-size:13px}
+.sop{counter-reset:s;display:grid;gap:10px}.step{border:1px solid var(--line);border-radius:14px;padding:16px 18px}.step:before{counter-increment:s;content:counter(s);float:left;width:28px;height:28px;border-radius:50%;background:#1f2a44;color:white;display:grid;place-items:center;font-size:12px;font-weight:900;margin-right:10px}.step h4{margin:2px 0 4px}.out{margin-top:8px;background:#f7f9fc;border:1px dashed #cfd6e2;border-radius:10px;padding:9px 11px;font-size:13px}
+.case{border-left:4px solid #22a06b;border-radius:14px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 19px;margin:11px 0}.infer{border-left-color:#7c5ce5}.source{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px;margin-top:15px}.source a{color:#3158b5}.challenge{background:linear-gradient(180deg,#fff,#fbf7ff);border:2px solid #c09ae9;border-radius:22px;padding:29px}.prompt{background:#fff;border:1px solid #dbc5ef;border-radius:15px;padding:19px;font-size:16px}.stop{margin-top:14px;background:#151923;color:white;padding:13px;border-radius:12px;text-align:center;font-weight:900}
+.side{position:sticky;top:80px}.sidecard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}.sidecard h3{font-size:12px;color:var(--muted);margin:0 0 8px;text-transform:uppercase}.row{display:grid;grid-template-columns:1fr auto;gap:8px;font-size:12px;padding:7px 0;border-bottom:1px solid #eef1f4}.note{font-size:12px;color:var(--muted)}
+@media(max-width:950px){.layout{grid-template-columns:1fr}.side{position:static}.cols2,.formula-grid{grid-template-columns:1fr}}@media(max-width:650px){.hero{padding:26px 22px}.hero h1{font-size:33px}.section{padding:22px 18px}.topin{flex-direction:column}.formula-grid{grid-template-columns:1fr}table{font-size:12px}th,td{padding:8px}}
+</style></head><body>
+<div id="bar"></div><header class="top"><div class="topin"><div class="brand">Global Growth Business Coach<small>DAY 04 · AARRR</small></div><nav class="nav"><a href="#map">AARRR</a><a href="#terms">术语</a><a href="#metrics">公式</a><a href="#sop">诊断</a><a href="#case">案例</a><a href="#challenge">练习</a></nav></div></header>
+<div class="wrap"><section class="hero"><div class="eye">PHASE 1 · FOUNDATION · DAY 04</div><h1>AARRR：用户生命周期增长框架</h1><p>掌握 AARRR 五阶段的业务含义、常用指标与使用边界。重点不是背五个字母，而是学会为具体产品定义真实用户行为。</p></section>
+<div class="layout"><main>
+<section class="section"><div class="kick">00 · Learning Goal</div><h2>本节目标</h2>
+<div class="cols2"><div class="card"><h4>理解 AARRR</h4><p>知道 Acquisition（获客）、Activation（激活）、Retention（留存）、Revenue（收入）、Referral（推荐）分别回答什么问题。</p></div>
+<div class="card"><h4>区分 AARRR 与 Funnel</h4><p>AARRR 是生命周期分析框架；Funnel 是具体行为步骤的转化结构，两者可以嵌套。</p></div>
+<div class="card"><h4>会选指标</h4><p>每个阶段没有唯一固定 KPI，要根据产品核心价值和业务模型定义。</p></div>
+<div class="card"><h4>避免机械套模型</h4><p>先确认业务问题，再决定是否调用 AARRR，而不是每道题都完整复述五阶段。</p></div></div></section>
+
+<section class="section" id="map"><div class="kick">01 · AARRR Map</div><h2>AARRR 生命周期框架</h2>
+<div class="tree">Acquisition（获客）
+↓ 用户如何发现并进入产品？
+Activation（激活）
+↓ 用户是否第一次获得核心价值？
+Retention（留存）
+↓ 用户是否持续回来获得价值？
+Revenue（收入）
+↓ 是否形成商业价值？
+Referral（推荐）
+↺ 用户是否带来下一批用户？</div>
+<div class="blue call"><div class="label">定义</div><b>AARRR 是用五个阶段观察用户价值与业务价值如何形成的分析框架。</b><p>它既能看整个产品，也能看某一个 Feature（功能）的使用与采用过程。</p></div></section>
+
+<section class="section" id="terms"><div class="kick">02 · Key Terms</div><h2>核心术语</h2>
+<table class="term"><tr><th>术语</th><th>中文</th><th>业务含义</th></tr>
+<tr><td>Pirate Metrics</td><td>海盗指标</td><td>AARRR 的常见别称。</td></tr>
+<tr><td>Activation Event</td><td>激活事件</td><td>代表用户第一次真正获得核心价值的关键行为。</td></tr>
+<tr><td>Feature Adoption</td><td>功能采用</td><td>用户不只知道某功能，而是开始并持续使用它。</td></tr>
+<tr><td>Referral Rate</td><td>推荐率</td><td>符合条件的用户中有多少执行邀请/分享/推荐。</td></tr>
+<tr><td>Vanity Metric</td><td>虚荣指标</td><td>看起来增长，但不能说明真实用户价值或业务结果。</td></tr></table></section>
+
+<section class="section" id="metrics"><div class="kick">03 · Metrics & Formulas</div><h2>AARRR 常见指标与公式</h2>
+<div class="formula-grid">
+<div class="fcard"><h4>Activation Rate（激活率）</h4><div class="formula">Activated Users ÷ Eligible New Users × 100%</div><div class="example">10,000 注册用户中 4,500 人完成第一张 AI 图 → 45%。</div><div class="warn">注册通常不等于激活；关键是第一次核心价值。</div></div>
+<div class="fcard"><h4>D7 Retention（7日留存）</h4><div class="formula">Day-7 Active Cohort Users ÷ Day-0 Cohort Size × 100%</div><div class="example">Day 0 新增 10,000 人，Day 7 有 2,500 人回来 → 25%。</div><div class="warn">要按 Cohort（同期群）计算。</div></div>
+<div class="fcard"><h4>Payer Conversion（付费转化率）</h4><div class="formula">Paying Users ÷ Eligible Users × 100%</div><div class="example">8,000 活跃用户中 400 人付费 → 5%。</div><div class="warn">收入还受 ARPPU、价格和用户规模影响。</div></div>
+<div class="fcard"><h4>Referral Rate（推荐率）</h4><div class="formula">Users Who Referred ÷ Eligible Users × 100%</div><div class="example">5,000 活跃用户中 750 人发邀请 → 15%。</div><div class="warn">发邀请不等于带来有效新用户，还要看 Invite Conversion。</div></div>
+<div class="fcard"><h4>K-factor（简化推荐系数）</h4><div class="formula">K ≈ Avg Invites per User × Invite Conversion</div><div class="example">平均 2 个邀请 × 20% 转化 → K ≈ 0.4。</div><div class="warn">真实增长还要考虑留存、重复邀请和周期。</div></div>
+<div class="fcard"><h4>Stage CVR（阶段转化）</h4><div class="formula">Next Stage Users ÷ Current Stage Users × 100%</div><div class="example">4,500 激活用户中 2,250 人 D7 留存 → 50%。</div><div class="warn">AARRR 的 Stage 不等于固定页面步骤，因此需要先定义业务行为。</div></div>
+</div></section>
+
+<section class="section"><div class="kick">04 · AARRR vs Funnel</div><h2>AARRR 与 Funnel 的区别</h2>
+<table><tr><th></th><th>AARRR</th><th>Funnel（漏斗）</th></tr>
+<tr><td>用途</td><td>定位生命周期的大阶段问题</td><td>定位具体行为步骤的转化问题</td></tr>
+<tr><td>粒度</td><td>高层</td><td>可非常细</td></tr>
+<tr><td>线性</td><td>不一定，Referral 可重新带来 Acquisition</td><td>通常描述一段相对线性的路径</td></tr>
+<tr><td>例子</td><td>Activation 有问题</td><td>Signup → Upload → First Result 哪一步掉</td></tr></table>
+<div class="yellow call"><div class="label">使用规则</div><b>先用 AARRR 定位“哪类问题”，再用具体 Funnel 找“哪一步问题”。</b></div></section>
+
+<section class="section" id="sop"><div class="kick">05 · Diagnosis</div><h2>AARRR 诊断 SOP</h2>
+<div class="sop">
+<div class="step"><h4>Step 1 — Define Goal（定义目标）</h4><p>先确认目标是新增、激活、留存、收入还是推荐。</p></div>
+<div class="step"><h4>Step 2 — Locate Stage（定位阶段）</h4><p>判断主要 Signal 属于 A、A、R、R、R 哪一段。</p></div>
+<div class="step"><h4>Step 3 — Define Stage Metric（定义阶段指标）</h4><p>为当前产品选真正代表该阶段的行为。</p></div>
+<div class="step"><h4>Step 4 — Build Sub-funnel（建立子漏斗）</h4><p>例如 Activation → Signup → Upload → First Result。</p></div>
+<div class="step"><h4>Step 5 — Segment & Compare（切分比较）</h4><p>按 Market、Channel、Cohort、Version 对比 Baseline。</p></div>
+<div class="step"><h4>Step 6 — Find Mechanism（确认机制）</h4><p>用数据、用户研究、Session、错误日志判断为什么出问题。</p></div>
+<div class="step"><h4>Step 7 — Experiment & Measure（实验与衡量）</h4><p>动作对应机制，并观察后链路 Guardrail（护栏指标）。</p></div>
+</div></section>
+
+<section class="section"><div class="kick">06 · Problem & Solution Methods</div><h2>各阶段常见问题与方法</h2>
+<table><tr><th>阶段</th><th>常见问题</th><th>先看</th><th>确认后常见方法</th></tr>
+<tr><td>Acquisition</td><td>量少、CAC 高、渠道质量差</td><td>Traffic、CTR、CVR、CAC</td><td>渠道组合、Creative、SEO/ASO、Audience</td></tr>
+<tr><td>Activation</td><td>注册后没有获得核心价值</td><td>Activation Funnel、TTV、Error</td><td>Onboarding、模板、Guided Task、性能优化</td></tr>
+<tr><td>Retention</td><td>用户用了但不回来</td><td>Cohort、Core Behavior、Frequency</td><td>核心价值、Habit、Lifecycle、内容供给</td></tr>
+<tr><td>Revenue</td><td>使用很多但付费弱</td><td>Payer CVR、ARPPU、Paywall、Price</td><td>Pricing、Packaging、Trial、Paywall</td></tr>
+<tr><td>Referral</td><td>用户满意但不传播</td><td>Invite Rate、Share Rate、Invite CVR</td><td>邀请激励、协作场景、UGC 分享</td></tr></table></section>
+
+<section class="section" id="case"><div class="kick">07 · Deep Case</div><h2>GitLab：AARRR 用于单个功能</h2>
+<div class="case"><b>官方事实</b><p>GitLab Product Principles 明确写到：Product 团队不仅负责交付 Feature，也要推动用户真实使用；他们用 AARRR 来思考单一功能的使用增长。</p></div>
+<div class="case"><b>官方示例</b><p>Release Management 中，查看 Release Page 可视为 Acquisition；在 Release Page 创建 Release 可视为 Activation。Product Manager 可以针对某一 Stage 设计功能与指标。</p></div>
+<div class="case"><b>CI 使用漏斗</b><p>GitLab 的 Pipeline Execution Handbook 也公开用 AARRR 描述 CI：Acquisition 关注具备接触条件的用户，Activation 看是否创建 CI 配置/流水线，Retention 看是否持续触发 CI Pipeline。</p></div>
+<div class="case infer"><b>业务推理</b><p>如果只统计“看过功能页”，会高估真实 Adoption。AARRR 逼着 PM 区分 Awareness、First Use 和 Continued Use。</p></div>
+<div class="dark call"><div class="label">案例结论</div><b>AARRR 可以是产品功能采用框架，不只属于 Marketing。</b></div>
+<div class="source"><b>GitLab 官方：</b><br><a href="https://handbook.gitlab.com/handbook/product/product-principles/" target="_blank">Product Principles</a><br><a href="https://handbook.gitlab.com/handbook/engineering/devops/verify/pipeline-execution/" target="_blank">Pipeline Execution</a></div></section>
+
+<section class="section"><div class="kick">08 · Interview Application</div><h2>面试应用</h2>
+<div class="purple call"><div class="label">常见题</div><b>“AARRR 和 Funnel 有什么区别？”</b><p>AARRR 是生命周期 Stage 框架；Funnel 是具体行为转化结构。实际工作通常先定位 Stage，再建立子漏斗。</p></div>
+<div class="purple call"><div class="label">常见追问</div><b>“Activation 应该怎么定义？”</b><p>从产品核心价值出发，例如 AI 图片产品可能是成功生成并看到第一张可用结果，而不是注册。</p></div></section>
+
+<section class="section"><div class="kick">09 · Key Takeaways</div><h2>本节结论</h2>
+<div class="blue call"><div class="label">1</div><b>AARRR 是定位阶段的框架，不是固定 KPI 表。</b></div>
+<div class="blue call"><div class="label">2</div><b>Activation 必须代表第一次核心价值。</b></div>
+<div class="blue call"><div class="label">3</div><b>AARRR 可以应用到单个 Feature。</b></div>
+<div class="blue call"><div class="label">4</div><b>先 Stage，再 Funnel / Cohort / Experiment。</b></div></section>
+
+<section class="challenge" id="challenge"><div class="kick">10 · Daily Challenge</div><h2>AARRR 指标设计</h2>
+<div class="prompt">你负责一个海外 AI PPT 产品。用户可注册、输入主题生成 PPT、导出、升级订阅、分享链接给同事。<br><br>
+请回答：<b>① 为 AARRR 每个阶段定义一个核心用户行为；② 各给一个指标；③ Activation 为什么不能定义成注册；④ 如果注册很多、生成 PPT 很少，你下一步会建立什么子漏斗？</b></div>
+<div class="stop">HARD STOP — 等待用户作答。</div></section>
+</main><aside><div class="side"><div class="sidecard"><h3>Current Stage</h3><b>Foundation · Day 04/60</b></div><div class="sidecard"><h3>Today Builds</h3><div class="row"><span>AARRR</span><span>✓</span></div><div class="row"><span>Stage Metric</span><span>✓</span></div><div class="row"><span>AARRR vs Funnel</span><span>✓</span></div><div class="row"><span>Feature Adoption</span><span>✓</span></div><div class="row"><span>Referral</span><span>✓</span></div></div><div class="sidecard"><h3>Core Rule</h3><div class="note">Problem → AARRR Stage → Stage Metric → Sub-funnel → Mechanism</div></div></div></aside></div></div>
+<script>const b=document.getElementById('bar');addEventListener('scroll',()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;b.style.width=(m?d.scrollTop/m*100:0)+'%'});</script></body></html>

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Growth Lesson",
+  "type": "object",
+  "required": [
+    "day",
+    "topic",
+    "stage",
+    "modules",
+    "challenge"
+  ],
+  "properties": {
+    "day": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 60
+    },
+    "topic": {
+      "type": "string"
+    },
+    "stage": {
+      "enum": [
+        "foundation",
+        "applied_foundation",
+        "business_reasoning",
+        "integrated_growth"
+      ]
+    },
+    "learning_objectives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "title"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "knowledge_map",
+              "terms",
+              "definition",
+              "metrics",
+              "relationships",
+              "diagnosis",
+              "causes",
+              "execution",
+              "case",
+              "overseas",
+              "interview",
+              "takeaways",
+              "quick_check"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": [
+              "string",
+              "array",
+              "object"
+            ]
+          }
+        }
+      }
+    },
+    "challenge": {
+      "type": "object",
+      "required": [
+        "prompt",
+        "hard_stop"
+      ],
+      "properties": {
+        "prompt": {
+          "type": "string"
+        },
+        "hard_stop": {
+          "const": true
+        }
+      }
+    }
+  }
+}

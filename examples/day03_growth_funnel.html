@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global Growth Business Coach — Day 03 Growth Funnel</title>
+<style>
+:root{
+  --bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#667085;--line:#e3e7ef;
+  --blue:#2563eb;--blue-bg:#edf5ff;--green:#15803d;--green-bg:#effaf3;
+  --yellow:#9a6700;--yellow-bg:#fff8df;--red:#b42318;--red-bg:#fff0ef;
+  --purple:#7e22ce;--purple-bg:#f8efff;--cyan:#0f766e;--cyan-bg:#ecfdfb;
+  --gray:#475467;--gray-bg:#f4f6f8;--dark:#171d2b;--shadow:0 10px 30px rgba(32,43,70,.07)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.76}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:#4f6ff4;z-index:9999}
+.top{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topin{max-width:1320px;margin:auto;padding:13px 24px;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.brand{font-weight:950}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.nav{display:flex;gap:7px;flex-wrap:wrap}.nav a{text-decoration:none;color:#344054;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:12px;font-weight:850}
+.wrap{max-width:1320px;margin:auto;padding:32px 24px 80px}
+.hero{background:linear-gradient(135deg,#111827,#263d6e 58%,#3e64b7);color:#fff;border-radius:28px;padding:40px 42px;box-shadow:var(--shadow);overflow:hidden;position:relative}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:80px solid rgba(255,255,255,.04);border-radius:50%;right:-210px;top:-190px}
+.eyebrow{font-size:11px;color:#bdcaff;font-weight:950;letter-spacing:.12em;text-transform:uppercase}
+.hero h1{font-size:43px;line-height:1.08;letter-spacing:-.04em;margin:6px 0 10px}.hero p{max-width:940px;color:#e6ecff;font-size:17px;margin:0}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.badge{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09);padding:7px 11px;border-radius:999px;font-size:12px;font-weight:850}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:26px;margin-top:26px}
+.section{background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px 34px;margin-bottom:22px;box-shadow:0 5px 20px rgba(32,43,70,.035)}
+.kicker{font-size:11px;font-weight:950;letter-spacing:.11em;text-transform:uppercase;color:#667085;margin-bottom:5px}
+.section h2{font-size:27px;line-height:1.28;margin:0 0 12px;letter-spacing:-.025em}.section h3{font-size:20px;margin:28px 0 8px}.section h4{font-size:16px;margin:20px 0 7px}
+.lead{font-size:17px;color:#344054}
+.call{border:1px solid;border-left-width:6px;border-radius:16px;padding:17px 19px;margin:17px 0}
+.call .label{font-size:11px;font-weight:950;letter-spacing:.09em;text-transform:uppercase;margin-bottom:5px}
+.blue{background:var(--blue-bg);border-color:#a9c9ff}.blue .label{color:var(--blue)}
+.green{background:var(--green-bg);border-color:#a5deb7}.green .label{color:var(--green)}
+.yellow{background:var(--yellow-bg);border-color:#e9cc70}.yellow .label{color:var(--yellow)}
+.red{background:var(--red-bg);border-color:#f0aaa4}.red .label{color:var(--red)}
+.purple{background:var(--purple-bg);border-color:#d6b1f3}.purple .label{color:var(--purple)}
+.cyan{background:var(--cyan-bg);border-color:#91ded7}.cyan .label{color:var(--cyan)}
+.gray{background:var(--gray-bg);border-color:#d6dae1}.gray .label{color:var(--gray)}
+.dark{background:var(--dark);border-color:var(--dark);color:#fff}.dark .label{color:#becbff}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}.card h4{margin:0 0 7px}.card p{margin:5px 0}
+.tree{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#121826;color:#e9efff;border-radius:18px;padding:20px;white-space:pre-wrap;font-size:13px;line-height:1.72}
+.funnel{display:grid;gap:9px;max-width:850px;margin:20px auto}
+.fstep{margin:auto;border:1px solid #cbd7ee;background:#f7faff;border-radius:14px;padding:12px 16px;text-align:center}
+.fstep b{display:block}.fstep span{font-size:12px;color:#667085}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin:15px 0}
+th{background:#f6f8fb;text-align:left;padding:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+td{padding:12px;vertical-align:top;border-bottom:1px solid var(--line)}
+.term td:first-child{font-weight:900;color:#23408d;width:18%}
+.formula-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:15px}
+.formula-card{border:1px solid var(--line);border-radius:17px;padding:19px;background:#fff}
+.formula-card h4{margin:0 0 6px;font-size:17px}.formula-card .en{color:#3158b5;font-size:12px;font-weight:800}
+.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f7f9fc;border:1px solid #e1e6ef;border-radius:12px;padding:12px 14px;margin:10px 0;font-weight:850}
+.example{background:#effaf3;border-left:4px solid #22a06b;border-radius:0 12px 12px 0;padding:12px 14px;margin:10px 0;font-size:13px}
+.warn{background:#fff8df;border-left:4px solid #e0a400;border-radius:0 12px 12px 0;padding:12px 14px;margin:10px 0;font-size:13px}
+.sop{counter-reset:s;display:grid;gap:12px;margin-top:15px}
+.dstep{border:1px solid var(--line);border-radius:16px;padding:18px 20px;position:relative}
+.dstep:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;background:#1f2a44;color:#fff;border-radius:50%;font-weight:950;font-size:12px;position:absolute;left:18px;top:18px}
+.dstep .body{padding-left:43px}.dstep h4{margin:0 0 5px}.outbox{margin-top:10px;background:#f7f9fc;border:1px dashed #cfd6e2;border-radius:12px;padding:10px 12px;font-size:13px}
+.worked{border:1px solid #d9e2f3;border-radius:18px;overflow:hidden;margin-top:18px}.worked .head{padding:14px 18px;background:#f6f9ff;font-weight:950}.worked .body{padding:18px}
+.metricline{display:grid;grid-template-columns:1.1fr .8fr .8fr .8fr;gap:8px;padding:9px 0;border-bottom:1px solid #edf0f4}.metricline:last-child{border-bottom:0}.metricline.head{font-weight:900;color:#475467}
+.loss{font-weight:900;color:#b42318}.gain{font-weight:900;color:#15803d}
+.casehero{background:linear-gradient(180deg,#f9fbff,#fff);border:1px solid #cbd9fb;border-radius:20px;padding:22px;margin:16px 0}.casehero h3{margin:0 0 6px}
+.case-step{border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:#fff;margin:12px 0}
+.fact{border-left:4px solid #22a06b}.infer{border-left:4px solid #7c5ce5}.lesson{border-left:4px solid #e09c27}
+.num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#1f2a44;color:#fff;font-weight:900;font-size:12px;margin-right:8px}
+.sourcebox{font-size:12px;color:#667085;border-top:1px dashed var(--line);padding-top:14px;margin-top:18px}.sourcebox a{color:#3158b5}
+.challenge{background:linear-gradient(180deg,#fff,#fbf7ff);border:2px solid #c09ae9;border-radius:24px;padding:32px;box-shadow:0 12px 28px rgba(126,34,206,.08)}
+.challenge h2{font-size:29px;margin:5px 0 10px}.prompt{background:#fff;border:1px solid #dbc5ef;border-radius:16px;padding:21px;font-size:17px}
+.stop{margin-top:16px;background:#151923;color:#fff;border-radius:14px;padding:14px;text-align:center;font-weight:900}
+.sidein{position:sticky;top:82px;display:flex;flex-direction:column;gap:14px}
+.sidecard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 5px 18px rgba(32,43,70,.035)}
+.sidecard h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#667085;margin:0 0 9px}.sidecard strong.big{font-size:22px;display:block}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px;padding:8px 0;border-bottom:1px solid #edf0f4;font-size:12px}.row:last-child{border:0}.row span:last-child{font-weight:900}.note{font-size:12px;color:#667085}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.sidein{position:static}.formula-grid,.cols3{grid-template-columns:1fr}.cols2{grid-template-columns:1fr}}
+@media(max-width:700px){.hero{padding:28px 24px}.hero h1{font-size:34px}.section{padding:24px 20px}.topin{flex-direction:column;align-items:flex-start}.formula-grid{grid-template-columns:1fr}table{font-size:12px}th,td{padding:9px}.metricline{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<header class="top">
+<div class="topin">
+  <div class="brand">Global Growth Business Coach<small>Day 03 · Growth Funnel</small></div>
+  <nav class="nav">
+    <a href="#map">漏斗</a><a href="#terms">术语</a><a href="#metrics">公式</a>
+    <a href="#worked">算例</a><a href="#sop">诊断</a><a href="#case">案例</a><a href="#challenge">练习</a>
+  </nav>
+</div>
+</header>
+
+<div class="wrap">
+<section class="hero">
+  <div class="eyebrow">Phase 1 · Growth Foundation · Day 03</div>
+  <h1>Growth Funnel（增长漏斗）</h1>
+  <p>目标：掌握漏斗的基本计算方法，区分 Conversion Rate（转化率）、Drop-off（流失）和 Overall Conversion（整体转化），并学会从一串数据里定位真正值得优先解决的瓶颈。</p>
+  <div class="badges"><span class="badge">Funnel</span><span class="badge">Conversion Rate</span><span class="badge">Drop-off</span><span class="badge">Percentage Point</span><span class="badge">Bottleneck</span><span class="badge">Data Case</span></div>
+</section>
+
+<div class="layout">
+<main>
+
+<section class="section">
+  <div class="kicker">00 · Learning Goal</div>
+  <h2>本节目标</h2>
+  <div class="cols2">
+    <div class="card"><h4>会算</h4><p>能手算 Step CVR（步骤转化率）、Drop-off Rate（流失率）、Overall CVR（整体转化率）。</p></div>
+    <div class="card"><h4>会拆</h4><p>知道“整体转化低”不能直接给方案，必须定位到底哪一步掉得最多。</p></div>
+    <div class="card"><h4>会比较</h4><p>区分 Percentage Point（百分点）与 Relative Change（相对变化）。</p></div>
+    <div class="card"><h4>会排优先级</h4><p>不只看“哪一步转化率最低”，还会结合进入人数、可改善空间和业务价值判断瓶颈。</p></div>
+  </div>
+</section>
+
+<section class="section" id="map">
+  <div class="kicker">01 · Funnel Map</div>
+  <h2>增长漏斗</h2>
+  <p>Funnel（漏斗）把用户从进入产品到产生目标结果的过程拆成连续步骤。每一步都回答两个问题：<b>多少人走到这里？有多少人进入下一步？</b></p>
+
+  <div class="funnel">
+    <div class="fstep" style="width:100%"><b>100,000 · Ad Click / Visit（访问）</b><span>用户进入落地页或产品</span></div>
+    <div class="fstep" style="width:88%"><b>30,000 · Registration（注册）</b><span>完成账号注册</span></div>
+    <div class="fstep" style="width:74%"><b>15,000 · Activation（激活）</b><span>完成第一次核心价值行为</span></div>
+    <div class="fstep" style="width:60%"><b>6,000 · D7 Retained（7日留存）</b><span>第 7 天仍回来</span></div>
+    <div class="fstep" style="width:46%"><b>900 · Paid（付费）</b><span>完成付费行为</span></div>
+  </div>
+
+  <div class="blue call"><div class="label">核心用途</div><b>漏斗不是为了画图，而是把“业务结果不好”拆成具体损失发生在哪一步。</b><p>如果最终只有 900 人付费，你需要知道问题更像是流量、注册、激活、留存还是商业化，而不是直接说“付费太低”。</p></div>
+</section>
+
+<section class="section" id="terms">
+  <div class="kicker">02 · Key Terms</div>
+  <h2>核心术语</h2>
+  <table class="term">
+    <tr><th>术语</th><th>中文</th><th>业务含义</th><th>常见误区</th></tr>
+    <tr><td>Funnel</td><td>漏斗</td><td>用户按顺序经过的一组关键阶段。</td><td>不是所有用户路径都一定是严格线性的。</td></tr>
+    <tr><td>Step Conversion</td><td>步骤转化率</td><td>某一步进入下一步的比例。</td><td>必须明确分子和分母。</td></tr>
+    <tr><td>Overall Conversion</td><td>整体转化率</td><td>从漏斗起点到最终目标的转化比例。</td><td>整体 CVR 低不能告诉你问题在哪一步。</td></tr>
+    <tr><td>Drop-off</td><td>流失</td><td>进入某一步但没有进入下一步的用户。</td><td>人数多与比例高是两种不同问题。</td></tr>
+    <tr><td>Bottleneck</td><td>瓶颈</td><td>当前最限制整体结果的关键环节。</td><td>转化率最低的一步不一定就是 P0。</td></tr>
+    <tr><td>Baseline</td><td>基线</td><td>用于比较的历史、控制组、市场或渠道表现。</td><td>没有 Baseline 很难判断变化是否异常。</td></tr>
+    <tr><td>pp</td><td>Percentage Point（百分点）</td><td>两个百分比直接相减后的差值。</td><td>和“百分比增长”不是一回事。</td></tr>
+    <tr><td>Relative Change</td><td>相对变化</td><td>相对于原值增长/下降了多少比例。</td><td>“从 20% 到 25%”不是增长 5%，而是 +5pp / 相对 +25%。</td></tr>
+  </table>
+</section>
+
+<section class="section" id="metrics">
+  <div class="kicker">03 · Metrics & Formulas</div>
+  <h2>漏斗核心公式</h2>
+
+  <div class="formula-grid">
+    <div class="formula-card">
+      <div class="en">Step Conversion Rate</div><h4>步骤转化率</h4>
+      <div class="formula">Step CVR = Next Step Users ÷ Current Step Users × 100%</div>
+      <div class="example"><b>例：</b>30,000 注册用户中 15,000 完成激活 → Activation CVR = <b>50%</b>。</div>
+      <div class="warn"><b>注意：</b>必须明确“哪一步 → 哪一步”。只说“CVR 是 50%”没有业务意义。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">Drop-off Rate</div><h4>流失率</h4>
+      <div class="formula">Drop-off Rate = (Current Step Users - Next Step Users) ÷ Current Step Users × 100%</div>
+      <div class="example"><b>例：</b>30,000 注册 → 15,000 激活，流失 15,000 人 → Drop-off Rate = <b>50%</b>。</div>
+      <div class="warn"><b>关系：</b>同一对连续步骤下，CVR + Drop-off Rate = 100%。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">Overall Conversion Rate</div><h4>整体转化率</h4>
+      <div class="formula">Overall CVR = Final Goal Users ÷ Funnel Entrants × 100%</div>
+      <div class="example"><b>例：</b>100,000 访问 → 900 付费 → Overall Paid CVR = <b>0.9%</b>。</div>
+      <div class="warn"><b>误判：</b>0.9% 本身不能告诉你应该先改注册、激活、留存还是支付。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">Lost Users</div><h4>流失人数</h4>
+      <div class="formula">Lost Users = Current Step Users - Next Step Users</div>
+      <div class="example"><b>例：</b>100,000 访问 → 30,000 注册，流失 <b>70,000 人</b>。</div>
+      <div class="warn"><b>判断：</b>流失人数大不自动意味着应该先改，因为这一步可能天然就有大量非目标流量。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">Percentage Point</div><h4>百分点变化</h4>
+      <div class="formula">pp Change = New Rate - Old Rate</div>
+      <div class="example"><b>例：</b>注册 CVR 从 20% → 25% = <b>+5pp</b>。</div>
+      <div class="warn"><b>不要说：</b>“增长 5%”。百分率之间直接相减叫百分点。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">Relative Change</div><h4>相对变化</h4>
+      <div class="formula">Relative Change = (New - Old) ÷ Old × 100%</div>
+      <div class="example"><b>例：</b>20% → 25%：相对增长 = (25%-20%)÷20% = <b>25%</b>。</div>
+      <div class="warn"><b>同一个变化：</b>既可以描述为 +5pp，也可以描述为相对 +25%，但含义不同。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">Recovered Users</div><h4>改善带来的新增转化人数</h4>
+      <div class="formula">Incremental Users ≈ Current Step Entrants × CVR Improvement</div>
+      <div class="example"><b>例：</b>30,000 注册用户，激活率从 50% → 55%（+5pp）→ 额外激活约 <b>1,500 人</b>。</div>
+      <div class="warn"><b>用途：</b>帮助比较不同环节改善 1–5pp 可能带来的量级影响。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">Compound Funnel Conversion</div><h4>连续漏斗转化</h4>
+      <div class="formula">Overall CVR = CVR1 × CVR2 × CVR3 × ...</div>
+      <div class="example"><b>例：</b>注册 30% × 激活 50% × D7 40% × 付费 15% = <b>0.9%</b> 整体付费 CVR。</div>
+      <div class="warn"><b>意义：</b>每一环的小幅改善会沿漏斗传导，但最终影响还取决于用户规模和后续转化。</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="worked">
+  <div class="kicker">04 · Worked Example</div>
+  <h2>完整漏斗算例</h2>
+
+  <div class="worked">
+    <div class="head">AI 图片 App · 韩国 TikTok 新用户 · 30 天</div>
+    <div class="body">
+      <div class="metricline head"><div>阶段</div><div>人数</div><div>Step CVR</div><div>流失人数</div></div>
+      <div class="metricline"><div>Landing Visit</div><div>100,000</div><div>—</div><div>—</div></div>
+      <div class="metricline"><div>Registration</div><div>30,000</div><div>30%</div><div class="loss">70,000</div></div>
+      <div class="metricline"><div>First Image Generated</div><div>15,000</div><div>50%</div><div class="loss">15,000</div></div>
+      <div class="metricline"><div>D7 Active</div><div>6,000</div><div>40%</div><div class="loss">9,000</div></div>
+      <div class="metricline"><div>Paid</div><div>900</div><div>15%</div><div class="loss">5,100</div></div>
+    </div>
+  </div>
+
+  <h3>整体付费转化</h3>
+  <div class="formula">900 ÷ 100,000 = 0.9%</div>
+
+  <h3>哪个环节最差？</h3>
+  <p>如果只看 Step CVR，Landing → Registration 的 30% 最低；如果只看流失人数，也是这一环最多。但这仍然不能直接证明它应该是 P0。</p>
+
+  <div class="yellow call"><div class="label">瓶颈判断</div><b>优先级至少看四件事：Volume（进入人数）+ Gap（相对基线差距）+ Downstream Value（下游价值）+ Fixability（可改善性）。</b></div>
+
+  <h3>加入 Baseline 后再判断</h3>
+  <table>
+    <tr><th>环节</th><th>当前</th><th>历史基线</th><th>Gap</th><th>判断</th></tr>
+    <tr><td>Visit → Registration</td><td>30%</td><td>31%</td><td>-1pp</td><td>基本稳定，不像核心异常。</td></tr>
+    <tr><td>Registration → Activation</td><td>50%</td><td>65%</td><td class="loss">-15pp</td><td>明显恶化，优先调查。</td></tr>
+    <tr><td>Activation → D7</td><td>40%</td><td>42%</td><td>-2pp</td><td>略降。</td></tr>
+    <tr><td>D7 → Paid</td><td>15%</td><td>15%</td><td>0pp</td><td>稳定。</td></tr>
+  </table>
+
+  <div class="green call"><div class="label">结论</div><b>真正异常是 Registration → Activation，而不是“转化率最低”的注册环节。</b><p>这就是为什么漏斗诊断必须同时看当前值和 Baseline。</p></div>
+
+  <h3>如果把 Activation 从 50% 恢复到 65%</h3>
+  <div class="formula">新增激活 = 30,000 × (65% - 50%) = 4,500</div>
+  <p>如果后续 D7 40%、付费 15% 暂时不变：</p>
+  <div class="formula">预计额外 D7 ≈ 4,500 × 40% = 1,800<br>预计额外付费 ≈ 1,800 × 15% = 270</div>
+  <p class="note">这是用于理解漏斗传导的静态估算，不代表真实实验一定线性产生这些结果。</p>
+</section>
+
+<section class="section" id="sop">
+  <div class="kicker">05 · Funnel Diagnosis SOP</div>
+  <h2>漏斗异常诊断 SOP</h2>
+  <div class="sop">
+    <div class="dstep"><div class="body"><h4>Step 1 — Define Funnel（定义漏斗）</h4><p>明确起点、最终目标和中间关键行为。不要把所有点击都塞进漏斗，只保留对业务价值有意义的节点。</p><div class="outbox"><b>例：</b>Visit → Signup → First Image → D7 → Paid。</div></div></div>
+    <div class="dstep"><div class="body"><h4>Step 2 — Check Definition（确认口径）</h4><p>每个事件如何定义？是否去重？时间窗口是多少？D7 是自然日还是 24×7 小时？</p></div></div>
+    <div class="dstep"><div class="body"><h4>Step 3 — Calculate Step CVR（计算逐步转化）</h4><p>不要只看最终 Overall CVR。先逐环算出每一步。</p></div></div>
+    <div class="dstep"><div class="body"><h4>Step 4 — Compare Baseline（对比基线）</h4><p>和历史、其他市场、其他渠道、上一版本或控制组比较，判断异常 Gap。</p></div></div>
+    <div class="dstep"><div class="body"><h4>Step 5 — Segment（切分）</h4><p>按 Market、Channel、Platform、Version、Cohort、New / Existing User 拆，找异常集中在哪里。</p></div></div>
+    <div class="dstep"><div class="body"><h4>Step 6 — Estimate Impact（估算影响）</h4><p>用进入人数 × 可恢复的 pp 粗估潜在增量，避免只因为某一步 CVR 看起来很低就优先做。</p></div></div>
+    <div class="dstep"><div class="body"><h4>Step 7 — Investigate Mechanism（调查原因）</h4><p>进入页面、Session、用户研究、错误日志、渠道质量等更深层证据，确定为什么这一步掉。</p></div></div>
+    <div class="dstep"><div class="body"><h4>Step 8 — Experiment（实验）</h4><p>明确 Intervention（干预）、Primary Metric（主指标）和 Guardrail Metric（护栏指标），验证改善是否真的传导到下游。</p></div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">06 · Common Causes & Actions</div>
+  <h2>不同漏斗环节的常见原因与方法</h2>
+  <table>
+    <tr><th>掉点</th><th>常见原因</th><th>先验证</th><th>确认后常见方法</th></tr>
+    <tr><td>Visit → Signup</td><td>流量意图低、价值表达弱、表单太长、登录方式不适合当地</td><td>Channel CVR、页面 Drop-off、Field Error</td><td>流量预筛选、Message 对齐、减少字段、Local Login</td></tr>
+    <tr><td>Signup → Activation</td><td>Onboarding 长、价值路径不清、等待时间长、权限/技术错误</td><td>Step CVR、TTV、Error、Session Replay</td><td>缩短路径、默认模板、Guided Task、性能优化</td></tr>
+    <tr><td>Activation → Retention</td><td>价值不持续、使用频率不匹配、内容供给弱、Habit 未形成</td><td>Cohort、Core Action Frequency、User Research</td><td>提升核心价值、内容/供给、Habit / Lifecycle 机制</td></tr>
+    <tr><td>Retention → Paid</td><td>价值包装、Paywall 时机、定价、套餐、支付摩擦</td><td>Paywall View→Pay、Price Test、Payment Error</td><td>Pricing、Packaging、Trial、支付优化</td></tr>
+  </table>
+
+  <div class="red call"><div class="label">错误做法</div><b>漏斗看到哪里掉人多，就立刻改哪里。</b><p>先确认它是否相对 Baseline 异常、是否集中在特定 Segment，以及改善它是否会真正影响最终业务结果。</p></div>
+</section>
+
+<section class="section" id="case">
+  <div class="kicker">07 · Deep Case</div>
+  <h2>Duolingo 亚洲市场：漏斗问题如何被定位到具体人群与具体步骤</h2>
+
+  <div class="casehero">
+    <h3>案例概览</h3>
+    <p><b>公司：</b>Duolingo　 <b>场景：</b>亚洲市场本地化与 Onboarding（新手引导）　 <b>案例价值：</b>同一个“注册/激活不理想”的表面问题，通过市场、年龄与文案切分，会发现完全不同的根因。</p>
+  </div>
+
+  <h3>7.1 越南：整体 Registration（注册）低，不代表“所有越南用户都不爱注册”</h3>
+  <div class="case-step fact"><span class="num">F</span><b>官方事实</b><p>Duolingo 公开分享过：越南市场的新用户注册率大约比全球平均低 15%。继续拆指标后，团队发现一个关键问题集中在 13 岁以下用户，因为隐私原因，这批用户使用特殊注册流程。</p></div>
+  <div class="case-step infer"><span class="num">I</span><b>漏斗推理</b><p>表面 Signal 是“Vietnam Registration CVR 低”；如果团队只做全国统一注册页优化，就可能浪费资源。真正的诊断价值来自 <b>Segment（分层）</b>：问题集中在特定年龄 × 特殊流程。</p></div>
+
+  <div class="tree">Vietnam Registration ↓
+        │
+        ├── Adult / Normal Flow → relatively normal
+        │
+        └── Under-13 / Special Flow → abnormal
+                           ↓
+                    investigate this flow</div>
+
+  <div class="green call"><div class="label">业务方法</div><b>整体指标异常 → 先切 Segment，而不是直接把平均值当根因。</b><p>这正是漏斗诊断中的 “Overall → Segment → Step”。</p></div>
+
+  <h3>7.2 日本：一个文案变化让 Placement Test（分级测试）完成量翻倍</h3>
+  <div class="case-step fact"><span class="num">F</span><b>官方事实</b><p>在日本用户研究中，部分学习者认为 “take a placement test” 让人紧张，于是会从头开始学习，随后因为内容太简单而流失。Duolingo 把提示改成更友好的 “check your English level”，官方表示这使参加分级测试的人数翻倍，并提升了 Retention。</p></div>
+
+  <div class="case-step infer"><span class="num">I</span><b>漏斗推理</b><p>这里的 Drop-off 并不是页面技术 Bug，而是 <b>Message Friction（信息表达摩擦）</b>。同一个功能因为语言带来的心理成本，让用户选择了错误路径，最终影响后续 Retention。</p></div>
+
+  <div class="yellow call"><div class="label">关键点</div><b>漏斗优化不等于“按钮变大、步骤变少”。</b><p>用户对某句话、某个权限、某个流程的理解，也可能改变 Funnel Path（漏斗路径）。</p></div>
+
+  <h3>7.3 日本：Reminder Notification（提醒通知）Opt-in（授权）更低</h3>
+  <div class="case-step fact"><span class="num">F</span><b>官方事实</b><p>Duolingo 还公开提到，日本学习者同意接收提醒通知的概率比其他市场低约 50%。团队把这视为重要问题，因为提醒与学习习惯形成相关。</p></div>
+
+  <div class="case-step infer"><span class="num">I</span><b>漏斗推理</b><p>这个例子说明同一个 Funnel Node 在不同 Market 的 Baseline 可能完全不同。海外增长不能拿全球平均值直接当作本地“应该达到”的自然水平，而要进一步理解文化、文案和权限预期。</p></div>
+
+  <h3>7.4 为什么这个案例对 Growth Funnel 有价值</h3>
+  <table>
+    <tr><th>表面现象</th><th>错误判断</th><th>更好的 Funnel Thinking</th></tr>
+    <tr><td>越南注册率低</td><td>越南人不愿注册</td><td>先按 Age / Flow 切分，定位特殊流程。</td></tr>
+    <tr><td>日本用户不做分级测试</td><td>用户没有测试需求</td><td>用户研究发现是文案带来的心理摩擦。</td></tr>
+    <tr><td>日本通知授权低</td><td>Push 文案不好</td><td>先理解本地授权行为与 Baseline，再设计测试。</td></tr>
+  </table>
+
+  <div class="dark call"><div class="label">案例结论</div><b>Funnel 的核心不是“找最低转化率”，而是把异常从 Overall Metric 逐步定位到 Market → Segment → Step → Mechanism。</b></div>
+
+  <div class="sourcebox">
+    <b>Duolingo 官方来源：</b><br>
+    <a href="https://blog.duolingo.com/lessons-from-asia-turning-local-research-into-global-experiments/" target="_blank">Product Development Lessons from Asia: Turning Local Research into Global Experiments</a><br>
+    <span class="note">案例中的越南注册差异、日本 Placement Test 文案实验与 Notification Opt-in 均来自 Duolingo 官方博客；“漏斗推理”部分是课程基于公开事实做的业务分析。</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">08 · Data Request Template</div>
+  <h2>漏斗问题的数据需求模板</h2>
+  <p>真实工作里，如果 Leader 说“韩国注册掉了”，你可以把第一张数据表要求成：</p>
+  <div class="tree">Rows（行）
+→ Date / Week × Channel × Platform × App Version
+
+Columns（列）
+→ Landing Visitors
+→ Signup Users
+→ Activation Users
+→ D1 Users
+→ D7 Users
+→ Paying Users
+
+Calculated Metrics（计算列）
+→ Signup CVR
+→ Activation CVR
+→ D1 / D7 Retention
+→ Payer CVR
+
+Filters（筛选）
+→ Market = Korea
+→ New Users
+→ Recent 8–12 Weeks
+
+Comparison（比较）
+→ WoW / Previous 4-week Baseline
+→ Channel
+→ Version
+→ Platform</div>
+
+  <div class="green call"><div class="label">工作 Know-how</div><b>数据需求不要只写“帮我拉一下韩国漏斗”。</b><p>告诉数据同学：看什么 Cohort、哪些步骤、哪些切分维度、时间窗口、需要哪些计算列，以及你想验证什么问题。</p></div>
+</section>
+
+<section class="section">
+  <div class="kicker">09 · Interview Application</div>
+  <h2>面试应用</h2>
+  <div class="purple call"><div class="label">常见问题</div><b>“某 App 注册到付费的整体转化下降 20%，你怎么分析？”</b><p>第一步不是解释 AARRR，而是把整体 Funnel 拆成逐步 CVR，与历史 Baseline 比较，再按 Channel / Cohort / Version 定位异常。</p></div>
+
+  <div class="purple call"><div class="label">计算题</div><b>“注册率从 20% 提升到 25%，提升了多少？”</b><p>正确表达：<b>+5 个百分点（+5pp）</b>，或相对提升 <b>25%</b>。两种说法不能混。</p></div>
+</section>
+
+<section class="section">
+  <div class="kicker">10 · Key Takeaways</div>
+  <h2>本节结论</h2>
+  <div class="blue call"><div class="label">1</div><b>Overall CVR 只说明最终结果，不说明问题发生在哪里。</b></div>
+  <div class="blue call"><div class="label">2</div><b>判断瓶颈不能只看最低 CVR，要结合 Baseline、Volume、Impact 和可改善性。</b></div>
+  <div class="blue call"><div class="label">3</div><b>百分比变化必须区分 pp（百分点）与 Relative Change（相对变化）。</b></div>
+  <div class="blue call"><div class="label">4</div><b>漏斗诊断的核心路径：Overall → Step → Baseline → Segment → Mechanism → Experiment。</b></div>
+</section>
+
+<section class="section">
+  <div class="kicker">11 · Quick Check</div>
+  <h2>基础检查</h2>
+  <div class="cols2">
+    <div class="card"><h4>Q1</h4><p>50,000 访问者中 12,500 注册，Signup CVR 是多少？</p></div>
+    <div class="card"><h4>Q2</h4><p>Retention 从 16% 到 20%，分别用百分点和相对变化怎么表达？</p></div>
+    <div class="card"><h4>Q3</h4><p>为什么“转化率最低的环节”不一定就是最大瓶颈？</p></div>
+    <div class="card"><h4>Q4</h4><p>整体注册率下降时，为什么应该继续按 Channel / Platform / Cohort 切？</p></div>
+  </div>
+</section>
+
+<section class="challenge" id="challenge">
+  <div class="kicker" style="color:#7e22ce">12 · Daily Challenge · Foundation</div>
+  <h2>漏斗计算与瓶颈判断</h2>
+  <div class="prompt">
+    某韩国 AI Video App 本周漏斗：<br><br>
+    Landing Visit = <b>80,000</b><br>
+    Registration = <b>24,000</b><br>
+    First Video Generated = <b>9,600</b><br>
+    D7 Active = <b>3,840</b><br>
+    Paid Users = <b>768</b><br><br>
+
+    上个月对应 Step CVR 分别为：<br>
+    Visit → Registration <b>29%</b><br>
+    Registration → Activation <b>55%</b><br>
+    Activation → D7 <b>41%</b><br>
+    D7 → Paid <b>20%</b><br><br>
+
+    请回答：<br>
+    <b>① 算出本周四个 Step CVR。<br>
+    ② 哪一步相对上月变化最大？用 pp 表达。<br>
+    ③ 你认为当前第一优先排查哪一步？为什么？<br>
+    ④ 如果把这一环恢复到上月水平，粗略能多带来多少下一阶段用户？</b>
+  </div>
+  <div class="stop">HARD STOP — 等待用户作答后进入 Foundation Evaluation Rubric V2。</div>
+</section>
+
+</main>
+
+<aside>
+<div class="sidein">
+  <div class="sidecard"><h3>Current Stage</h3><strong class="big">Foundation</strong><div class="note">Day 03 / 60</div></div>
+  <div class="sidecard"><h3>Today Builds</h3>
+    <div class="row"><span>Funnel</span><span>✓</span></div>
+    <div class="row"><span>Step CVR</span><span>✓</span></div>
+    <div class="row"><span>Drop-off</span><span>✓</span></div>
+    <div class="row"><span>pp vs Relative</span><span>✓</span></div>
+    <div class="row"><span>Bottleneck</span><span>✓</span></div>
+    <div class="row"><span>Data Request</span><span>✓</span></div>
+  </div>
+  <div class="sidecard"><h3>Core SOP</h3><div class="note">Overall<br>↓<br>Step CVR<br>↓<br>Baseline<br>↓<br>Segment<br>↓<br>Mechanism<br>↓<br>Experiment</div></div>
+  <div class="sidecard"><h3>Deep Case</h3><div class="note">Duolingo Asia：越南注册、日本 Placement Test、Notification Opt-in。</div></div>
+</div>
+</aside>
+</div>
+</div>
+
+<script>
+const b=document.getElementById('bar');
+addEventListener('scroll',()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;b.style.width=(m?d.scrollTop/m*100:0)+'%'});
+</script>
+</body>
+</html>

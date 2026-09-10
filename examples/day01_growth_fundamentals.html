@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global Growth Business Coach — Day 01 V3 Gold Standard</title>
+<style>
+:root{
+  --bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#667085;--line:#e3e7ef;
+  --navy:#172554;--blue:#2563eb;--blue-bg:#edf5ff;
+  --green:#15803d;--green-bg:#effaf3;--yellow:#9a6700;--yellow-bg:#fff8df;
+  --red:#b42318;--red-bg:#fff0ef;--purple:#7e22ce;--purple-bg:#f8efff;
+  --cyan:#0f766e;--cyan-bg:#ecfdfb;--gray:#475467;--gray-bg:#f4f6f8;
+  --shadow:0 10px 30px rgba(32,43,70,.07)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.76}
+#bar{position:fixed;top:0;left:0;height:4px;background:#4f6ff4;width:0;z-index:9999}
+.top{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topin{max-width:1320px;margin:auto;padding:13px 24px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.brand{font-weight:950;letter-spacing:-.02em}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.nav{display:flex;gap:7px;flex-wrap:wrap}.nav a{text-decoration:none;color:#344054;font-size:12px;font-weight:850;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 9px}
+.wrap{max-width:1320px;margin:auto;padding:32px 24px 80px}
+.hero{background:linear-gradient(135deg,#111827,#1e3a68 60%,#315db3);color:#fff;border-radius:28px;padding:40px 42px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:80px solid rgba(255,255,255,.045);border-radius:50%;right:-210px;top:-190px}
+.eyebrow{font-size:11px;color:#b9c8ff;font-weight:950;letter-spacing:.12em;text-transform:uppercase}
+.hero h1{font-size:45px;line-height:1.08;letter-spacing:-.045em;margin:6px 0 10px}
+.hero p{max-width:920px;color:#e5ebff;font-size:17px;margin:0}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.badge{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09);padding:7px 11px;border-radius:999px;font-size:12px;font-weight:850}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:26px;margin-top:26px}
+.section{background:#fff;border:1px solid var(--line);border-radius:22px;padding:32px 34px;margin-bottom:22px;box-shadow:0 5px 20px rgba(32,43,70,.035)}
+.kicker{font-size:11px;font-weight:950;letter-spacing:.11em;text-transform:uppercase;color:#667085;margin-bottom:5px}
+.section h2{font-size:27px;line-height:1.28;margin:0 0 12px;letter-spacing:-.025em}
+.section h3{font-size:20px;margin:28px 0 8px}.section h4{font-size:16px;margin:20px 0 7px}
+.lead{font-size:17px;color:#344054}
+.call{border:1px solid;border-left-width:6px;border-radius:16px;padding:17px 19px;margin:17px 0}
+.call .label{font-size:11px;font-weight:950;letter-spacing:.09em;text-transform:uppercase;margin-bottom:5px}
+.blue{background:var(--blue-bg);border-color:#a9c9ff}.blue .label{color:var(--blue)}
+.green{background:var(--green-bg);border-color:#a5deb7}.green .label{color:var(--green)}
+.yellow{background:var(--yellow-bg);border-color:#e9cc70}.yellow .label{color:var(--yellow)}
+.red{background:var(--red-bg);border-color:#f0aaa4}.red .label{color:var(--red)}
+.purple{background:var(--purple-bg);border-color:#d6b1f3}.purple .label{color:var(--purple)}
+.cyan{background:var(--cyan-bg);border-color:#91ded7}.cyan .label{color:var(--cyan)}
+.gray{background:var(--gray-bg);border-color:#d6dae1}.gray .label{color:var(--gray)}
+.dark{background:#171d2b;border-color:#171d2b;color:#fff}.dark .label{color:#b9c8ff}
+.tree{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#121826;color:#e9efff;border-radius:18px;padding:20px;white-space:pre-wrap;font-size:13px;line-height:1.72}
+.map{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0}
+.node{background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:15px;text-align:center}
+.node b{display:block}.node span{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin:15px 0}
+th{background:#f6f8fb;text-align:left;padding:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+td{padding:12px;vertical-align:top;border-bottom:1px solid var(--line)}
+.term td:first-child{font-weight:900;color:#23408d;width:17%}
+.formula-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:15px}
+.formula-card{border:1px solid var(--line);border-radius:17px;padding:19px;background:#fff}
+.formula-card h4{margin:0 0 6px;font-size:17px}.formula-card .en{color:#3158b5;font-size:12px;font-weight:800}
+.formula{background:#f7f9fc;border:1px solid #e1e6ef;border-radius:12px;padding:12px 14px;margin:11px 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:850}
+.example{background:#effaf3;border-left:4px solid #22a06b;border-radius:0 12px 12px 0;padding:12px 14px;margin:10px 0;font-size:13px}
+.warn{background:#fff8df;border-left:4px solid #e0a400;border-radius:0 12px 12px 0;padding:12px 14px;margin:10px 0;font-size:13px}
+.chain{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:18px 0}
+.chain .item{flex:1;min-width:135px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+.chain .arrow{display:grid;place-items:center;color:#98a2b3;font-size:20px;font-weight:900}
+.sop{counter-reset:step;display:grid;gap:12px;margin-top:16px}
+.sop-step{border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:#fff;position:relative}
+.sop-step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#1f2a44;color:#fff;font-size:12px;font-weight:950;position:absolute;left:18px;top:18px}
+.sop-step .body{padding-left:43px}.sop-step h4{margin:0 0 6px}.sop-step p{margin:5px 0}
+.out{margin-top:10px;background:#f7f9fc;border:1px dashed #cfd6e2;border-radius:12px;padding:10px 12px;font-size:13px}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}.card h4{margin:0 0 6px}
+.problem-table td:first-child{font-weight:900;width:18%}
+.chip{display:inline-block;background:#eef2ff;color:#3b4fa1;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:900;margin:2px}
+.casehero{background:linear-gradient(180deg,#f9fbff,#fff);border:1px solid #cbd9fb;border-radius:20px;padding:22px;margin:16px 0}
+.casehero h3{margin:0 0 5px}.case-step{border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:#fff;margin:12px 0}
+.fact{border-left:4px solid #22a06b}.infer{border-left:4px solid #7c5ce5}.lesson{border-left:4px solid #e09c27}
+.num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#1f2a44;color:#fff;font-weight:900;font-size:12px;margin-right:8px}
+.deep{background:#fbfcff;border:1px solid #dfe6f5;border-radius:16px;padding:18px;margin:12px 0}
+.deep h4{margin:0 0 8px}
+.sourcebox{font-size:12px;color:#667085;border-top:1px dashed var(--line);padding-top:14px;margin-top:18px}
+.sourcebox a{color:#3158b5}
+.challenge{background:linear-gradient(180deg,#fff,#fbf7ff);border:2px solid #c09ae9;border-radius:24px;padding:32px;box-shadow:0 12px 28px rgba(126,34,206,.08)}
+.challenge h2{font-size:29px;margin:5px 0 10px}.prompt{background:#fff;border:1px solid #dbc5ef;border-radius:16px;padding:21px;font-size:17px}
+.stop{margin-top:16px;background:#151923;color:#fff;border-radius:14px;padding:14px;text-align:center;font-weight:900}
+.sidein{position:sticky;top:82px;display:flex;flex-direction:column;gap:14px}
+.sidecard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 5px 18px rgba(32,43,70,.035)}
+.sidecard h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#667085;margin:0 0 9px}.sidecard strong.big{font-size:22px;display:block}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px;padding:8px 0;border-bottom:1px solid #edf0f4;font-size:12px}.row:last-child{border:0}.row span:last-child{font-weight:900}
+.note{font-size:12px;color:#667085}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.sidein{position:static}.map{grid-template-columns:1fr 1fr}.formula-grid,.cols3{grid-template-columns:1fr}.cols2{grid-template-columns:1fr}}
+@media(max-width:700px){.hero{padding:28px 24px}.hero h1{font-size:35px}.section{padding:24px 20px}.map{grid-template-columns:1fr}.topin{align-items:flex-start;flex-direction:column}.formula-grid{grid-template-columns:1fr}table{font-size:12px}th,td{padding:9px}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<header class="top">
+<div class="topin">
+  <div class="brand">Global Growth Business Coach<small>Day 01 · V3 Operator-oriented Gold Standard</small></div>
+  <nav class="nav">
+    <a href="#map">知识地图</a><a href="#terms">术语</a><a href="#metrics">公式</a>
+    <a href="#sop">诊断SOP</a><a href="#solutions">解决方法</a><a href="#case">案例</a><a href="#challenge">练习</a>
+  </nav>
+</div>
+</header>
+
+<div class="wrap">
+<section class="hero">
+  <div class="eyebrow">Phase 1 · Growth Foundation · Day 01</div>
+  <h1>Growth 基础：增长系统、指标与诊断</h1>
+  <p>目标：建立 Growth（增长）的第一张知识地图，认识核心术语与指标，掌握一套可用于真实业务的基础诊断 SOP，并理解常见执行手段分别解决什么问题。</p>
+  <div class="badges"><span class="badge">知识地图</span><span class="badge">行业术语</span><span class="badge">公式与算例</span><span class="badge">诊断 SOP</span><span class="badge">执行 Know-how</span><span class="badge">案例 Deep Dive</span></div>
+</section>
+
+<div class="layout">
+<main>
+
+<section class="section">
+  <div class="kicker">00 · Learning Goal</div>
+  <h2>本节目标</h2>
+  <div class="cols2">
+    <div class="card"><h4>建立知识地图</h4><p>知道 Acquisition（获客）、Activation（激活）、Retention（留存）、Monetization（商业化）等概念分别位于哪里。</p></div>
+    <div class="card"><h4>建立指标基础</h4><p>能看懂 CAC、CPI、Activation Rate、D7 Retention、ARPU、LTV 等指标，并会做基础计算。</p></div>
+    <div class="card"><h4>掌握诊断顺序</h4><p>看到异常指标时，先定义问题、拆指标、切分用户，再提出 Hypothesis（假设），不直接跳到解决方案。</p></div>
+    <div class="card"><h4>认识执行手段</h4><p>知道 Onboarding、Streak、Push、CRM、Paywall 等手段分别适用于什么机制。</p></div>
+  </div>
+</section>
+
+<section class="section" id="map">
+  <div class="kicker">01 · Knowledge Map</div>
+  <h2>Growth 知识地图</h2>
+  <div class="map">
+    <div class="node"><b>Acquisition（获客）</b><span>把合适的用户带进来</span></div>
+    <div class="node"><b>Activation（激活）</b><span>让用户第一次获得核心价值</span></div>
+    <div class="node"><b>Retention（留存）</b><span>让用户持续回来并继续获得价值</span></div>
+    <div class="node"><b>Monetization（商业化）</b><span>把用户价值转成收入</span></div>
+    <div class="node"><b>Referral / Loop（推荐 / 增长循环）</b><span>让用户行为带来下一轮增长</span></div>
+  </div>
+  <div class="tree">Growth
+├── Product Value / PMF（产品价值 / 产品市场匹配）
+├── Acquisition（获客）
+│   ├── Paid / Organic / SEO / ASO / KOL
+│   └── CPM / CTR / CVR / CPI / CAC / Attribution
+├── Activation（激活）
+│   ├── Onboarding（新手引导）
+│   ├── First Value（首次价值）
+│   ├── Aha Moment（价值感知时刻）
+│   └── Activation Rate / Time to Value / Drop-off
+├── Retention（留存）
+│   ├── D1 / D7 / D30
+│   ├── Cohort（同期群）
+│   ├── Churn（流失）
+│   └── Habit / Engagement / CRM / Lifecycle
+├── Monetization（商业化）
+│   ├── Payer Conversion / Pricing / Paywall
+│   └── ARPU / ARPPU / LTV / Revenue
+├── Referral / Growth Loop（推荐 / 增长循环）
+└── Experiment & Decision（实验与决策）
+    ├── Hypothesis / A-B Test
+    └── Evidence / Priority / Measurement</div>
+</section>
+
+<section class="section" id="terms">
+  <div class="kicker">02 · Key Terms</div>
+  <h2>核心术语</h2>
+  <table class="term">
+    <tr><th>术语</th><th>中文</th><th>业务含义</th><th>常见误区</th></tr>
+    <tr><td>Growth</td><td>增长</td><td>围绕用户价值与商业价值，对获客、产品、留存、商业化等环节持续诊断、实验和放大有效机制。</td><td>Growth ≠ Marketing；也不等于单纯买量。</td></tr>
+    <tr><td>Funnel</td><td>漏斗</td><td>用户从一个阶段进入下一个阶段的路径，以及各环节的转化与流失。</td><td>漏斗是分析工具，不是解决方案。</td></tr>
+    <tr><td>Acquisition</td><td>获客</td><td>用户从哪里来、成本多少、来的是否是目标人群。</td><td>新增量大不等于获客质量高。</td></tr>
+    <tr><td>Activation</td><td>激活</td><td>用户是否完成第一次能够代表核心价值的关键行为。</td><td>Registration（注册）不等于 Activation。</td></tr>
+    <tr><td>Retention</td><td>留存</td><td>同一批用户在未来是否继续回来使用产品。</td><td>DAU 高不一定代表留存高。</td></tr>
+    <tr><td>Cohort</td><td>同期群</td><td>把同一时间、渠道或行为特征进入的用户作为一组观察。</td><td>Cohort 不是 Persona（用户画像）。</td></tr>
+    <tr><td>Monetization</td><td>商业化</td><td>产品如何将用户获得的价值转化为收入。</td><td>收入增长也要拆用户数、付费率、客单等来源。</td></tr>
+    <tr><td>Hypothesis</td><td>假设</td><td>对“为什么指标发生变化”的可验证解释。</td><td>Hypothesis 不是 Fact（事实）。</td></tr>
+    <tr><td>Attribution</td><td>归因</td><td>判断某个用户、转化或收入应该归功于哪个渠道或触点。</td><td>不同归因模型会得出不同结论。</td></tr>
+    <tr><td>Growth Loop</td><td>增长循环</td><td>一个用户的行为能够产生新的用户、内容、供给或传播，再带来下一轮增长。</td><td>一次 Campaign（营销活动）不等于 Loop。</td></tr>
+  </table>
+</section>
+
+<section class="section" id="metrics">
+  <div class="kicker">03 · Metrics & Formulas</div>
+  <h2>核心指标、公式与算例</h2>
+  <p class="lead">公式的作用不是做数学题，而是帮助你理解：<b>一个指标为什么变化，以及应该继续拆哪个变量。</b></p>
+
+  <div class="formula-grid">
+    <div class="formula-card">
+      <div class="en">CTR · Click Through Rate</div><h4>点击率</h4>
+      <p>广告曝光后，有多少人点击。</p>
+      <div class="formula">CTR = Clicks ÷ Impressions × 100%</div>
+      <div class="example"><b>例：</b>100,000 次曝光、2,000 次点击 → CTR = 2,000 ÷ 100,000 = <b>2%</b>。</div>
+      <div class="warn"><b>误判：</b>CTR 高只说明创意更能吸引点击，不代表后续注册、留存或付费一定更好。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">CVR · Conversion Rate</div><h4>转化率</h4>
+      <p>进入某一步的人，有多少完成目标动作。必须先说清楚“从什么转到什么”。</p>
+      <div class="formula">CVR = Conversions ÷ Eligible Users × 100%</div>
+      <div class="example"><b>例：</b>2,000 个 Landing Page 访问者中 600 人注册 → 注册 CVR = <b>30%</b>。</div>
+      <div class="warn"><b>误判：</b>不要只说“转化率低”。要说注册转化、激活转化还是付费转化。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">CPI · Cost Per Install</div><h4>单次安装成本</h4>
+      <div class="formula">CPI = Ad Spend ÷ Installs</div>
+      <div class="example"><b>例：</b>投放 ¥50,000，获得 10,000 次安装 → CPI = <b>¥5</b>。</div>
+      <div class="warn"><b>误判：</b>CPI 低可能只是买到了大量低意图用户，要继续看 Activation / Retention。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">CAC · Customer Acquisition Cost</div><h4>客户获取成本</h4>
+      <div class="formula">CAC = Acquisition Cost ÷ New Customers</div>
+      <div class="example"><b>例：</b>获客相关成本 ¥100,000，得到 2,000 个新付费客户 → CAC = <b>¥50</b>。</div>
+      <div class="warn"><b>误判：</b>¥50 到底贵不贵不能单独判断，还要看 LTV、毛利和回本周期。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">Activation Rate</div><h4>激活率</h4>
+      <div class="formula">Activation Rate = Activated New Users ÷ Eligible New Users × 100%</div>
+      <div class="example"><b>例：</b>1,000 个新注册用户中 450 人成功生成第一张 AI 图片 → Activation Rate = <b>45%</b>。</div>
+      <div class="warn"><b>关键：</b>“激活动作”必须能代表真正获得核心价值，不能随便拿“打开 App”当 Activation。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">D7 Retention</div><h4>7 日留存率</h4>
+      <div class="formula">D7 Retention = Cohort Users Active on Day 7 ÷ Cohort Size × 100%</div>
+      <div class="example"><b>例：</b>9 月 1 日新增 10,000 人，第 7 天有 2,000 人回来 → D7 = <b>20%</b>。</div>
+      <div class="warn"><b>误判：</b>20% 高还是低不能脱离产品频率、历史基线、渠道和 Cohort 判断。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">ARPU · Average Revenue Per User</div><h4>每用户平均收入</h4>
+      <div class="formula">ARPU = Revenue ÷ Users in the defined period</div>
+      <div class="example"><b>例：</b>本月收入 ¥300,000，按 100,000 个 MAU 计算 → 月 ARPU = <b>¥3</b>。</div>
+      <div class="warn"><b>口径：</b>分母到底是注册用户、活跃用户还是订阅用户必须明确。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">ARPPU · Average Revenue Per Paying User</div><h4>每付费用户平均收入</h4>
+      <div class="formula">ARPPU = Revenue ÷ Paying Users</div>
+      <div class="example"><b>例：</b>收入 ¥300,000，付费用户 5,000 → ARPPU = <b>¥60</b>。</div>
+      <div class="warn"><b>关系：</b>ARPU 低可能是付费率低，也可能是 ARPPU 低，需要继续拆。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">LTV · Lifetime Value</div><h4>用户生命周期价值</h4>
+      <p>LTV 有多种模型。初学阶段先理解为：一个用户整个生命周期预计贡献的经济价值。</p>
+      <div class="formula">简化估算：LTV ≈ Monthly Contribution Margin per User × Avg. Lifetime Months</div>
+      <div class="example"><b>例：</b>每月每用户贡献毛利 ¥20，平均生命周期 8 个月 → 简化 LTV ≈ <b>¥160</b>。</div>
+      <div class="warn"><b>注意：</b>这只是教学用简化模型。真实业务可能使用 Cohort、留存曲线、折现、毛利等更精细模型。</div>
+    </div>
+
+    <div class="formula-card">
+      <div class="en">Payer Conversion Rate</div><h4>付费转化率</h4>
+      <div class="formula">Payer Conversion = Paying Users ÷ Eligible Users × 100%</div>
+      <div class="example"><b>例：</b>10,000 个活跃用户中 500 人付费 → 付费率 = <b>5%</b>。</div>
+      <div class="warn"><b>误判：</b>收入不变并不等于付费率不变，还可能是用户规模或 ARPPU 变化互相抵消。</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">04 · Metric Relationships</div>
+  <h2>指标关系</h2>
+
+  <h3>获客成本与用户价值</h3>
+  <div class="chain">
+    <div class="item"><b>Paid Acquisition（付费获客）</b><br><span class="note">买流量</span></div><div class="arrow">→</div>
+    <div class="item"><b>CPI / CAC</b><br><span class="note">获客成本</span></div><div class="arrow">→</div>
+    <div class="item"><b>Activation</b><br><span class="note">是否真正获得价值</span></div><div class="arrow">→</div>
+    <div class="item"><b>Retention</b><br><span class="note">是否持续回来</span></div><div class="arrow">→</div>
+    <div class="item"><b>LTV</b><br><span class="note">长期经济价值</span></div>
+  </div>
+
+  <div class="yellow call"><div class="label">判断规则</div><b>CAC 下降并不自动等于增长改善。</b><p>如果低成本渠道带来的 Activation、Retention 和 LTV 同时下降，所谓“更便宜的获客”可能只是把成本转移到了后链路。</p></div>
+
+  <h3>收入拆解</h3>
+  <div class="formula">Revenue ≈ Active Users × Payer Conversion × ARPPU</div>
+  <div class="example"><b>例：</b>100,000 活跃用户 × 5% 付费率 × ¥60 ARPPU = <b>¥300,000 Revenue</b>。</div>
+  <p>所以收入下降时，第一反应不应该是“付费运营不行”，而是先判断到底是用户规模、付费率还是 ARPPU 发生了变化。</p>
+</section>
+
+<section class="section" id="sop">
+  <div class="kicker">05 · Diagnosis SOP</div>
+  <h2>增长问题诊断 SOP</h2>
+  <div class="sop">
+    <div class="sop-step"><div class="body"><h4>Step 1 — Define the Signal（确认异常信号）</h4><p>明确 Metric（指标）、Time（时间）、Magnitude（变化幅度）、Market（市场）、Platform（平台）、User Segment（用户分层）和 Data Definition（数据口径）。</p><div class="out"><b>输出例：</b>韩国 Android 新用户 D7 从过去四周平均 24% 降至 17%，iOS 无明显变化。</div></div></div>
+    <div class="sop-step"><div class="body"><h4>Step 2 — Decompose the Metric（拆解指标）</h4><p>把总指标拆成可以解释变化的变量。例如 Revenue = Users × Payer Conversion × ARPPU。</p><div class="out"><b>目的：</b>先知道到底是哪一个变量在变，而不是对总指标直接给方案。</div></div></div>
+    <div class="sop-step"><div class="body"><h4>Step 3 — Segment the Problem（切分问题）</h4><p>按 Market、Channel（渠道）、Cohort（同期群）、Platform、Version（版本）、New / Existing User（新老用户）继续切分。</p><div class="out"><b>输出例：</b>下降主要集中在 TikTok Ads 带来的 9 月新用户，Organic Cohort 稳定。</div></div></div>
+    <div class="sop-step"><div class="body"><h4>Step 4 — Generate Hypotheses（提出假设）</h4><p>形成 2–4 个互相可区分的解释。至少考虑：用户变了、渠道变了、产品变了、价格/市场环境变了、数据口径变了。</p><div class="out"><b>例：</b>H1 TikTok 流量意图变低；H2 新版本增加首次生成摩擦；H3 新 Campaign 的承诺与真实产品价值不一致。</div></div></div>
+    <div class="sop-step"><div class="body"><h4>Step 5 — Define Evidence（确定验证证据）</h4><p>明确哪一张表、哪一个用户行为、哪一种研究或实验能支持或推翻 Hypothesis。</p><div class="out"><b>例：</b>比较 TikTok vs Organic 的 Activation Rate、D1/D7、首个核心行为完成率。</div></div></div>
+    <div class="sop-step"><div class="body"><h4>Step 6 — Prioritize（确定优先级）</h4><p>结合 Impact（影响）、Confidence（置信度）、Effort（成本）、Time Sensitivity（时间敏感性）决定 P0/P1/P2。</p><div class="out"><b>原则：</b>优先验证“能解释最多现象、验证成本低、影响大”的假设。</div></div></div>
+    <div class="sop-step"><div class="body"><h4>Step 7 — Action & Experiment（执行与验证）</h4><p>问题定位后，再选择渠道、人群、Onboarding、Push、CRM、Streak、Paywall、Pricing 或产品实验等动作，并定义成功指标。</p><div class="out"><b>关键：</b>Action 必须对应已确认或高概率的 Mechanism（问题机制）。</div></div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">06 · Common Causes</div>
+  <h2>常见问题与原因</h2>
+  <table class="problem-table">
+    <tr><th>现象</th><th>优先怀疑</th><th>继续看什么</th></tr>
+    <tr><td>新增上涨，DAU 不涨</td><td>Activation 低、Retention 差、流量质量下降</td><td>Channel × Activation；New User D1/D7；核心行为完成率</td></tr>
+    <tr><td>安装多，注册少</td><td>落地页/注册摩擦、投放承诺错配</td><td>Install → Registration Funnel、页面 Drop-off、渠道 CVR</td></tr>
+    <tr><td>注册多，关键行为少</td><td>Activation friction、Time to Value 过长</td><td>Onboarding Step CVR、首个核心行为耗时、错误率</td></tr>
+    <tr><td>D7 突然下降</td><td>Channel mix、版本变化、核心价值下降、内容/供给问题</td><td>Cohort × Channel × Version；核心行为频次</td></tr>
+    <tr><td>CAC 上涨</td><td>CPM 涨、CTR 降、CVR 降、竞争变强、受众耗尽</td><td>CPM / CTR / CPC / CVR / CAC 分层拆解</td></tr>
+    <tr><td>活跃上涨，收入不涨</td><td>付费率下降、ARPPU 下降、新增是低商业价值用户</td><td>Payer Conversion、ARPPU、不同 Cohort Revenue</td></tr>
+  </table>
+</section>
+
+<section class="section" id="solutions">
+  <div class="kicker">07 · Problem & Solution Methods</div>
+  <h2>问题与解决方法</h2>
+  <table class="problem-table">
+    <tr><th>问题机制</th><th>常见执行手段</th><th>执行 Know-how</th><th>核心指标</th><th>不适用情况</th></tr>
+    <tr>
+      <td>Activation friction<br><span class="note">激活摩擦</span></td>
+      <td>简化 Onboarding、默认模板、Guided Task（引导任务）、Demo、减少必填项、缩短 Loading</td>
+      <td>优先找最大 Drop-off Step；先减少达到 First Value 前的步骤，不要只做界面美化。</td>
+      <td>Activation Rate、Time to Value、Step CVR</td>
+      <td>真正问题是获客人群不匹配时</td>
+    </tr>
+    <tr>
+      <td>Habit / Engagement<br><span class="note">习惯 / 参与</span></td>
+      <td>Streak（连续记录）、签到、挑战、任务、进度、奖励</td>
+      <td>把重复行为绑定到核心价值；门槛应足够低，避免用户因一次失败彻底放弃。</td>
+      <td>Frequency、D7/D30、Core Action Frequency</td>
+      <td>用户尚未 Activation；产品本身是低频需求</td>
+    </tr>
+    <tr>
+      <td>Lifecycle Recall<br><span class="note">生命周期召回</span></td>
+      <td>Push、Email、CRM、Win-back Campaign（召回活动）</td>
+      <td>按用户生命周期和最近行为触发，不要对所有沉默用户群发同一内容。</td>
+      <td>Open Rate、Return Rate、Reactivation Rate</td>
+      <td>用户从未获得过核心价值时</td>
+    </tr>
+    <tr>
+      <td>Acquisition Quality<br><span class="note">获客质量</span></td>
+      <td>重做人群、调整 Creative Promise（素材承诺）、渠道组合、Landing Page 预筛选</td>
+      <td>不要只按最低 CPI/CAC 选渠道；比较 Channel × Activation × Retention × LTV。</td>
+      <td>CAC、Activation、D7、LTV by Channel</td>
+      <td>所有渠道同时恶化时，应优先排查产品端</td>
+    </tr>
+    <tr>
+      <td>Monetization friction<br><span class="note">商业化摩擦</span></td>
+      <td>Paywall、套餐、Free Trial、定价、价值包装、支付流程优化</td>
+      <td>先判断是价值不够、价格不匹配、展示时机不对，还是支付流程问题。</td>
+      <td>Payer CVR、ARPPU、Revenue、Refund</td>
+      <td>Retention 尚未成立、用户还没持续获得价值时</td>
+    </tr>
+  </table>
+
+  <div class="green call"><div class="label">执行规则</div><b>记忆顺序：Business Signal（业务信号） → Mechanism（问题机制） → Evidence（证据） → Tactic（执行手段）。</b><p>不要记成“DAU 低 → 签到”“Retention 低 → Push”。</p></div>
+</section>
+
+<section class="section" id="case">
+  <div class="kicker">08 · Deep Case</div>
+  <h2>Duolingo Streak：留存与习惯机制案例</h2>
+
+  <div class="casehero">
+    <h3>案例概览</h3>
+    <p><b>产品：</b>语言学习 App　 <b>核心长期行为：</b>持续完成学习　 <b>增长问题：</b>如何让用户从“想学语言”转化为稳定重复学习。</p>
+    <p><b>核心机制：</b>把连续学习设计成可见、可累积、可保护的行为资产，并通过 A/B Test（A/B 实验）持续优化形成习惯的门槛。</p>
+  </div>
+
+  <h3>8.1 业务背景</h3>
+  <div class="case-step fact"><span class="num">F</span><b>官方事实</b><p>Duolingo 的产品团队长期投资 Streak（连续学习记录）等机制，并明确把长期习惯与用户长期利益放在短期 DAU 刺激之前。官方产品原则曾直接对比“大量 Push 获取短期 DAU”与“投资 Streak 建立长期习惯”。</p></div>
+  <div class="case-step infer"><span class="num">I</span><b>Growth 推理</b><p>语言学习的价值需要长期重复行为才能兑现。用户只下载、注册或学习一天，对学习结果和长期商业价值都有限，因此 Retention（留存）与 Habit（习惯）天然是核心 Growth Problem。</p></div>
+
+  <h3>8.2 问题信号</h3>
+  <p>Duolingo 曾发现：旧版 Streak 机制要求用户完成自己设定的 Daily Goal（每日目标）才能延续连续学习记录。数据分析显示，目标设得较高的用户反而更容易没有 Streak，即使他们事实上每天都在使用产品。</p>
+  <div class="yellow call"><div class="label">问题机制</div><b>鼓励长期习惯的机制，反而因为最低完成门槛太高而增加失败概率。</b><p>这说明 Product Intent（产品设计意图）和真实 User Behavior（用户行为结果）可能不一致。</p></div>
+
+  <h3>8.3 Hypothesis（假设）</h3>
+  <div class="blue call"><div class="label">可验证假设</div><b>如果把“维持 Streak”的最低条件从完成 Daily Goal 降低为完成一节课，更多用户能够先建立稳定的每日学习习惯，长期 Retention 与 DAU 可能改善。</b></div>
+  <p>这里不是简单地“让任务更容易”。团队实际上是在判断：对长期学习来说，<b>先建立每日出现的低门槛习惯</b>，是否比每天追求更高学习量更重要。</p>
+
+  <h3>8.4 Experiment（实验）与指标</h3>
+  <p>Duolingo 对“Streak 与 Daily Goal 分离”进行了 A/B Test。官方公开结果显示：</p>
+  <table>
+    <tr><th>指标</th><th>实验结果</th><th>业务解释</th></tr>
+    <tr><td>D14 Retention（14 日留存）</td><td>相对 +3.3%</td><td>更多用户两周后仍保持活跃。</td></tr>
+    <tr><td>Overall DAU（整体日活）</td><td>相对 +1%</td><td>机制改善不仅影响新用户，也对整体活跃产生正向影响。</td></tr>
+    <tr><td>Daily learners on a streak</td><td>20 天内相对 +10.5%</td><td>更多日活学习者开始形成 Streak。</td></tr>
+    <tr><td>New learner streak adoption</td><td>相对 +19%</td><td>新用户建立连续学习习惯的比例明显提高。</td></tr>
+  </table>
+
+  <div class="red call"><div class="label">Trade-off（取舍）</div><b>并非所有指标都变好。</b><p>官方同时观察到，达到原有 Daily Goal 的人变少。团队需要在“每日学习量”与“长期形成习惯”之间做价值判断。这就是 Growth 中 Priority（优先级）与长期指标的重要性。</p></div>
+
+  <h3>8.5 Streak Wager 与 Weekend Amulet</h3>
+  <div class="deep">
+    <h4>Streak Wager（连续学习押注）</h4>
+    <p>用户付出一定虚拟货币作为承诺，坚持到目标天数后获得奖励。Duolingo 官方报告实验组 D1、D7、D14 Retention 都出现统计显著提升，其中 D7 Retention 的相对提升最大，为 <b>+14%</b>。</p>
+    <p><b>机制：</b>Commitment（承诺）+ Reward（奖励）+ Loss Aversion（损失厌恶），强化用户坚持到目标节点。</p>
+  </div>
+
+  <div class="deep">
+    <h4>Weekend Amulet（周末护符）</h4>
+    <p>用户可以在周末休息而不丢失 Streak。官方报告：获得该功能的学习者一周后回来的可能性提高 <b>4%</b>，丢失 Streak 的可能性降低 <b>5%</b>。</p>
+    <p><b>机制：</b>降低“一次中断导致全部积累作废”的挫败感，保护已经形成的心理资产。</p>
+  </div>
+
+  <h3>8.6 为什么有效</h3>
+  <div class="cols2">
+    <div class="card"><h4>核心行为与产品价值一致</h4><p>语言学习本身需要持续练习，“每天回来学习”不是虚假 Engagement，而与核心价值直接相关。</p></div>
+    <div class="card"><h4>把进度变成可见资产</h4><p>连续天数让“坚持”可视化，用户投入越多，失去它的心理成本越高。</p></div>
+    <div class="card"><h4>降低形成习惯的最低门槛</h4><p>完成一节课即可延续 Streak，比完成高 Daily Goal 更容易维持连续行为。</p></div>
+    <div class="card"><h4>实验驱动而不是凭直觉</h4><p>团队观察 Retention、DAU、Streak Adoption 与 Trade-off，再决定机制是否值得扩展。</p></div>
+  </div>
+
+  <h3>8.7 什么时候不能照搬</h3>
+  <table>
+    <tr><th>情况</th><th>为什么 Streak / 签到可能失效</th></tr>
+    <tr><td>核心价值弱</td><td>用户根本不需要产品，游戏化只能短期制造义务感。</td></tr>
+    <tr><td>天然低频产品</td><td>用户需求本来每月或每年才出现几次，强行每日使用会制造无效 Engagement。</td></tr>
+    <tr><td>Activation 尚未成立</td><td>用户第一次价值都没拿到，就要求形成 Habit，顺序错误。</td></tr>
+    <tr><td>奖励替代了产品价值</td><td>用户只为积分而来，奖励一停，行为可能立刻消失。</td></tr>
+    <tr><td>失败惩罚过重</td><td>一次中断让用户觉得所有积累作废，反而可能彻底流失。</td></tr>
+  </table>
+
+  <h3>8.8 迁移到 AI 图片 App</h3>
+  <p>不能因为 Duolingo 的 Streak 有效，就直接给 AI 图片 App 做每日签到。首先要判断该产品是否存在合理的高频核心价值：</p>
+  <div class="cols2">
+    <div class="green call"><div class="label">可能适合</div><b>每日创作 / 每日社交发布 / 持续学习型 AI 产品</b><p>用户高频重复本身能够持续产生真实价值，可以考虑 Habit Mechanism。</p></div>
+    <div class="red call"><div class="label">可能不适合</div><b>偶尔制作头像、证件图、节日图片的工具</b><p>需求天然低频，签到可能制造虚假活跃，而不是核心价值。</p></div>
+  </div>
+
+  <div class="dark call"><div class="label">案例结论</div><b>不要记住“Streak 能提高留存”。真正可迁移的是：找到与核心价值一致的重复行为 → 判断形成习惯的主要摩擦 → 设计机制 → 用实验验证长期指标与副作用。</b></div>
+
+  <div class="sourcebox">
+    <b>Duolingo 官方来源：</b><br>
+    ① <a href="https://blog.duolingo.com/improving-the-streak/" target="_blank">Improving the Streak</a> — Daily Goal / Streak 分离实验。<br>
+    ② <a href="https://blog.duolingo.com/how-streaks-keep-duolingo-learners-committed-to-their-language-goals/" target="_blank">How streaks keep learners committed</a> — Streak Wager / Weekend Amulet。<br>
+    ③ <a href="https://blog.duolingo.com/product-principles/" target="_blank">Duolingo Product Principles</a> — 长期习惯与短期 DAU 取舍。<br>
+    <span class="note">“官方事实”来自上述一手公开资料；“Growth 推理”和迁移分析为课程教学推导。</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kicker">09 · Overseas Application</div>
+  <h2>海外增长应用</h2>
+  <div class="cyan call"><div class="label">核心拆法</div><b>Market（市场） × Channel（渠道） × Cohort（同期群）</b><p>例如韩国新增上涨 60%，至少继续区分 TikTok、Google、KOL、Organic 用户的 Activation、D1/D7 和 LTV，而不是只看“韩国整体新增”。</p></div>
+  <p>海外业务中的本地化不仅是文案翻译。真正影响 Growth 的本地变量可能包括渠道结构、使用频率、付费习惯、内容触点、产品预期、价格接受度与监管要求。</p>
+</section>
+
+<section class="section">
+  <div class="kicker">10 · Interview Application</div>
+  <h2>面试应用</h2>
+  <div class="purple call"><div class="label">常见问题</div><b>“一个 App 下载增长 80%，你怎么判断是不是健康增长？”</b><p>考察点：是否知道 Acquisition 后还要验证 Activation、Retention、Monetization 与 User Quality（用户质量）。</p></div>
+  <table>
+    <tr><th>面试官黑话</th><th>实际意思</th></tr>
+    <tr><td>“这波量质量怎么样？”</td><td>这些新增有没有 Activation、Retention、LTV，而不是只看便宜。</td></tr>
+    <tr><td>“后链路怎么样？”</td><td>上游流量有没有继续传到激活、留存、付费。</td></tr>
+    <tr><td>“按 Cohort 拆一下。”</td><td>不要看总平均，把不同进入批次或渠道的用户分开比较。</td></tr>
+    <tr><td>“新增有没有传导到 DAU？”</td><td>新增用户是否真正进入活跃用户池。</td></tr>
+  </table>
+</section>
+
+<section class="section">
+  <div class="kicker">11 · Key Takeaways</div>
+  <h2>本节结论</h2>
+  <div class="blue call"><div class="label">1</div><b>Growth 不等于拉新。</b><p>完整增长至少涉及 Acquisition、Activation、Retention、Monetization 与 Loop。</p></div>
+  <div class="blue call"><div class="label">2</div><b>指标必须拆解和联动看。</b><p>CAC、DAU、Revenue 等单一指标无法独立说明增长是否健康。</p></div>
+  <div class="blue call"><div class="label">3</div><b>先诊断，再给解决方案。</b><p>Signal → Metric Decomposition → Segment → Hypothesis → Evidence → Priority → Action。</p></div>
+  <div class="blue call"><div class="label">4</div><b>执行手段要对应问题机制。</b><p>Streak、Push、Onboarding、Paywall 都不是万能方法。</p></div>
+</section>
+
+<section class="section">
+  <div class="kicker">12 · Quick Check</div>
+  <h2>基础检查</h2>
+  <div class="cols2">
+    <div class="card"><h4>Q1</h4><p>CAC 从 ¥80 降到 ¥50，为什么还不能立即判断获客变好了？</p></div>
+    <div class="card"><h4>Q2</h4><p>1,000 个注册用户中 400 人完成第一次核心行为，Activation Rate 是多少？</p></div>
+    <div class="card"><h4>Q3</h4><p>“注册 +60%、DAU +12%”为什么不能直接说“转化率低”？</p></div>
+    <div class="card"><h4>Q4</h4><p>什么时候 Streak / 签到可能是合理的 Retention 手段？</p></div>
+  </div>
+</section>
+
+<section class="challenge" id="challenge">
+  <div class="kicker" style="color:#7e22ce">13 · Daily Challenge · Foundation</div>
+  <h2>业务练习</h2>
+  <div class="prompt">
+    某韩国 AI 图片 App 过去一个月 <b>新增注册用户 +60%</b>，主要来自 TikTok Ads；同期 <b>DAU +12%</b>，付费收入基本不变。<br><br>
+    暂时不要给解决方案，只回答：<br>
+    <b>① 为什么现在还不能说“增长很好”或“转化率低”？<br>
+    ② 你认为问题可能落在哪 2–3 个 Growth 环节？<br>
+    ③ 每个环节最想看哪个指标？如果能计算，请写出公式。<br>
+    ④ 如果今天只能先查一个方向，你先查什么，为什么？</b>
+  </div>
+  <div class="stop">HARD STOP — 等待用户作答后进入 Foundation Evaluation Rubric V2。</div>
+</section>
+
+</main>
+
+<aside>
+<div class="sidein">
+  <div class="sidecard"><h3>Current Stage</h3><strong class="big">Foundation</strong><div class="note">Day 01 / 60</div></div>
+  <div class="sidecard"><h3>Today</h3>
+    <div class="row"><span>Knowledge Map</span><span>✓</span></div>
+    <div class="row"><span>Vocabulary</span><span>✓</span></div>
+    <div class="row"><span>Formula</span><span>✓</span></div>
+    <div class="row"><span>Diagnosis SOP</span><span>✓</span></div>
+    <div class="row"><span>Execution Know-how</span><span>✓</span></div>
+    <div class="row"><span>Deep Case</span><span>✓</span></div>
+  </div>
+  <div class="sidecard"><h3>V3 Rules</h3><div class="note">标题直接<br>英文首次加中文<br>核心指标有公式<br>公式配算例<br>核心模块不压缩<br>案例区分 Fact / Inference</div></div>
+  <div class="sidecard"><h3>Color</h3><div class="note">蓝：定义/关系<br>绿：Know-how<br>黄：判断规则<br>红：误区/风险<br>紫：面试<br>青：海外<br>深色：结论</div></div>
+</div>
+</aside>
+</div>
+</div>
+
+<script>
+const b=document.getElementById('bar');
+addEventListener('scroll',()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;b.style.width=(m?d.scrollTop/m*100:0)+'%'});
+</script>
+</body>
+</html>

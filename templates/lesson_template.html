@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{DAY_TITLE}}</title>
+<style>
+/* Use consistent product hierarchy.
+   Blue concept / Green know-how / Yellow decision / Red risk /
+   Purple interview / Cyan global / Gray data / Dark leader view. */
+body{font-family:Inter,system-ui,"Microsoft YaHei";background:#f5f7fb;color:#172033;line-height:1.75;margin:0}
+.wrap{max-width:1200px;margin:auto;padding:28px}
+.hero,.section{border-radius:20px}.hero{background:#172554;color:#fff;padding:34px}.section{background:#fff;border:1px solid #e3e7ef;padding:28px;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<h1>{{TOPIC}}</h1>
+<p>{{BUSINESS_QUESTION}}</p>
+</section>
+
+<!-- Select relevant modules; do not force irrelevant sections. -->
+<section class="section">{{KNOWLEDGE_MAP}}</section>
+<section class="section">{{KEY_TERMS}}</section>
+<section class="section">{{DEFINITIONS}}</section>
+<section class="section">{{METRICS_AND_FORMULAS}}</section>
+<section class="section">{{CONCEPT_RELATIONSHIPS}}</section>
+<section class="section">{{DIAGNOSIS}}</section>
+<section class="section">{{COMMON_CAUSES}}</section>
+<section class="section">{{EXECUTION_PLAYBOOK}}</section>
+<section class="section">{{DEEP_CASE}}</section>
+<section class="section">{{OVERSEAS}}</section>
+<section class="section">{{INTERVIEW}}</section>
+<section class="section">{{KEY_TAKEAWAYS}}</section>
+<section class="section">{{QUICK_CHECK}}</section>
+<section class="section">{{BUSINESS_CHALLENGE}}</section>
+
+<!-- HARD STOP: do not render answer before user response. -->
+</div>
+</body>
+</html>

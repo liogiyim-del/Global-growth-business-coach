@@ -1,0 +1,134 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 07</title><style>
+:root{--bg:#f5f7fb;--ink:#172033;--muted:#667085;--line:#e3e7ef;--blue:#2563eb;--bluebg:#edf5ff;--green:#15803d;--greenbg:#effaf3;--yellow:#9a6700;--yellowbg:#fff8df;--red:#b42318;--redbg:#fff0ef;--purple:#7e22ce;--purplebg:#f8efff;--cyan:#0f766e;--cyanbg:#ecfdfb;--dark:#171d2b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
+#bar{position:fixed;top:0;left:0;height:4px;background:#4f6ff4;width:0;z-index:99}.top{position:sticky;top:0;background:#ffffffee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:20}.topin{max-width:1240px;margin:auto;padding:13px 22px;display:flex;justify-content:space-between;gap:15px}.brand{font-weight:900}.brand small{display:block;font-size:10px;color:var(--muted);letter-spacing:.1em}.nav{display:flex;gap:6px;flex-wrap:wrap}.nav a{font-size:12px;font-weight:800;color:#344054;text-decoration:none;border:1px solid var(--line);background:#fff;padding:6px 9px;border-radius:999px}
+.wrap{max-width:1240px;margin:auto;padding:30px 22px 70px}.hero{background:linear-gradient(135deg,#111827,#294376 60%,#3e64b7);color:white;border-radius:26px;padding:38px 40px}.hero h1{font-size:42px;line-height:1.08;margin:6px 0 10px}.hero p{color:#e5ebff;max-width:920px;font-size:17px}.eye{font-size:11px;color:#bdcaff;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;margin-top:24px}.section{background:white;border:1px solid var(--line);border-radius:20px;padding:29px 31px;margin-bottom:20px}.section h2{font-size:26px;margin:0 0 10px}.section h3{font-size:20px;margin:25px 0 7px}.kick{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:13px}.card{border:1px solid var(--line);border-radius:15px;padding:17px;background:#fff}.card h4{margin:0 0 6px}
+.call{border:1px solid;border-left-width:6px;border-radius:15px;padding:16px 18px;margin:16px 0}.call .label{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.blue{background:var(--bluebg);border-color:#a9c9ff}.blue .label{color:var(--blue)}.green{background:var(--greenbg);border-color:#a5deb7}.green .label{color:var(--green)}.yellow{background:var(--yellowbg);border-color:#e9cc70}.yellow .label{color:var(--yellow)}.red{background:var(--redbg);border-color:#f0aaa4}.red .label{color:var(--red)}.purple{background:var(--purplebg);border-color:#d6b1f3}.purple .label{color:var(--purple)}.cyan{background:var(--cyanbg);border-color:#91ded7}.cyan .label{color:var(--cyan)}.dark{background:var(--dark);border-color:var(--dark);color:#fff}.dark .label{color:#becbff}
+.tree{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#121826;color:#e9efff;border-radius:16px;padding:18px;white-space:pre-wrap;font-size:13px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin:14px 0}th{background:#f6f8fb;text-align:left;padding:11px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}td{padding:11px;vertical-align:top;border-bottom:1px solid var(--line)}.term td:first-child{font-weight:900;color:#23408d}
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.fcard{border:1px solid var(--line);border-radius:15px;padding:17px}.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f7f9fc;border:1px solid #e1e6ef;border-radius:11px;padding:11px 13px;margin:9px 0;font-weight:800}.example{background:#effaf3;border-left:4px solid #22a06b;padding:10px 12px;margin:9px 0;font-size:13px}.warn{background:#fff8df;border-left:4px solid #e0a400;padding:10px 12px;margin:9px 0;font-size:13px}
+.sop{counter-reset:s;display:grid;gap:10px}.step{border:1px solid var(--line);border-radius:14px;padding:16px 18px}.step:before{counter-increment:s;content:counter(s);float:left;width:28px;height:28px;border-radius:50%;background:#1f2a44;color:white;display:grid;place-items:center;font-size:12px;font-weight:900;margin-right:10px}.step h4{margin:2px 0 4px}.out{margin-top:8px;background:#f7f9fc;border:1px dashed #cfd6e2;border-radius:10px;padding:9px 11px;font-size:13px}
+.case{border-left:4px solid #22a06b;border-radius:14px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 19px;margin:11px 0}.infer{border-left-color:#7c5ce5}.source{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px;margin-top:15px}.source a{color:#3158b5}.challenge{background:linear-gradient(180deg,#fff,#fbf7ff);border:2px solid #c09ae9;border-radius:22px;padding:29px}.prompt{background:#fff;border:1px solid #dbc5ef;border-radius:15px;padding:19px;font-size:16px}.stop{margin-top:14px;background:#151923;color:white;padding:13px;border-radius:12px;text-align:center;font-weight:900}
+.side{position:sticky;top:80px}.sidecard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}.sidecard h3{font-size:12px;color:var(--muted);margin:0 0 8px;text-transform:uppercase}.row{display:grid;grid-template-columns:1fr auto;gap:8px;font-size:12px;padding:7px 0;border-bottom:1px solid #eef1f4}.note{font-size:12px;color:var(--muted)}
+@media(max-width:950px){.layout{grid-template-columns:1fr}.side{position:static}.cols2,.formula-grid{grid-template-columns:1fr}}@media(max-width:650px){.hero{padding:26px 22px}.hero h1{font-size:33px}.section{padding:22px 18px}.topin{flex-direction:column}.formula-grid{grid-template-columns:1fr}table{font-size:12px}th,td{padding:8px}}
+</style></head><body>
+<div id="bar"></div><header class="top"><div class="topin"><div class="brand">Global Growth Business Coach<small>DAY 07 · Growth Loop</small></div><nav class="nav"><a href="#map">Funnel vs Loop</a><a href="#terms">术语</a><a href="#types">类型</a><a href="#metrics">公式</a><a href="#sop">设计</a><a href="#case">案例</a><a href="#challenge">练习</a></nav></div></header>
+<div class="wrap"><section class="hero"><div class="eye">PHASE 1 · FOUNDATION · DAY 07</div><h1>Growth Loop（增长循环）</h1><p>理解增长为什么不仅是漏斗转化，还可能通过 Referral、Content、Collaboration、Marketplace 等结构形成复合增长。重点掌握 Loop 的结构、基础计算、摩擦与失败条件。</p></section>
+<div class="layout"><main>
+<section class="section"><div class="kick">00 · Learning Goal</div><h2>本节目标</h2>
+<div class="cols2"><div class="card"><h4>理解 Growth Loop</h4><p>知道为什么 Funnel 会“结束”，而 Loop 会把用户行为重新变成下一轮增长输入。</p></div>
+<div class="card"><h4>会画 Loop</h4><p>能识别 Input → Action → Output → Reinvestment（再投入）的闭环。</p></div>
+<div class="card"><h4>会算简化循环</h4><p>理解 Retention（留存）与 Referral（推荐）如何产生 Compound Growth（复合增长）。</p></div>
+<div class="card"><h4>会判断 Loop 健康度</h4><p>不只问“有没有分享”，还看 Cycle Time（循环周期）、Conversion、Retention 和 Friction（摩擦）。</p></div></div></section>
+
+<section class="section" id="map"><div class="kick">01 · Funnel vs Loop</div><h2>Funnel 与 Growth Loop</h2>
+<div class="cols2">
+<div class="card"><h4>Funnel（漏斗）</h4><div class="tree">Users In
+↓
+Activation
+↓
+Retention
+↓
+Revenue
+↓
+End</div><p>擅长定位哪里掉人。</p></div>
+<div class="card"><h4>Growth Loop（增长循环）</h4><div class="tree">Users
+↓
+Value Action
+↓
+Create Output
+↓
+Output attracts / invites
+↓
+New Users
+↺</div><p>擅长解释增长如何自我强化。</p></div></div>
+<div class="blue call"><div class="label">定义</div><b>Growth Loop 是一个系统：现有用户的行为产生新的增长输入，使下一轮 Acquisition、Supply、Content 或 Revenue 得以继续。</b></div></section>
+
+<section class="section" id="terms"><div class="kick">02 · Key Terms</div><h2>核心术语</h2>
+<table class="term"><tr><th>术语</th><th>中文</th><th>业务含义</th></tr>
+<tr><td>Loop</td><td>循环</td><td>输出重新成为下一轮输入的增长结构。</td></tr>
+<tr><td>Reinvestment</td><td>再投入</td><td>上一轮产生的用户、内容、收入或供给被用于下一轮增长。</td></tr>
+<tr><td>Cycle Time</td><td>循环周期</td><td>完成一轮 Loop 需要多久；越慢，复利显现越晚。</td></tr>
+<tr><td>Viral Coefficient / K</td><td>病毒系数 / 推荐系数</td><td>简化描述每个用户平均能带来多少新用户。</td></tr>
+<tr><td>Compounding</td><td>复合增长 / 复利</td><td>上一轮增长后的更大基数继续参与下一轮增长。</td></tr>
+<tr><td>Friction</td><td>摩擦</td><td>阻碍用户完成 Loop 中关键行为的成本或障碍。</td></tr>
+<tr><td>Loop Health</td><td>循环健康度</td><td>关注参与率、转化、质量、Retention、Cycle Time，而不是只看总量。</td></tr></table></section>
+
+<section class="section" id="types"><div class="kick">03 · Common Loop Types</div><h2>常见增长循环</h2>
+<table><tr><th>Loop 类型</th><th>结构</th><th>适用场景</th><th>关键指标</th></tr>
+<tr><td>Referral Loop（推荐循环）</td><td>用户获得价值 → 邀请 → 新用户加入</td><td>协作、通讯、金融邀请</td><td>Invite Rate、Invite CVR、K</td></tr>
+<tr><td>Content Loop（内容循环）</td><td>用户/创作者生产内容 → 搜索/分享 → 新用户进入</td><td>UGC、模板、知识内容</td><td>Content Supply、Views、Visit→Signup</td></tr>
+<tr><td>Collaboration Loop（协作循环）</td><td>用户创建工作 → 邀请同事 → 同事成为新用户</td><td>SaaS、文档、设计工具</td><td>Invite Velocity、Team Activation</td></tr>
+<tr><td>Marketplace Loop（双边市场循环）</td><td>更多供给 → 更高用户价值 → 更多需求 → 更多供给</td><td>电商、出行、自由职业</td><td>Supply、Demand、Liquidity</td></tr>
+<tr><td>Paid Reinvestment Loop（付费再投资循环）</td><td>获客 → 收入/毛利 → 再投入获客</td><td>付费增长业务</td><td>LTV/CAC、Payback、Reinvestment Rate</td></tr></table></section>
+
+<section class="section" id="metrics"><div class="kick">04 · Formulas & Examples</div><h2>增长循环基础计算</h2>
+<div class="formula-grid">
+<div class="fcard"><h4>K-factor（推荐系数）</h4><div class="formula">K ≈ Invites per Active User × Invite Conversion</div><div class="example">每位活跃用户平均发 1.5 个邀请，20% 转化 → K≈0.3。</div><div class="warn">K=0.3 不代表整体一定下降，因为 Retention 也在贡献下一期基数。</div></div>
+<div class="fcard"><h4>Simple Active-user Loop（简化活跃循环）</h4><div class="formula">Users(t+1) ≈ Users(t) × Retention + Users(t) × K</div><div class="example">100k 用户，Retention 80%，K 0.2 → 下一期约 100k。</div><div class="warn">教学简化模型，不含 Paid、Organic、Reactivation。</div></div>
+<div class="fcard"><h4>Net Loop Multiplier（简化循环倍率）</h4><div class="formula">Multiplier ≈ Retention + K</div><div class="example">0.81 + 0.20 = 1.01 → 每周期约 +1%。</div><div class="warn">只在固定周期和固定口径下这样理解。</div></div>
+<div class="fcard"><h4>Compound Growth（复合增长）</h4><div class="formula">Users(n) ≈ Users(0) × Multiplier^n</div><div class="example">100k × 1.01^7 ≈ 107,214。</div><div class="warn">真实参数会变化，更适合解释机制，不用于长期精确预测。</div></div>
+</div></section>
+
+<section class="section" id="sop"><div class="kick">05 · Loop Design SOP</div><h2>Growth Loop 设计 SOP</h2>
+<div class="sop">
+<div class="step"><h4>Step 1 — Identify Core Value Action（找到核心价值行为）</h4><p>Loop 必须从用户真正愿意做的价值行为开始，而不是人为要求分享。</p></div>
+<div class="step"><h4>Step 2 — Identify Output（找到输出）</h4><p>行为会产生什么？内容、邀请、协作对象、供给、收入还是社交证明？</p></div>
+<div class="step"><h4>Step 3 — Connect Output to New Input（输出重新进入增长）</h4><p>这个 Output 如何带来下一批用户或提高下一批用户的价值？</p></div>
+<div class="step"><h4>Step 4 — Define Loop Metrics（定义循环指标）</h4><p>Participation、Conversion、Quality、Retention、Cycle Time。</p></div>
+<div class="step"><h4>Step 5 — Find Friction（寻找摩擦）</h4><p>用户为什么不邀请、不分享、不生产内容？流程、动机、隐私还是价值不足？</p></div>
+<div class="step"><h4>Step 6 — Improve One Lever（优化一个杠杆）</h4><p>例如提高邀请率、邀请转化或留存，观察整体复合影响。</p></div>
+<div class="step"><h4>Step 7 — Check Quality & Abuse（检查质量与作弊）</h4><p>避免奖励造成垃圾邀请、低质量内容、刷量或补贴套利。</p></div>
+</div></section>
+
+<section class="section"><div class="kick">06 · Funnel + Loop</div><h2>真实业务通常同时需要 Funnel 和 Loop</h2>
+<div class="tree">Funnel tells you WHERE users drop
+Acquire → Activate → Retain → Monetize
+                         │
+                         ↓
+Loop tells you HOW output feeds growth
+Retained User → Share / Invite / Create
+                         ↓
+                     New Input
+                         ↺</div>
+<div class="yellow call"><div class="label">判断规则</div><b>Funnel 优化提升每一轮效率；Loop 让优化后的结果继续复利。</b><p>没有 Retention 的 Referral 可能只是一次性拉人；没有 Funnel 效率的 Loop 也可能不断把用户送进漏水桶。</p></div></section>
+
+<section class="section" id="case"><div class="kick">07 · Deep Case</div><h2>Duolingo：Retention 提升 1pp 如何通过 Word of Mouth 产生复利</h2>
+<div class="case"><b>官方背景</b><p>Duolingo 在公开 Growth Principles 中用一个简化数学例子解释 Retention 与 Word of Mouth（口碑推荐）如何共同形成 Compound Growth。</p></div>
+<div class="case"><b>起点</b><p>假设 100,000 DAU，Retention=80%；每 5 个用户中有 1 个每天带来一个新用户，相当于 Referral Contribution=20%。</p><div class="formula">X(t+1) = X(t) × 80% + X(t) × 20%</div><p>下一天仍为 100,000，新增刚好抵消流失。</p></div>
+<div class="case"><b>Retention 提升 1pp</b><p>如果 Retention 从 80% 提到 81%，推荐贡献仍是 20%，简化倍率变为 1.01。</p><div class="formula">100,000 × (81% + 20%) = 101,000</div><p>更大的用户基数继续进入下一轮留存与推荐。官方示例一周后约达到 108,285。</p></div>
+<div class="case infer"><b>业务推理</b><p>价值不只是第一天多 1,000 DAU，而是多出来的人也进入下一轮 Loop，继续留存和推荐。因此同样 +1pp，越早进入系统，累积时间越长。</p></div>
+<div class="green call"><div class="label">Operator Know-how</div><b>具有 Loop 的产品中，“实验什么时候上线”本身也会影响长期总收益，因为更早上线意味着更长复利时间。</b></div>
+<div class="red call"><div class="label">边界</div><b>这是解释复合机制的简化模型，不是完整业务预测。</b><p>真实增长还包含 Organic、Paid、Reactivation、不同 Cohort、季节性和 Referral Quality。</p></div>
+<div class="source"><b>Duolingo 官方：</b><br><a href="https://blog.duolingo.com/growth-principles/" target="_blank">Growth Principles</a></div></section>
+
+<section class="section"><div class="kick">08 · Loop Failure Modes</div><h2>增长循环常见失败原因</h2>
+<table><tr><th>问题</th><th>表现</th><th>解决方向</th></tr>
+<tr><td>价值不够</td><td>用户不愿分享/邀请</td><td>先修 Product Value，不要先加奖励。</td></tr>
+<tr><td>Participation 低</td><td>很少用户进入 Loop</td><td>改善 Trigger、入口和动机。</td></tr>
+<tr><td>Invite CVR 低</td><td>邀请很多但新人不来</td><td>优化邀请上下文、信任与 Landing。</td></tr>
+<tr><td>Retention 低</td><td>新人不断来但很快走</td><td>先修 Activation / Retention。</td></tr>
+<tr><td>Cycle Time 太长</td><td>Loop 成立但复利很慢</td><td>缩短价值产生与传播路径。</td></tr>
+<tr><td>Spam / 质量下降</td><td>激励造成垃圾邀请</td><td>Quality Guardrail、限频、双边价值。</td></tr></table></section>
+
+<section class="section"><div class="kick">09 · Overseas Application</div><h2>海外增长循环</h2>
+<div class="cyan call"><div class="label">Local Loop Fit</div><b>同一个 Referral Loop 在不同市场可能表现不同。</b><p>要看本地分享工具、隐私习惯、奖励偏好和社交关系。例如邀请入口要适配 KakaoTalk、LINE、WhatsApp 等真实传播路径，而不是只翻译按钮。</p></div></section>
+
+<section class="section"><div class="kick">10 · Interview Application</div><h2>面试应用</h2>
+<div class="purple call"><div class="label">常见题</div><b>“Funnel 和 Growth Loop 有什么区别？”</b><p>Funnel 解释转化损失；Loop 解释输出如何重新成为输入并产生复利。成熟增长系统通常两者都看。</p></div>
+<div class="purple call"><div class="label">常见追问</div><b>“设计一个 AI 产品 Growth Loop。”</b><p>顺序：核心价值行为 → 输出 → 新输入 → Loop Metrics → Friction → Guardrail，而不是直接“邀请有奖”。</p></div></section>
+
+<section class="section"><div class="kick">11 · Key Takeaways</div><h2>本节结论</h2>
+<div class="blue call"><div class="label">1</div><b>Loop 的判断标准是 Output 是否真正重新成为下一轮 Input。</b></div>
+<div class="blue call"><div class="label">2</div><b>Retention 是很多 Loop 的底座。</b></div>
+<div class="blue call"><div class="label">3</div><b>Loop Health 要看 Participation、CVR、Quality、Cycle Time。</b></div>
+<div class="blue call"><div class="label">4</div><b>小幅改善在可复利系统中可能产生长期放大。</b></div></section>
+
+<section class="challenge" id="challenge"><div class="kick">12 · Daily Challenge</div><h2>增长循环计算与设计</h2>
+<div class="prompt">某 AI 协作文档产品有 50,000 周活用户。每周 Retention=75%。平均每位周活用户发出 0.8 个协作邀请，邀请转化率 25%。暂时忽略其他获客。<br><br>
+请回答：<b>① 简化 K 是多少？② 下一周预计用户数是多少？③ 当前 Loop 是增长、持平还是收缩？④ 如果只能优化 Retention 或 Invite CVR 中一个，你需要先看什么信息再决定？⑤ 画出这个产品的 Collaboration Loop。</b></div>
+<div class="stop">HARD STOP — 等待用户作答。</div></section>
+</main><aside><div class="side"><div class="sidecard"><h3>Current Stage</h3><b>Foundation · Day 07/60</b></div><div class="sidecard"><h3>Today Builds</h3><div class="row"><span>Growth Loop</span><span>✓</span></div><div class="row"><span>K-factor</span><span>✓</span></div><div class="row"><span>Compounding</span><span>✓</span></div><div class="row"><span>Cycle Time</span><span>✓</span></div><div class="row"><span>Loop Health</span><span>✓</span></div></div><div class="sidecard"><h3>Core Rule</h3><div class="note">Value Action → Output → New Input → Repeat → Compound</div></div></div></aside></div></div>
+<script>const b=document.getElementById('bar');addEventListener('scroll',()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;b.style.width=(m?d.scrollTop/m*100:0)+'%'});</script></body></html>

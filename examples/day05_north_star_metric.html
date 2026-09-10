@@ -1,0 +1,128 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 05</title><style>
+:root{--bg:#f5f7fb;--ink:#172033;--muted:#667085;--line:#e3e7ef;--blue:#2563eb;--bluebg:#edf5ff;--green:#15803d;--greenbg:#effaf3;--yellow:#9a6700;--yellowbg:#fff8df;--red:#b42318;--redbg:#fff0ef;--purple:#7e22ce;--purplebg:#f8efff;--cyan:#0f766e;--cyanbg:#ecfdfb;--dark:#171d2b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
+#bar{position:fixed;top:0;left:0;height:4px;background:#4f6ff4;width:0;z-index:99}.top{position:sticky;top:0;background:#ffffffee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:20}.topin{max-width:1240px;margin:auto;padding:13px 22px;display:flex;justify-content:space-between;gap:15px}.brand{font-weight:900}.brand small{display:block;font-size:10px;color:var(--muted);letter-spacing:.1em}.nav{display:flex;gap:6px;flex-wrap:wrap}.nav a{font-size:12px;font-weight:800;color:#344054;text-decoration:none;border:1px solid var(--line);background:#fff;padding:6px 9px;border-radius:999px}
+.wrap{max-width:1240px;margin:auto;padding:30px 22px 70px}.hero{background:linear-gradient(135deg,#111827,#294376 60%,#3e64b7);color:white;border-radius:26px;padding:38px 40px}.hero h1{font-size:42px;line-height:1.08;margin:6px 0 10px}.hero p{color:#e5ebff;max-width:920px;font-size:17px}.eye{font-size:11px;color:#bdcaff;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;margin-top:24px}.section{background:white;border:1px solid var(--line);border-radius:20px;padding:29px 31px;margin-bottom:20px}.section h2{font-size:26px;margin:0 0 10px}.section h3{font-size:20px;margin:25px 0 7px}.kick{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:13px}.card{border:1px solid var(--line);border-radius:15px;padding:17px;background:#fff}.card h4{margin:0 0 6px}
+.call{border:1px solid;border-left-width:6px;border-radius:15px;padding:16px 18px;margin:16px 0}.call .label{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.blue{background:var(--bluebg);border-color:#a9c9ff}.blue .label{color:var(--blue)}.green{background:var(--greenbg);border-color:#a5deb7}.green .label{color:var(--green)}.yellow{background:var(--yellowbg);border-color:#e9cc70}.yellow .label{color:var(--yellow)}.red{background:var(--redbg);border-color:#f0aaa4}.red .label{color:var(--red)}.purple{background:var(--purplebg);border-color:#d6b1f3}.purple .label{color:var(--purple)}.cyan{background:var(--cyanbg);border-color:#91ded7}.cyan .label{color:var(--cyan)}.dark{background:var(--dark);border-color:var(--dark);color:#fff}.dark .label{color:#becbff}
+.tree{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#121826;color:#e9efff;border-radius:16px;padding:18px;white-space:pre-wrap;font-size:13px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin:14px 0}th{background:#f6f8fb;text-align:left;padding:11px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}td{padding:11px;vertical-align:top;border-bottom:1px solid var(--line)}.term td:first-child{font-weight:900;color:#23408d}
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.fcard{border:1px solid var(--line);border-radius:15px;padding:17px}.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f7f9fc;border:1px solid #e1e6ef;border-radius:11px;padding:11px 13px;margin:9px 0;font-weight:800}.example{background:#effaf3;border-left:4px solid #22a06b;padding:10px 12px;margin:9px 0;font-size:13px}.warn{background:#fff8df;border-left:4px solid #e0a400;padding:10px 12px;margin:9px 0;font-size:13px}
+.sop{counter-reset:s;display:grid;gap:10px}.step{border:1px solid var(--line);border-radius:14px;padding:16px 18px}.step:before{counter-increment:s;content:counter(s);float:left;width:28px;height:28px;border-radius:50%;background:#1f2a44;color:white;display:grid;place-items:center;font-size:12px;font-weight:900;margin-right:10px}.step h4{margin:2px 0 4px}.out{margin-top:8px;background:#f7f9fc;border:1px dashed #cfd6e2;border-radius:10px;padding:9px 11px;font-size:13px}
+.case{border-left:4px solid #22a06b;border-radius:14px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 19px;margin:11px 0}.infer{border-left-color:#7c5ce5}.source{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px;margin-top:15px}.source a{color:#3158b5}.challenge{background:linear-gradient(180deg,#fff,#fbf7ff);border:2px solid #c09ae9;border-radius:22px;padding:29px}.prompt{background:#fff;border:1px solid #dbc5ef;border-radius:15px;padding:19px;font-size:16px}.stop{margin-top:14px;background:#151923;color:white;padding:13px;border-radius:12px;text-align:center;font-weight:900}
+.side{position:sticky;top:80px}.sidecard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}.sidecard h3{font-size:12px;color:var(--muted);margin:0 0 8px;text-transform:uppercase}.row{display:grid;grid-template-columns:1fr auto;gap:8px;font-size:12px;padding:7px 0;border-bottom:1px solid #eef1f4}.note{font-size:12px;color:var(--muted)}
+@media(max-width:950px){.layout{grid-template-columns:1fr}.side{position:static}.cols2,.formula-grid{grid-template-columns:1fr}}@media(max-width:650px){.hero{padding:26px 22px}.hero h1{font-size:33px}.section{padding:22px 18px}.topin{flex-direction:column}.formula-grid{grid-template-columns:1fr}table{font-size:12px}th,td{padding:8px}}
+</style></head><body>
+<div id="bar"></div><header class="top"><div class="topin"><div class="brand">Global Growth Business Coach<small>DAY 05 · North Star Metric</small></div><nav class="nav"><a href="#map">指标架构</a><a href="#terms">术语</a><a href="#criteria">标准</a><a href="#metrics">公式</a><a href="#sop">设计</a><a href="#case">案例</a><a href="#challenge">练习</a></nav></div></header>
+<div class="wrap"><section class="hero"><div class="eye">PHASE 1 · FOUNDATION · DAY 05</div><h1>North Star Metric（北极星指标）</h1><p>从核心用户价值出发设计指标，而不是把 DAU、Revenue 或注册数直接当作“最重要指标”。同时掌握 Input Metric、Proxy Metric、Guardrail Metric 与指标作弊风险。</p></section>
+<div class="layout"><main>
+<section class="section"><div class="kick">00 · Learning Goal</div><h2>本节目标</h2>
+<div class="cols2"><div class="card"><h4>理解 North Star Metric</h4><p>知道 NSM（北极星指标）为什么不是“公司最重要的数字”这么简单。</p></div>
+<div class="card"><h4>区分指标层级</h4><p>区分 Outcome Metric（结果指标）、Input Metric（输入指标）、Proxy Metric（代理指标）和 Guardrail Metric（护栏指标）。</p></div>
+<div class="card"><h4>会设计 NSM</h4><p>从用户核心价值出发，而不是从 DAU、Revenue 等现成指标里随便挑一个。</p></div>
+<div class="card"><h4>避免指标作弊</h4><p>理解 Metric Gaming（指标作弊）导致“数字变好但用户价值变差”的风险。</p></div></div></section>
+
+<section class="section" id="map"><div class="kick">01 · Metric Architecture</div><h2>指标架构</h2>
+<div class="tree">Business Mission
+↓
+Core User Value（核心用户价值）
+↓
+North Star Metric / North-Star-style Metric
+↓
+Input Metrics（输入指标）
+├── Acquisition
+├── Activation
+├── Retention
+└── Product Usage
+↓
+Business Outcome（商业结果）
+├── Revenue
+├── LTV
+└── Profit
++
+Guardrail Metrics（护栏指标）
+→ 防止为了主指标伤害质量、体验或长期价值</div>
+<div class="blue call"><div class="label">定义</div><b>North Star Metric（北极星指标）是一个能持续反映“核心用户价值被创造”的关键指标，并能帮助多个团队围绕同一方向做决策。</b></div></section>
+
+<section class="section" id="terms"><div class="kick">02 · Key Terms</div><h2>核心术语</h2>
+<table class="term"><tr><th>术语</th><th>中文</th><th>业务含义</th></tr>
+<tr><td>North Star Metric</td><td>北极星指标</td><td>代表核心用户价值持续发生的主指标。</td></tr>
+<tr><td>Input Metric</td><td>输入指标</td><td>团队可以通过具体动作影响，并进一步推动主指标的前置指标。</td></tr>
+<tr><td>Outcome Metric</td><td>结果指标</td><td>较后端的最终结果，例如 Revenue、Profit、Retention。</td></tr>
+<tr><td>Leading Indicator</td><td>领先指标</td><td>较早发生、能帮助预测后续结果的指标。</td></tr>
+<tr><td>Lagging Indicator</td><td>滞后指标</td><td>结果发生后才体现，例如季度收入。</td></tr>
+<tr><td>Proxy Metric</td><td>代理指标</td><td>真实目标难直接测量时，用可观测指标近似代表。</td></tr>
+<tr><td>Guardrail Metric</td><td>护栏指标</td><td>防止主指标提升却损害其他重要结果。</td></tr>
+<tr><td>Metric Gaming</td><td>指标作弊 / 钻指标</td><td>把数字做高，却没有创造更多真实价值。</td></tr></table></section>
+
+<section class="section" id="criteria"><div class="kick">03 · Selection Criteria</div><h2>一个好的北极星指标需要满足什么</h2>
+<table><tr><th>标准</th><th>判断问题</th><th>错误例子</th></tr>
+<tr><td>Value-linked</td><td>数字上涨是否意味着更多用户获得核心价值？</td><td>纯曝光量</td></tr>
+<tr><td>Behavior-based</td><td>是否来自真实有价值行为？</td><td>媒体报道数</td></tr>
+<tr><td>Frequent</td><td>能否高频观察与迭代？</td><td>一年一次品牌认知</td></tr>
+<tr><td>Actionable</td><td>团队能否通过具体 Lever（杠杆）影响？</td><td>宏观市场规模</td></tr>
+<tr><td>Hard to game</td><td>有没有办法把数字刷高却不提升价值？</td><td>只看 Session 数</td></tr>
+<tr><td>Predictive enough</td><td>是否与 Retention / Revenue 等长期结果有合理联系？</td><td>随机页面浏览量</td></tr></table></section>
+
+<section class="section" id="metrics"><div class="kick">04 · Formulas & Examples</div><h2>指标设计与计算</h2>
+<div class="formula-grid">
+<div class="fcard"><h4>DAU / MAU（活跃粘性比）</h4><div class="formula">DAU ÷ MAU</div><div class="example">DAU 200,000，MAU 800,000 → 25%。</div><div class="warn">可以反映使用频率，但未必直接等于核心价值。</div></div>
+<div class="fcard"><h4>Successful Value Events（成功价值事件数）</h4><div class="formula">Users × Avg Successful Core Actions per User</div><div class="example">40,000 用户 × 平均 3 次成功生成 → 120,000 次。</div><div class="warn">前提是“成功生成”真的代表可用价值。</div></div>
+<div class="fcard"><h4>Value-Qualified Users（达成价值门槛用户）</h4><div class="formula">VQU = Users Meeting Value Threshold</div><div class="example">50,000 周活中 18,000 人至少完成 2 次成功创作并导出 → VQU=18,000。</div><div class="warn">门槛要通过研究和 Retention 关系验证。</div></div>
+<div class="fcard"><h4>Duolingo TSLW（高质量学习时间）</h4><div class="formula">TSLW ≈ Path Minutes + 0.5 × Other Learning Minutes</div><div class="example">路径学习 12 分钟 + 其他练习 6 分钟 → 15 分钟。</div><div class="warn">这是 Duolingo 官方公开的粗略公式，用于体现不同学习活动的价值权重。</div></div>
+</div></section>
+
+<section class="section" id="sop"><div class="kick">05 · NSM Design SOP</div><h2>北极星指标设计 SOP</h2>
+<div class="sop">
+<div class="step"><h4>Step 1 — Define Core Value（定义核心价值）</h4><p>用户为什么使用产品？真正得到的结果是什么？</p></div>
+<div class="step"><h4>Step 2 — Find Value Event（寻找价值行为）</h4><p>哪个行为最接近“价值真正发生”？</p></div>
+<div class="step"><h4>Step 3 — Decide Unit & Frequency（决定单位与频率）</h4><p>按用户数、次数、分钟、订单还是其他单位？按日、周还是月？</p></div>
+<div class="step"><h4>Step 4 — Test Long-term Relationship（验证长期关系）</h4><p>该指标是否和 Retention、LTV、学习效果等长期结果有关？</p></div>
+<div class="step"><h4>Step 5 — Build Input Metrics（建立输入指标）</h4><p>NSM 为什么变化？拆成 Activation、Frequency、Content Supply 等可操作 Driver。</p></div>
+<div class="step"><h4>Step 6 — Add Guardrails（加入护栏指标）</h4><p>防止提高主指标时伤害质量、Churn、退款、成本等。</p></div>
+<div class="step"><h4>Step 7 — Test Gaming Risk（检查作弊风险）</h4><p>团队或用户有没有办法把数字做高，却没创造更多价值？</p></div>
+</div></section>
+
+<section class="section"><div class="kick">06 · Bad NSM Examples</div><h2>常见错误</h2>
+<table><tr><th>候选指标</th><th>问题</th><th>更适合的位置</th></tr>
+<tr><td>Downloads</td><td>只代表 Acquisition，不代表价值</td><td>获客输入指标</td></tr>
+<tr><td>Registered Users</td><td>累计注册会一直增长，即使没人用</td><td>规模指标</td></tr>
+<tr><td>DAU</td><td>可能被 Push、签到等短期动作推高</td><td>高频产品的重要活跃指标，但需结合价值行为</td></tr>
+<tr><td>Revenue</td><td>非常重要，但滞后且不直接解释用户价值</td><td>Business Outcome</td></tr>
+<tr><td>Session Count</td><td>更短、更碎的 Session 可能把数字做高</td><td>需要和质量指标联动</td></tr></table></section>
+
+<section class="section" id="case"><div class="kick">07 · Deep Case</div><h2>Duolingo TSLW：核心指标如何从“次数”进化到“高质量价值时间”</h2>
+<div class="case"><b>案例说明</b><p>Duolingo 并未在公开材料中把 TSLW 明确称为整个公司的 North Star Metric。本课程把它作为一个 North-Star-style Metric Design（北极星式指标设计）案例，因为官方称其为最重要的质量指标之一，并用它平衡 Learning Quality（学习质量）与 Growth。</p></div>
+<div class="case"><b>阶段 1：Total Sessions</b><p>官方介绍，团队最初关注 Total Sessions，但不同难度课程 Session 长度差异很大。同样 15 分钟，完成 5 个简单 Session 不一定比 3 个困难 Session 更有价值。</p></div>
+<div class="case infer"><b>问题</b><p>Session 数容易把“做得多”误认为“学得好”，是典型 Proxy Failure（代理指标失真）。</p></div>
+<div class="case"><b>阶段 2：Time Spent Learning</b><p>团队转向学习时长，但总时长容易被少数超重度用户拉高，仍不能很好代表更广泛学习者。</p></div>
+<div class="case"><b>阶段 3：Time Spent Learning Well</b><p>随后形成 TSLW。公开粗略公式为：路径学习分钟 + 0.5 × 其他学习分钟。路径课程被赋予更高权重，因为更直接推动学习者沿课程前进。</p></div>
+<div class="case"><b>如何驱动产品</b><p>Duolingo 公开说明 Daily Quests、Monthly Challenges、Leaderboards 等会针对 TSLW 优化，例如将 Monthly Challenge 从 XP 导向改为 Quest 导向，以减少月底集中“刷 XP”。</p></div>
+<div class="dark call"><div class="label">案例结论</div><b>好的核心指标不是“数字最大”，而是尽可能接近真实用户价值，同时还能被团队高频行动。</b></div>
+<div class="source"><b>Duolingo 官方：</b><br><a href="https://blog.duolingo.com/time-spent-learning-well/" target="_blank">Time Spent Learning Well</a><br><a href="https://blog.duolingo.com/operating-principles/" target="_blank">Operating Principles</a></div></section>
+
+<section class="section"><div class="kick">08 · Business Example</div><h2>AI 图片 App 的 NSM 设计示例</h2>
+<div class="yellow call"><div class="label">Synthetic Example</div><b>核心价值：帮助创作者快速得到可实际使用的视觉成品。</b></div>
+<table><tr><th>候选</th><th>判断</th></tr>
+<tr><td>Weekly Generations</td><td>可能包含大量失败和试玩生成。</td></tr>
+<tr><td>Weekly Exported Images</td><td>更接近“结果被认为可用”，但一人可重复导出。</td></tr>
+<tr><td>Weekly Creators with ≥2 successful exported creations</td><td>同时考虑用户规模、重复价值和成果可用性，是更合理的候选。</td></tr></table>
+<div class="yellow call"><div class="label">Guardrails</div><b>同时观察 Generation Failure Rate、Refund、D7/D30、Compute Cost。</b></div></section>
+
+<section class="section"><div class="kick">09 · Interview Application</div><h2>面试应用</h2>
+<div class="purple call"><div class="label">常见题</div><b>“为一个 AI 助手设计 North Star Metric。”</b><p>顺序：核心用户价值 → Value Event → 单位/周期 → 长期关系 → Input Metrics → Guardrails。</p></div></section>
+
+<section class="section"><div class="kick">10 · Key Takeaways</div><h2>本节结论</h2>
+<div class="blue call"><div class="label">1</div><b>NSM 首先代表用户价值，不是从 DAU / Revenue 随便选。</b></div>
+<div class="blue call"><div class="label">2</div><b>越容易被刷高的指标，越需要 Guardrail。</b></div>
+<div class="blue call"><div class="label">3</div><b>NSM 下方必须有 Input Metrics，否则团队不知道怎么行动。</b></div>
+<div class="blue call"><div class="label">4</div><b>Proxy Metric 要持续验证，不是一经选定永远不变。</b></div></section>
+
+<section class="challenge" id="challenge"><div class="kick">11 · Daily Challenge</div><h2>设计北极星指标</h2>
+<div class="prompt">产品：海外 AI Meeting Assistant。核心功能是录音、转写、生成会议总结和待办，团队成员可共享。<br><br>
+候选：A 注册用户数　B MAU　C 每周成功生成会议总结数　D 每周至少生成并被查看/分享的有效会议总结用户数　E 订阅收入<br><br>
+请回答：<b>① 选哪个作为 NSM 候选？为什么？② 设计 3 个 Input Metrics；③ 设计 2 个 Guardrail Metrics；④ 这个指标可能怎样被刷高？</b></div>
+<div class="stop">HARD STOP — 等待用户作答。</div></section>
+</main><aside><div class="side"><div class="sidecard"><h3>Current Stage</h3><b>Foundation · Day 05/60</b></div><div class="sidecard"><h3>Today Builds</h3><div class="row"><span>NSM</span><span>✓</span></div><div class="row"><span>Input Metric</span><span>✓</span></div><div class="row"><span>Guardrail</span><span>✓</span></div><div class="row"><span>Proxy Metric</span><span>✓</span></div><div class="row"><span>Metric Gaming</span><span>✓</span></div></div><div class="sidecard"><h3>Core Rule</h3><div class="note">Core Value → Value Event → NSM → Inputs + Guardrails</div></div></div></aside></div></div>
+<script>const b=document.getElementById('bar');addEventListener('scroll',()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;b.style.width=(m?d.scrollTop/m*100:0)+'%'});</script></body></html>

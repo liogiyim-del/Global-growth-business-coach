@@ -1,0 +1,18 @@
+{
+  "profile": {
+    "program": "Global Growth Business Coach",
+    "language": "zh-CN",
+    "level": "growth_foundation_beginner"
+  },
+  "progress": {
+    "current_day": 1,
+    "completed_days": [],
+    "completed_transfer_tests": []
+  },
+  "mastery": {},
+  "weaknesses": [],
+  "learning_log": [],
+  "case_history": [],
+  "review_queue": [],
+  "prompt_dependency": null
+}

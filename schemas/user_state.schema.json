@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Growth Coach User State",
+  "type": "object",
+  "required": [
+    "profile",
+    "progress",
+    "mastery",
+    "weaknesses",
+    "learning_log",
+    "case_history",
+    "review_queue"
+  ],
+  "properties": {
+    "profile": {
+      "type": "object"
+    },
+    "progress": {
+      "type": "object",
+      "properties": {
+        "current_day": {
+          "type": "integer"
+        },
+        "completed_days": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "completed_transfer_tests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "mastery": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5
+          },
+          "evidence_count": {
+            "type": "integer"
+          },
+          "last_updated": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "weaknesses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "confidence",
+          "observations"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "confidence": {
+            "enum": [
+              "signal",
+              "emerging",
+              "confirmed"
+            ]
+          },
+          "observations": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "trend": {
+            "enum": [
+              "improving",
+              "stable",
+              "declining",
+              "insufficient_data"
+            ]
+          }
+        }
+      }
+    },
+    "learning_log": {
+      "type": "array"
+    },
+    "case_history": {
+      "type": "array"
+    },
+    "review_queue": {
+      "type": "array"
+    },
+    "prompt_dependency": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    }
+  }
+}

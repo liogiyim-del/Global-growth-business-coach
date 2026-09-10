@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Growth Business Coach — Week 1 Transfer Test</title>
+<style>
+:root{
+--bg:#f5f7fb;--ink:#172033;--muted:#667085;--line:#e3e7ef;
+--blue:#2563eb;--bluebg:#edf5ff;--green:#15803d;--greenbg:#effaf3;
+--yellow:#9a6700;--yellowbg:#fff8df;--red:#b42318;--redbg:#fff0ef;
+--purple:#7e22ce;--purplebg:#f8efff;--cyan:#0f766e;--cyanbg:#ecfdfb;
+--dark:#171d2b;--shadow:0 10px 30px rgba(32,43,70,.07)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.74}
+#bar{position:fixed;top:0;left:0;height:4px;background:#4f6ff4;width:0;z-index:99}
+.top{position:sticky;top:0;background:#ffffffef;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:20}
+.topin{max-width:1280px;margin:auto;padding:13px 22px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.brand{font-weight:900}.brand small{display:block;font-size:10px;color:var(--muted);letter-spacing:.1em}
+.nav{display:flex;gap:6px;flex-wrap:wrap}.nav a{font-size:12px;font-weight:800;color:#344054;text-decoration:none;border:1px solid var(--line);background:#fff;padding:6px 9px;border-radius:999px}
+.wrap{max-width:1280px;margin:auto;padding:30px 22px 75px}
+.hero{background:linear-gradient(135deg,#111827,#2b416f 60%,#4b65ad);color:#fff;border-radius:26px;padding:38px 40px;box-shadow:var(--shadow)}
+.hero h1{font-size:42px;line-height:1.08;margin:6px 0 10px}.hero p{color:#e5ebff;max-width:950px;font-size:17px}
+.eye{font-size:11px;color:#bdcaff;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.badge{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09);padding:7px 10px;border-radius:999px;font-size:12px;font-weight:800}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:24px;margin-top:24px}
+.section{background:#fff;border:1px solid var(--line);border-radius:20px;padding:29px 31px;margin-bottom:20px;box-shadow:0 5px 18px rgba(32,43,70,.03)}
+.kick{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.section h2{font-size:26px;margin:0 0 10px}.section h3{font-size:20px;margin:25px 0 8px}.section h4{font-size:16px;margin:18px 0 6px}
+.lead{font-size:17px;color:#344054}
+.call{border:1px solid;border-left-width:6px;border-radius:15px;padding:16px 18px;margin:16px 0}.call .label{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.blue{background:var(--bluebg);border-color:#a9c9ff}.blue .label{color:var(--blue)}
+.green{background:var(--greenbg);border-color:#a5deb7}.green .label{color:var(--green)}
+.yellow{background:var(--yellowbg);border-color:#e9cc70}.yellow .label{color:var(--yellow)}
+.red{background:var(--redbg);border-color:#f0aaa4}.red .label{color:var(--red)}
+.purple{background:var(--purplebg);border-color:#d6b1f3}.purple .label{color:var(--purple)}
+.cyan{background:var(--cyanbg);border-color:#91ded7}.cyan .label{color:var(--cyan)}
+.dark{background:var(--dark);border-color:var(--dark);color:#fff}.dark .label{color:#becbff}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:13px}.card{border:1px solid var(--line);border-radius:15px;padding:17px}.card h4{margin:0 0 6px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin:14px 0}
+th{background:#f6f8fb;text-align:left;padding:11px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+td{padding:11px;vertical-align:top;border-bottom:1px solid var(--line)}
+.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f7f9fc;border:1px solid #e1e6ef;border-radius:11px;padding:11px 13px;margin:9px 0;font-weight:800}
+.tree{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#121826;color:#e9efff;border-radius:16px;padding:18px;white-space:pre-wrap;font-size:13px}
+.task{border:1px solid #d7deeb;border-radius:17px;margin:15px 0;overflow:hidden}.task .head{padding:14px 17px;background:#f7f9fc;font-weight:900}.task .body{padding:17px}.task .score{font-size:12px;color:#667085;margin-top:8px}
+.answerbox{background:#fbfcff;border:1px dashed #c9d3e5;border-radius:12px;padding:12px 14px;margin-top:10px;color:#475467;font-size:13px}
+.side{position:sticky;top:80px}.sidecard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}.sidecard h3{font-size:12px;color:var(--muted);margin:0 0 8px;text-transform:uppercase}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px;font-size:12px;padding:7px 0;border-bottom:1px solid #eef1f4}.note{font-size:12px;color:var(--muted)}
+.stop{background:#151923;color:#fff;border-radius:14px;padding:15px;text-align:center;font-weight:900;margin-top:16px}
+@media(max-width:950px){.layout{grid-template-columns:1fr}.side{position:static}.cols2{grid-template-columns:1fr}}@media(max-width:650px){.hero{padding:26px 22px}.hero h1{font-size:33px}.section{padding:22px 18px}.topin{flex-direction:column;align-items:flex-start}table{font-size:12px}th,td{padding:8px}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<header class="top">
+<div class="topin">
+  <div class="brand">Global Growth Business Coach<small>WEEK 1 · TRANSFER TEST</small></div>
+  <nav class="nav">
+    <a href="#case">案例</a><a href="#data">数据</a><a href="#tasks">任务</a><a href="#rubric">评分</a>
+  </nav>
+</div>
+</header>
+
+<div class="wrap">
+<section class="hero">
+  <div class="eye">WEEK 1 · INTEGRATED BUSINESS CASE</div>
+  <h1>Weekly Transfer Test：海外 AI App 韩国增长诊断</h1>
+  <p>目标：不再按 Day 1–7 分开答题，而是在同一个业务问题里主动调用 Growth Map、职能边界、Funnel、AARRR、North Star Metric、Metric Tree 和 Growth Loop。</p>
+  <div class="badges"><span class="badge">20–30 min</span><span class="badge">No Hint</span><span class="badge">No Model Answer</span><span class="badge">Foundation Rubric V2</span></div>
+</section>
+
+<div class="layout">
+<main>
+
+<section class="section">
+  <div class="kick">00 · Test Rule</div>
+  <h2>测试规则</h2>
+  <div class="yellow call"><div class="label">要求</div><b>你可以使用计算器，但不要回看 Day 1–7 页面。</b><p>目的不是记忆定义，而是测试你看到一个陌生 Case 时，能否自己找到分析路径。</p></div>
+  <p>这次不要求你像资深 Growth Lead 一样给出最终方案。Week 1 的重点是：</p>
+  <div class="cols2">
+    <div class="card"><h4>知识迁移</h4><p>知道什么概念该在什么时候调用。</p></div>
+    <div class="card"><h4>数据基础</h4><p>能完成核心 Funnel / Metric 计算。</p></div>
+    <div class="card"><h4>基础诊断</h4><p>先拆问题，再提出有限的假设。</p></div>
+    <div class="card"><h4>业务表达</h4><p>结论清楚，不机械背 Framework。</p></div>
+  </div>
+</section>
+
+<section class="section" id="case">
+  <div class="kick">01 · Business Case</div>
+  <h2>产品背景</h2>
+  <p><b>产品：</b>KreaMate AI（虚构教学案例）</p>
+  <p><b>业务：</b>AI 图片与短视频生成 App，全球运营。核心用户是社媒创作者、小商家和年轻消费者。</p>
+  <p><b>核心路径：</b>看到广告/自然内容 → 安装/访问 → 注册 → 生成第一张图片/视频 → 导出或分享 → 回来继续创作 → 订阅。</p>
+  <p><b>韩国市场：</b>团队两个月前增加 TikTok Ads 预算，并启用了一个新的韩语创意方向，主打“10 秒生成韩国流行风格头像”。</p>
+
+  <div class="red call"><div class="label">业务现象</div><b>韩国新注册明显增长，但管理层发现 DAU 和收入没有同步增长。</b><p>Leader 要求你在明天下午 Growth Review 前完成第一轮诊断。</p></div>
+</section>
+
+<section class="section" id="data">
+  <div class="kick">02 · Data Pack</div>
+  <h2>业务数据</h2>
+
+  <h3>2.1 韩国整体漏斗</h3>
+  <table>
+    <tr><th>指标</th><th>上月</th><th>本月</th></tr>
+    <tr><td>Landing Visitors</td><td>200,000</td><td>320,000</td></tr>
+    <tr><td>Registered Users</td><td>60,000</td><td>112,000</td></tr>
+    <tr><td>Activated Users</td><td>36,000</td><td>50,400</td></tr>
+    <tr><td>D7 Retained Users</td><td>14,400</td><td>15,120</td></tr>
+    <tr><td>Paying Users</td><td>2,160</td><td>2,268</td></tr>
+    <tr><td>Monthly Revenue</td><td>₩43.2M</td><td>₩43.1M</td></tr>
+  </table>
+
+  <h3>2.2 渠道拆分</h3>
+  <table>
+    <tr><th>Channel</th><th>Registrations</th><th>Activation Rate</th><th>D7 Retention</th><th>Payer CVR among D7</th></tr>
+    <tr><td>TikTok Ads</td><td>70,000</td><td>32%</td><td>22%</td><td>10%</td></tr>
+    <tr><td>Organic</td><td>24,000</td><td>63%</td><td>45%</td><td>16%</td></tr>
+    <tr><td>Influencer / KOL</td><td>18,000</td><td>58%</td><td>41%</td><td>15%</td></tr>
+  </table>
+
+  <h3>2.3 TikTok 新素材数据</h3>
+  <table>
+    <tr><th>指标</th><th>旧素材</th><th>新素材</th></tr>
+    <tr><td>CTR</td><td>1.9%</td><td>3.4%</td></tr>
+    <tr><td>Landing → Registration CVR</td><td>28%</td><td>39%</td></tr>
+    <tr><td>Activation Rate</td><td>54%</td><td>29%</td></tr>
+    <tr><td>D7 Retention</td><td>38%</td><td>19%</td></tr>
+  </table>
+
+  <h3>2.4 用户研究摘要</h3>
+  <div class="cyan call"><div class="label">Qualitative Evidence</div>
+    <p>近期 12 位韩国 TikTok 新用户访谈中：</p>
+    <p>• 8 人说广告让他们以为“韩国流行风头像”是一键固定模板；<br>
+    • 进入 App 后需要自己选择模型、风格和 Prompt，部分用户不知道怎么操作；<br>
+    • 5 人第一次生成后觉得结果和广告示例差异明显；<br>
+    • 3 人表示如果有直接可用的韩国风模板会愿意再试。</p>
+  </div>
+
+  <h3>2.5 产品与运营信息</h3>
+  <table>
+    <tr><th>信息</th><th>状态</th></tr>
+    <tr><td>韩语 App 翻译</td><td>已完成</td></tr>
+    <tr><td>韩国风模板</td><td>目前只有 3 个，入口较深</td></tr>
+    <tr><td>首屏 Onboarding</td><td>全球统一，没有韩国市场差异化</td></tr>
+    <tr><td>CRM / Push</td><td>正常，无技术异常</td></tr>
+    <tr><td>订阅价格</td><td>近 3 个月未调整</td></tr>
+    <tr><td>App Version</td><td>同期无重大 Bug</td></tr>
+  </table>
+</section>
+
+<section class="section" id="tasks">
+  <div class="kick">03 · Integrated Tasks</div>
+  <h2>综合任务</h2>
+
+  <div class="task">
+    <div class="head">Task 1 — Growth Health Check（增长健康度）</div>
+    <div class="body">
+      <b>问题：</b>你认为本月韩国市场是“健康增长”吗？先给一句结论，再给 3 条最关键的证据。
+      <div class="answerbox">建议结构：结论 → 数据证据 → 为什么这些证据重要。</div>
+      <div class="score">测试：Growth Map / Business Signal / Metric Relationship</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="head">Task 2 — Funnel Calculation（漏斗计算）</div>
+    <div class="body">
+      用韩国整体数据算出本月：<br>
+      <b>① Landing → Registration CVR<br>
+      ② Registration → Activation CVR<br>
+      ③ Activation → D7 Retention<br>
+      ④ D7 → Paid CVR<br>
+      ⑤ Landing → Paid Overall CVR</b><br><br>
+      再和上月比较，指出变化最大的一环。用 <b>pp（百分点）</b> 表达。
+      <div class="score">测试：Day 3 Funnel / Formula / pp</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="head">Task 3 — AARRR Diagnosis（AARRR 定位）</div>
+    <div class="body">
+      <b>① 当前最值得优先关注的 AARRR Stage 是什么？<br>
+      ② 为什么不是只看 Acquisition？<br>
+      ③ 这个 Stage 下面你会建立什么 Sub-funnel（子漏斗）？</b>
+      <div class="score">测试：Day 4 AARRR / Stage → Sub-funnel</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="head">Task 4 — Ownership（主责与协作）</div>
+    <div class="body">
+      对当前 P0 问题，你会指定谁作为 DRI（直接负责人）？可从 Growth / Growth Marketing / Product / PMM / Korea Local Team / User Ops 中选择。<br><br>
+      回答：<b>主责是谁 + 需要谁协作 + 为什么。</b>
+      <div class="score">测试：Day 2 Ownership / Lever / Cross-functional</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="head">Task 5 — Hypothesis & Evidence（假设与证据）</div>
+    <div class="body">
+      基于现有数据，提出 <b>3 个 Hypothesis（假设）</b>。每个假设都要写：<br>
+      <b>Hypothesis → Supporting Evidence → 还需要什么 Evidence 才能进一步确认。</b>
+      <div class="score">测试：Basic Diagnosis / Evidence Thinking</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="head">Task 6 — Metric Tree（指标树）</div>
+    <div class="body">
+      以 <b>Korea Monthly Revenue</b> 为 Parent Metric，至少向下拆 2 层指标树。<br><br>
+      要求至少包含：<b>Paying Users、Active / Retained Users、Payer CVR、ARPPU</b>，并指出现有数据最像哪一个分支出了问题。
+      <div class="score">测试：Day 6 Metric Tree / Identity / Driver</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="head">Task 7 — North Star Metric（北极星指标）</div>
+    <div class="body">
+      如果你要为 KreaMate AI 设计一个韩国市场的 North-Star-style Metric 候选：<br>
+      <b>① 你选什么？<br>
+      ② 它代表什么核心用户价值？<br>
+      ③ 给 3 个 Input Metrics；<br>
+      ④ 给 2 个 Guardrail Metrics。</b>
+      <div class="score">测试：Day 5 NSM / Input / Guardrail</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="head">Task 8 — Growth Loop（增长循环）</div>
+    <div class="body">
+      假设产品未来希望利用“用户生成作品分享”形成增长循环。请画出一个简化 Content / Referral Loop：<br>
+      <b>Value Action → Output → Distribution → New User → Activation → Repeat</b><br><br>
+      并说明当前为什么还不应该把“分享奖励”作为第一优先级。
+      <div class="score">测试：Day 7 Loop / Funnel vs Loop / Prerequisite</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="head">Task 9 — P0 Decision（最终优先级）</div>
+    <div class="body">
+      如果你只有 <b>2 周</b>，只能推动一个 P0 Growth 项目，你会选什么？<br><br>
+      用下面格式回答：<br>
+      <b>Problem → Mechanism → Evidence → Proposed Direction → Primary Metric → Guardrail → Why P0</b>
+      <div class="score">测试：Week 1 Transfer / Priority / Business Expression</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="kick">04 · Output Format</div>
+  <h2>建议答题格式</h2>
+  <div class="tree">1. Growth Health
+2. Funnel Calculation
+3. AARRR Stage
+4. DRI & Collaboration
+5. Hypotheses
+   H1:
+   Evidence:
+   Need:
+6. Metric Tree
+7. NSM
+8. Growth Loop
+9. P0 Recommendation</div>
+  <div class="yellow call"><div class="label">不要做的事</div><b>不要为了显得专业塞很多 Framework 名称。</b><p>这次看的是你是否真的会用，而不是能不能背 Day 1–7 的标题。</p></div>
+</section>
+
+<section class="section" id="rubric">
+  <div class="kick">05 · Evaluation Rubric</div>
+  <h2>Week 1 评分方式</h2>
+  <p>正式评分仍使用 Foundation Evaluation Rubric V2，但 Weekly Transfer 会额外观察“跨知识迁移”。</p>
+
+  <table>
+    <tr><th>维度</th><th>权重</th><th>重点</th></tr>
+    <tr><td>Knowledge Understanding</td><td>15%</td><td>概念使用是否准确</td></tr>
+    <tr><td>Knowledge Map & Relationship</td><td>15%</td><td>Funnel / AARRR / NSM / Tree / Loop 是否连得起来</td></tr>
+    <tr><td>Metric Literacy</td><td>20%</td><td>公式、pp、分子分母、指标关系</td></tr>
+    <tr><td>Trigger Recognition</td><td>10%</td><td>是否识别真正异常 Signal</td></tr>
+    <tr><td>Basic Diagnosis</td><td>20%</td><td>是否先定位、切分、提出可验证假设</td></tr>
+    <tr><td>Prioritization</td><td>10%</td><td>能否从多个问题里选 P0</td></tr>
+    <tr><td>Transfer & Expression</td><td>10%</td><td>是否用自己的业务语言完成综合分析</td></tr>
+  </table>
+
+  <div class="green call"><div class="label">通过标准</div><b>不是“全部算对 = 通过”。</b><p>真正通过意味着：面对综合 Case，你已经开始形成稳定路径——先看业务结果，再拆指标、定位阶段、确认 Owner、提出假设和 Evidence，最后才给 P0。</p></div>
+</section>
+
+<section class="section">
+  <div class="kick">06 · Hard Stop</div>
+  <h2>提交后再进入评分</h2>
+  <div class="stop">HARD STOP — 本页面不包含标准答案、Hint 或解析。完成答题后，再进入 Week 1 Review。</div>
+</section>
+
+</main>
+
+<aside>
+<div class="side">
+  <div class="sidecard"><h3>Test Scope</h3>
+    <div class="row"><span>Day 1 Growth Map</span><span>✓</span></div>
+    <div class="row"><span>Day 2 Ownership</span><span>✓</span></div>
+    <div class="row"><span>Day 3 Funnel</span><span>✓</span></div>
+    <div class="row"><span>Day 4 AARRR</span><span>✓</span></div>
+    <div class="row"><span>Day 5 NSM</span><span>✓</span></div>
+    <div class="row"><span>Day 6 Metric Tree</span><span>✓</span></div>
+    <div class="row"><span>Day 7 Growth Loop</span><span>✓</span></div>
+  </div>
+  <div class="sidecard"><h3>Estimated Time</h3><b>20–30 min</b><p class="note">Foundation Level。不是面试高压题。</p></div>
+  <div class="sidecard"><h3>Core Path</h3><div class="note">Business Result<br>↓<br>Metric<br>↓<br>Stage / Funnel<br>↓<br>Segment<br>↓<br>Hypothesis<br>↓<br>Evidence<br>↓<br>P0</div></div>
+</div>
+</aside>
+
+</div>
+</div>
+
+<script>
+const b=document.getElementById('bar');
+addEventListener('scroll',()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;b.style.width=(m?d.scrollTop/m*100:0)+'%'});
+</script>
+</body>
+</html>

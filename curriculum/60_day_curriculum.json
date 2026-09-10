@@ -1,0 +1,966 @@
+{
+  "version": "1.0.0",
+  "principle": "Do not pre-generate all 60 lessons. Generate the current day dynamically from curriculum + user state + knowledge + research.",
+  "days": [
+    {
+      "day": 1,
+      "phase": "P1 Growth Mental Model",
+      "topic": "Growth System Fundamentals",
+      "business_question": "Build the first Growth knowledge map",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 2,
+      "phase": "P1 Growth Mental Model",
+      "topic": "Growth vs Marketing vs Product vs Operations",
+      "business_question": "Understand ownership and cross-functional boundaries",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 3,
+      "phase": "P1 Growth Mental Model",
+      "topic": "Growth Funnel",
+      "business_question": "Calculate and diagnose conversion bottlenecks",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 4,
+      "phase": "P1 Growth Mental Model",
+      "topic": "AARRR",
+      "business_question": "Use lifecycle stages without framework name-dropping",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 5,
+      "phase": "P1 Growth Mental Model",
+      "topic": "North Star Metric",
+      "business_question": "Design a core value metric with inputs and guardrails",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 6,
+      "phase": "P1 Growth Mental Model",
+      "topic": "Metric Tree",
+      "business_question": "Decompose high-level outcomes into actionable drivers",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 7,
+      "phase": "P1 Growth Mental Model",
+      "topic": "Growth Loop",
+      "business_question": "Understand compounding systems and loop health",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 8,
+      "phase": "P1 Growth Mental Model",
+      "topic": "Growth Diagnosis & Prioritization",
+      "business_question": "Combine signal, decomposition, evidence, and P0 thinking",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 9,
+      "phase": "P2 User",
+      "topic": "User Segmentation",
+      "business_question": "Segment users by behavior, value, lifecycle, and market",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 10,
+      "phase": "P2 User",
+      "topic": "JTBD & User Need",
+      "business_question": "Connect growth to real user jobs and value",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 11,
+      "phase": "P2 User",
+      "topic": "Persona vs Behavioral Segment",
+      "business_question": "Avoid demographic-only growth thinking",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 12,
+      "phase": "P2 User",
+      "topic": "User Journey",
+      "business_question": "Map decision and product journey across touchpoints",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 13,
+      "phase": "P2 User",
+      "topic": "Growth User Research",
+      "business_question": "Use qualitative research to explain metric behavior",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 14,
+      "phase": "P2 User",
+      "topic": "User Diagnosis Transfer Test",
+      "business_question": "Integrate segmentation, journey, and user evidence",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 15,
+      "phase": "P3 Acquisition",
+      "topic": "Acquisition Channel Map",
+      "business_question": "Understand paid, organic, creator, referral, partnerships",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 16,
+      "phase": "P3 Acquisition",
+      "topic": "Paid Acquisition Economics",
+      "business_question": "Connect media spend to downstream value",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 17,
+      "phase": "P3 Acquisition",
+      "topic": "Creative Funnel",
+      "business_question": "Diagnose CPM, CTR, CVR, message and audience fit",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 18,
+      "phase": "P3 Acquisition",
+      "topic": "CAC / CPC / CPI / CPM",
+      "business_question": "Master acquisition cost metrics and calculations",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 19,
+      "phase": "P3 Acquisition",
+      "topic": "Organic Growth / SEO / ASO",
+      "business_question": "Understand compounding non-paid acquisition",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 20,
+      "phase": "P3 Acquisition",
+      "topic": "KOL / Influencer Growth",
+      "business_question": "Evaluate creator fit, creative, conversion, and quality",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 21,
+      "phase": "P3 Acquisition",
+      "topic": "Attribution",
+      "business_question": "Understand channel attribution limits and decision use",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 22,
+      "phase": "P3 Acquisition",
+      "topic": "Acquisition Transfer Test",
+      "business_question": "Diagnose a multi-channel acquisition case",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 23,
+      "phase": "P4 Activation",
+      "topic": "Activation & Aha Moment",
+      "business_question": "Define first value and activation event",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 24,
+      "phase": "P4 Activation",
+      "topic": "Onboarding",
+      "business_question": "Reduce friction before first value",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 25,
+      "phase": "P4 Activation",
+      "topic": "Time to Value",
+      "business_question": "Measure and reduce value latency",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 26,
+      "phase": "P4 Activation",
+      "topic": "Activation Experiments",
+      "business_question": "Design experiments for activation mechanisms",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 27,
+      "phase": "P4 Activation",
+      "topic": "Activation Transfer Test",
+      "business_question": "Diagnose an activation case end-to-end",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 28,
+      "phase": "P5 Retention",
+      "topic": "Retention Cohort Basics",
+      "business_question": "Read retention by cohort",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 29,
+      "phase": "P5 Retention",
+      "topic": "D1 / D7 / D30",
+      "business_question": "Interpret retention curves and product frequency",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 30,
+      "phase": "P5 Retention",
+      "topic": "Churn & Survival Basics",
+      "business_question": "Understand user loss over time",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 31,
+      "phase": "P5 Retention",
+      "topic": "Habit & Engagement",
+      "business_question": "Distinguish real habit from empty engagement",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 32,
+      "phase": "P5 Retention",
+      "topic": "Lifecycle / CRM",
+      "business_question": "Operate lifecycle communication and reactivation",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 33,
+      "phase": "P5 Retention",
+      "topic": "Retention Transfer Test",
+      "business_question": "Diagnose retention and choose mechanisms",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 34,
+      "phase": "P6 Monetization",
+      "topic": "Monetization Fundamentals",
+      "business_question": "Map product value to economic value",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 35,
+      "phase": "P6 Monetization",
+      "topic": "Payer Conversion",
+      "business_question": "Diagnose paid conversion",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 36,
+      "phase": "P6 Monetization",
+      "topic": "Pricing & Packaging",
+      "business_question": "Understand willingness to pay and offer structure",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 37,
+      "phase": "P6 Monetization",
+      "topic": "LTV & Payback",
+      "business_question": "Connect retention, margin, CAC, and investment decisions",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 38,
+      "phase": "P6 Monetization",
+      "topic": "Monetization Transfer Test",
+      "business_question": "Solve a revenue decomposition case",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 39,
+      "phase": "P7 Experiment",
+      "topic": "Experiment Fundamentals",
+      "business_question": "Know when experimentation is useful",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 40,
+      "phase": "P7 Experiment",
+      "topic": "Hypothesis Design",
+      "business_question": "Write testable hypotheses and competing explanations",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 41,
+      "phase": "P7 Experiment",
+      "topic": "A/B Test Basics",
+      "business_question": "Understand control, treatment, lift, significance, guardrails",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 42,
+      "phase": "P7 Experiment",
+      "topic": "ICE / RICE / Prioritization",
+      "business_question": "Prioritize experiments without fake precision",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 43,
+      "phase": "P7 Experiment",
+      "topic": "Experiment Readout",
+      "business_question": "Interpret result, trade-off, and next decision",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 44,
+      "phase": "P7 Experiment",
+      "topic": "Experiment Transfer Test",
+      "business_question": "Run a full experiment decision case",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 45,
+      "phase": "P8 Overseas & GTM",
+      "topic": "Overseas Growth Map",
+      "business_question": "Add market, channel, culture, payment, trust, regulation",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 46,
+      "phase": "P8 Overseas & GTM",
+      "topic": "Localization vs Transcreation",
+      "business_question": "Localize value, not only language",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 47,
+      "phase": "P8 Overseas & GTM",
+      "topic": "Market × Channel × Product Fit",
+      "business_question": "Connect local user behavior to acquisition and product",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 48,
+      "phase": "P8 Overseas & GTM",
+      "topic": "GTM",
+      "business_question": "Design target, positioning, channel, launch, and adoption",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 49,
+      "phase": "P8 Overseas & GTM",
+      "topic": "Overseas Pricing & Payment",
+      "business_question": "Adapt monetization to local willingness and payment systems",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 50,
+      "phase": "P8 Overseas & GTM",
+      "topic": "Trust / Regulation / Risk",
+      "business_question": "Include compliance and local expectations",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 51,
+      "phase": "P8 Overseas & GTM",
+      "topic": "Overseas Transfer Test",
+      "business_question": "Diagnose a market-entry growth case",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 52,
+      "phase": "P9 Channels",
+      "topic": "Channel Portfolio Strategy",
+      "business_question": "Balance channel scale, efficiency, and quality",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 53,
+      "phase": "P9 Channels",
+      "topic": "Lifecycle Channel Operations",
+      "business_question": "Coordinate Push, Email, CRM, messaging channels",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 54,
+      "phase": "P9 Channels",
+      "topic": "Creator / Community Growth",
+      "business_question": "Design creator and community mechanisms",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 55,
+      "phase": "P9 Channels",
+      "topic": "Channel Transfer Test",
+      "business_question": "Choose and prioritize channels",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 56,
+      "phase": "P10 Integrated Cases",
+      "topic": "Integrated Case: AI Product",
+      "business_question": "Full-funnel AI growth case",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 57,
+      "phase": "P10 Integrated Cases",
+      "topic": "Integrated Case: Game",
+      "business_question": "User, live ops, retention, monetization, community",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 58,
+      "phase": "P10 Integrated Cases",
+      "topic": "Integrated Case: E-commerce",
+      "business_question": "Acquisition, conversion, supply, repeat purchase",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 59,
+      "phase": "P10 Integrated Cases",
+      "topic": "Integrated Case: SaaS / GTM",
+      "business_question": "Product-led growth, adoption, sales/marketing handoff",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    },
+    {
+      "day": 60,
+      "phase": "P10 Integrated Cases",
+      "topic": "Capstone: Growth Leader Review",
+      "business_question": "Independent diagnosis, priority, experiment and leader communication",
+      "output_standard": {
+        "knowledge_map": true,
+        "terms": true,
+        "formula_if_relevant": true,
+        "diagnosis_if_relevant": true,
+        "execution_playbook_if_relevant": true,
+        "deep_case": true,
+        "interview_transfer": true,
+        "challenge_hard_stop": true
+      }
+    }
+  ]
+}

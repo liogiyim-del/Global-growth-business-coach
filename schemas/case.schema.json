@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Growth Case",
+  "type": "object",
+  "required": [
+    "title",
+    "case_type",
+    "context",
+    "problem",
+    "transfer"
+  ],
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "case_type": {
+      "enum": [
+        "real",
+        "synthetic"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "context": {
+      "type": "string"
+    },
+    "problem": {
+      "type": "string"
+    },
+    "signal": {
+      "type": "string"
+    },
+    "diagnosis": {
+      "type": "string"
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "execution": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "result": {
+      "type": "string"
+    },
+    "tradeoffs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "why_it_worked": {
+      "type": "string"
+    },
+    "failure_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transfer": {
+      "type": "string"
+    },
+    "fact_inference_separated": {
+      "type": "boolean"
+    }
+  }
+}
