@@ -1,17 +1,85 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Global Growth Business Coach V1</title>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Growth Business Coach</title>
 <style>
-body{font-family:Inter,system-ui,"Microsoft YaHei";background:#f5f7fb;color:#172033;margin:0;line-height:1.7}
-.wrap{max-width:980px;margin:45px auto;padding:0 22px}.hero{background:linear-gradient(135deg,#111827,#294376);color:#fff;border-radius:24px;padding:34px}
-.hero h1{font-size:40px;margin:0 0 8px}.hero p{color:#dbe4ff}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
-.card{background:#fff;border:1px solid #e3e7ef;border-radius:17px;padding:20px}.card h2{font-size:19px;margin:0 0 7px}.card p{color:#667085}
-a{color:#234ca4;text-decoration:none;font-weight:800}.tag{display:inline-block;background:#edf5ff;color:#3158b5;padding:4px 8px;border-radius:999px;font-size:11px;margin-bottom:8px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.hero h1{font-size:32px}}
-</style></head><body><div class="wrap">
-<div class="hero"><div>V1.0.0</div><h1>Global Growth Business Coach</h1><p>Growth Knowledge Base + Diagnosis Manual + Execution Playbook + Learning Coach</p></div>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#667085;--line:#e2e8f0;--navy:#18213a;--navy2:#2d477e;--blue:#234ca4;--bluebg:#edf4ff;--green:#177245;--greenbg:#eef9f2;--purple:#6d3cc6;--purplebg:#f4efff;--cyan:#0f766e;--cyanbg:#ecfdfb;--yellow:#9a6700;--yellowbg:#fff8df}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.68}a{text-decoration:none;color:inherit}
+.wrap{max-width:1180px;margin:auto;padding:24px 22px 70px}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:28px;padding:46px 44px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border:72px solid rgba(255,255,255,.045);border-radius:50%;right:-160px;top:-170px}
+.version{font-weight:800;font-size:13px;margin-bottom:10px}.hero h1{font-size:46px;line-height:1.08;letter-spacing:-.04em;margin:0 0 14px;max-width:850px}.hero p{font-size:18px;color:#e5ebff;max-width:900px;margin:0}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:12px;font-weight:850;font-size:14px}.btn.primary{background:#fff;color:#1b2d59}.btn.secondary{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff}
+.progress{background:#fff;border:1px solid var(--line);border-radius:20px;margin-top:20px;padding:22px 24px}.progress-head{display:flex;justify-content:space-between;gap:12px;align-items:end}.progress h2{font-size:18px;margin:0}.progress small{color:var(--muted)}.track{height:10px;background:#edf1f6;border-radius:999px;margin-top:14px;overflow:hidden}.track span{display:block;height:100%;width:11.67%;background:linear-gradient(90deg,#315eb5,#6e88d8);border-radius:999px}
+.section-title{margin:30px 0 12px}.section-title h2{font-size:25px;margin:0 0 4px}.section-title p{margin:0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;transition:.18s transform,.18s box-shadow,.18s border-color}.card:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,52,90,.08);border-color:#cdd8ea}
+.tag{display:inline-block;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:900;margin-bottom:10px}.tag.blue{background:var(--bluebg);color:var(--blue)}.tag.green{background:var(--greenbg);color:var(--green)}.tag.purple{background:var(--purplebg);color:var(--purple)}.tag.cyan{background:var(--cyanbg);color:var(--cyan)}.tag.yellow{background:var(--yellowbg);color:var(--yellow)}
+.card h3{font-size:22px;margin:0 0 7px}.card p{color:var(--muted);margin:0 0 16px}.card .link{font-weight:850;color:var(--blue)}
+.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.mode{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px}.mode b{display:block;margin-bottom:4px}.mode span{font-size:13px;color:var(--muted)}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}.day{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}.day b{display:block;font-size:13px}.day span{font-size:11px;color:var(--muted)}
+.footer{margin-top:34px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:900px){.modes{grid-template-columns:1fr 1fr}.week{grid-template-columns:repeat(4,1fr)}}@media(max-width:700px){.hero{padding:32px 24px}.hero h1{font-size:35px}.grid{grid-template-columns:1fr}.modes{grid-template-columns:1fr 1fr}.week{grid-template-columns:1fr 1fr}.progress-head{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="version">V1.0.0 · GLOBAL GROWTH LEARNING SYSTEM</div>
+<h1>Global Growth Business Coach</h1>
+<p>Growth Knowledge Base + Diagnosis Manual + Execution Playbook + Learning Coach。用于系统学习 Growth、训练业务诊断、海外增长、指标、实验与面试 Case。</p>
+<div class="hero-actions">
+<a class="btn primary" href="examples/day01_growth_fundamentals.html">Start Learning · Day 1</a>
+<a class="btn secondary" href="examples/index.html">查看 Day 1–7</a>
+<a class="btn secondary" href="examples/week1_transfer_test.html">Week 1 Transfer Test</a>
+</div>
+</section>
+
+<section class="progress">
+<div class="progress-head">
+<div><h2>60-Day Growth Program</h2><small>Phase 1 · Growth Mental Model</small></div>
+<small>Gold Standard Prototype：Day 1–7 / 60</small>
+</div>
+<div class="track"><span></span></div>
+</section>
+
+<div class="section-title"><h2>学习入口</h2><p>先学知识，再进入综合业务判断。</p></div>
 <div class="grid">
-<div class="card"><span class="tag">PRODUCT</span><h2><a href="prd.html">PRD V1.0</a></h2><p>产品目标、功能需求、MVP、验收与路线图。</p></div>
-<div class="card"><span class="tag">EXAMPLES</span><h2><a href="examples/index.html">Day 1–7 Gold Standards</a></h2><p>验证过的课程页面和 Week 1 综合测试。</p></div>
-<div class="card"><span class="tag">SKILL</span><h2>SKILL.md</h2><p>核心行为、模式、诊断、课程和输出规范。</p></div>
-<div class="card"><span class="tag">CURRICULUM</span><h2>60-Day Curriculum</h2><p>Day 8–60 动态生成，不需要预写 60 份 HTML。</p></div>
-</div></div></body></html>
+<a class="card" href="examples/day01_growth_fundamentals.html"><span class="tag green">START HERE</span><h3>Day 1 · Growth 基础</h3><p>知识地图、核心指标、公式、诊断 SOP 与执行 Know-how。</p><span class="link">开始学习 →</span></a>
+<a class="card" href="examples/index.html"><span class="tag blue">GOLD STANDARDS</span><h3>Day 1–7 Prototype</h3><p>Growth Fundamentals、职能边界、Funnel、AARRR、NSM、Metric Tree、Growth Loop。</p><span class="link">查看课程 →</span></a>
+<a class="card" href="examples/week1_transfer_test.html"><span class="tag purple">TRANSFER TEST</span><h3>Week 1 综合业务测试</h3><p>把前 7 天知识放进一个海外 AI App Case，测试真实业务迁移能力。</p><span class="link">进入测试 →</span></a>
+<a class="card" href="prd.html"><span class="tag cyan">PRODUCT</span><h3>PRD V1.0</h3><p>产品目标、功能需求、模式、MVP、验收标准和后续路线图。</p><span class="link">查看 PRD →</span></a>
+</div>
+
+<div class="section-title"><h2>Skill 系统</h2><p>这不是 60 篇静态文章，而是一套可动态生成和评估课程的 Growth Skill。</p></div>
+<div class="grid">
+<a class="card" href="https://github.com/liogiyim-del/Global-growth-business-coach/blob/main/SKILL.md" target="_blank"><span class="tag blue">SKILL</span><h3>SKILL.md</h3><p>Learning / Business / Interview / Review 四种模式，以及诊断、案例、指标和输出规则。</p><span class="link">查看 Skill 规范 →</span></a>
+<a class="card" href="https://github.com/liogiyim-del/Global-growth-business-coach/blob/main/curriculum/60_day_curriculum.json" target="_blank"><span class="tag yellow">CURRICULUM</span><h3>60-Day Curriculum</h3><p>Day 8–60 根据 Curriculum + User State 动态生成，不需要预写 60 个网页版本。</p><span class="link">查看课程地图 →</span></a>
+<a class="card" href="https://github.com/liogiyim-del/Global-growth-business-coach/tree/main/knowledge" target="_blank"><span class="tag green">KNOWLEDGE</span><h3>Knowledge Base</h3><p>Glossary、Metrics、Diagnosis Playbook 与 Execution Playbook。</p><span class="link">查看知识库 →</span></a>
+<a class="card" href="https://github.com/liogiyim-del/Global-growth-business-coach" target="_blank"><span class="tag purple">GITHUB</span><h3>Source Repository</h3><p>查看完整文件结构、版本历史和后续更新。</p><span class="link">打开 GitHub Repo →</span></a>
+</div>
+
+<div class="section-title"><h2>4 个使用模式</h2><p>同一套 Skill 同时服务学习、工作、面试和复习。</p></div>
+<div class="modes">
+<div class="mode"><b>Learning Mode</b><span>60 天课程、知识学习、Daily Challenge。</span></div>
+<div class="mode"><b>Business Mode</b><span>真实增长问题诊断、优先级与实验。</span></div>
+<div class="mode"><b>Interview Mode</b><span>JD、Case、Mock Interview、答案优化。</span></div>
+<div class="mode"><b>Review Mode</b><span>Mastery、Weakness、Review Queue。</span></div>
+</div>
+
+<div class="section-title"><h2>Week 1 · Growth Mental Model</h2></div>
+<div class="week">
+<a class="day" href="examples/day01_growth_fundamentals.html"><b>Day 1</b><span>Fundamentals</span></a>
+<a class="day" href="examples/day02_role_boundary.html"><b>Day 2</b><span>Role Boundary</span></a>
+<a class="day" href="examples/day03_growth_funnel.html"><b>Day 3</b><span>Funnel</span></a>
+<a class="day" href="examples/day04_aarrr.html"><b>Day 4</b><span>AARRR</span></a>
+<a class="day" href="examples/day05_north_star_metric.html"><b>Day 5</b><span>NSM</span></a>
+<a class="day" href="examples/day06_metric_tree.html"><b>Day 6</b><span>Metric Tree</span></a>
+<a class="day" href="examples/day07_growth_loop.html"><b>Day 7</b><span>Growth Loop</span></a>
+</div>
+
+<div class="footer">Global Growth Business Coach · V1.0.0 · Prototype-validated architecture</div>
+</div>
+</body>
+</html>
